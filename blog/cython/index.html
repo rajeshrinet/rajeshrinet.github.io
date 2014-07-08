@@ -1779,11 +1779,9 @@ In&nbsp;[7]:
 
 
 <div class="hbox output_area"><div class="prompt output_prompt">
-    Out[7]:</div>
 <div class="box-flex1 output_subarea output_pyout">
 
 <div class="output_html rendered_html">
-<iframe src=http://research.google.com/pubs/pub36727.html  width=700 height=1710></iframe>
 </div>
 
 </div>
@@ -1948,13 +1946,13 @@ In&nbsp;[8]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus it can be seen that merely by writing the code in Cython we see a order of magnitude difference in the speed. Honestly speaking, the code in python has been written terribly to show the speed difference. A vectorised code in python will also be very fast. I leave it for the readers to check! Corresponding codes can be accessed <a href="https://github.com/rajeshrinet/compPhy/tree/master/Notebooks/codes/cython/prange-test">here</a>. Moreover, we wrote the same thing in pure C and, to our amazement, cython is as fast as the C code!</p>
+<p>Thus it can be seen that merely by writing the code in Cython we see a order of magnitude difference in the speed. Honestly speaking, the code in python has been written terribly to show the speed difference. A vectorised code in python will also be very fast. I leave it for the readers to check! Corresponding codes can be accessed <a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cython/prangeMemView">here</a>. Moreover, we wrote the same thing in pure C and, to our amazement, cython is as fast as the C code! The decorators before the class decoration helps in getting more speed up when the respective python checks are not performed. E.g. setting <a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cython/cDivision">cdivision to be true</a> can enhance the performance of the code considerably. But it comes at the cost the now C rules will be applied, so -28%128= -28 and not 100 as is expected in python.</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="c-cython-interface">C-Cython interface</h2>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>One can write the crtitical part of the codes in C/C++ and then use cython to do the wrapping. Numpy arrays can be passed as can be seen in the <a href="https://github.com/rajeshrinet/compPhy/tree/master/Notebooks/codes/cython/ccy">codes</a>.</p>
+<p>One can write the crtitical part of the codes in C/C++ and then use cython to do the wrapping. Numpy arrays can be passed as can be seen in the <a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cython/ccy">codes</a>.</p>
 <p>Cython does some optimisation to the codes internally and hence a raw C code with not much optimisation may be beaten by cython in the best case. In some cases, though, we may need to write some performance critical part of the code in C/C++. Cython comes very handy in this case as well to act as an inerface between python and C. So our code has three layers now. The uppermost layer is in python which is extremely human readable and third layer is C while Cython is the sandwiched layer 2 between them. The amount of time taken in writing and debugging is very small in python as hence this way of coding is recommended. Also, personally, I believe that writing code in high level language like python is fun - u can import almost anything (<a href="http://xkcd.com/353/">try importing antigravity</a>) !</p>
 <p>One can also wrap C++ classes in Cython. Look <a href="http://cython.readthedocs.org/en/latest/src/userguide/wrapping_CPlusPlus.html">here</a>.</p>
 </div>
