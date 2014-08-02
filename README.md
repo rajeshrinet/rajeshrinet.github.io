@@ -1,2 +1,2 @@
-rajeshrinet.me
+rajeshrinet.github.io
 =====================
