@@ -129,14 +129,14 @@ aside#sidebar p.repo-owner a {
 }
 
 a.button {
-  width: 134px;
+  width: 164px;
   height: 58px;
   line-height: 1.2;
   font-size: 23px;
   color: #fff;
-  padding-left: 68px;
+  padding-left: 50px;
   padding-top: 22px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
   display: block;
