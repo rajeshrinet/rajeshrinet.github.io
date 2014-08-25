@@ -77,7 +77,7 @@ header h1 {
   color: #fff;
   line-height: 1;
   margin-bottom: 0.2em;
-  width: 85%;
+  width: 80%;
 }
 
 header h2 {
@@ -91,7 +91,7 @@ header h2 {
 
 .inner {
   position: relative;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -130,12 +130,13 @@ aside#sidebar p.repo-owner a {
 
 a.button {
   width: 164px;
-  height: 58px;
+  height: 80%;
   line-height: 1.2;
-  font-size: 23px;
+  font-size: 40px;
   color: #fff;
   padding-left: 50px;
-  padding-top: 22px;
+  padding-right: 0px;
+  padding-top: 21px;
   font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
