@@ -10,13 +10,13 @@
     <link rel="icon" href="../images/this.jpg">
 
 
-    <title>Asymmetric simple exclusion processes</title>
+    <title>Asymmetric Simple Exclusion Processes</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Asymmetric simple exclusion processes</h1>
+        <h1>Asymmetric Simple Exclusion Processes</h1>
         <a href="http://rajeshrinet.github.io/blog" class="button"><span style="font-weight:bold">Posts</span></a>
       </div>
     </header>
@@ -28,6 +28,30 @@
 
 
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"type="text/javascript">
+ </script>
+ <script type="text/javascript">
+ init_mathjax = function() {
+     if (window.MathJax) {
+         // MathJax loaded
+         MathJax.Hub.Config({
+             tex2jax: {
+                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                 processEscapes: true,
+                 processEnvironments: true
+             },
+             displayAlign: 'center',
+             "HTML-CSS": {
+                 styles: {'.MathJax_Display': {"margin": 0}},
+                 linebreaks: { automatic: true }
+             }
+         });
+         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+     }
+ }
+ init_mathjax();
+ </script>
 
 
 
@@ -1716,7 +1740,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="exclusion-processes">Exclusion processes</h2>
-<p>Exclusion processes refer to a family of models of transport where particles have hard-core interaction. A random chosen particle on a 1D lattice will move to its neighbouring site if it is empty. These models can be studied under different kind of boundary conditions. We will be only concerned with open chain exclusion process where particles are injected from the left boundary at a rate \(\alpha_1\) and are absorbed at the right boundary at rate \(\beta_1\).</p>
+<p>Exclusion processes refer to a family of models of transport where particles have hard-core interaction. A random chosen particle on a 1D lattice will move to its neighbouring site if it is empty. These models can be studied under different kind of boundary conditions. We will be only concerned with open chain exclusion process where particles are injected from the left boundary at a rate $\alpha_1$ and are absorbed at the right boundary at rate $\beta_1$.  </p>
 </div>
 </div>
 </div>
@@ -1728,7 +1752,7 @@ In&nbsp;[1]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span> 
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;asep-schema.png&#39;</span><span class="p">)</span> 
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;plots/asep-schema.png&#39;</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -1901,28 +1925,32 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="asymmetric-simple-exclusion-processes-aseps">Asymmetric simple exclusion processes (ASEPs)</h2>
-<p>If a randomly chosen particle can hop to right and left with same probability, then the process is called symmetric exclusion process. Usually, the rates of movement to left and right are different and hence the model is generally called ASEP. We will be concerned mainly with what is called totally asymmetric simple exclusion processes (<strong>TASEPs</strong>) where the rate of movement to the left is zero while particles move to right with a rate 1, given that the next site is empty (<em>exclusion</em>).</p>
-<p>The exact solution for this model was given by Derrida et al. for \(\alpha_1=\beta_1=1\), which was soon extended by <a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">Schutz and Domany</a> for all \(\alpha_1, \beta_1\).</p>
+<h2 id="asymmetric-simple-exclusion-processes-aseps-">Asymmetric simple exclusion processes (ASEPs)</h2>
+<p>If a randomly chosen particle can hop to right and left with same probability, then the process is called symmetric exclusion process. Usually, the rates of movement to left and right are different and hence the model is generally called ASEP.
+We will be concerned mainly with what is called totally asymmetric simple exclusion processes (<strong>TASEPs</strong>) where the rate of movement to the left is zero while particles move to right with a rate 1, given that the next site is empty (<em>exclusion</em>). </p>
+<p>The exact solution for this model was given by Derrida et al. for  $\alpha_1=\beta_1=1$, which was soon extended by 
+<a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">Schutz and Domany</a> for all $\alpha_1, \beta_1$.</p>
 <h3 id="phase-transitions-in-tasep">Phase transitions in TASEP</h3>
-<p>Once a steady state is achieved in this non-equilibrium system, a steady state particle current \(j\) can be defined. The current \(j\) is related to the bulk density \(\rho\), on account of hard-core repulsion, \[j = \rho(1-\rho)\]</p>
-<p>Density on the lattice have interesting shapes in this model with extended bulk parts. Certain narrow regions where the density varies very rapidly, are called <strong>boundary layers</strong>. These boundary layers can appear in either or both of the boundaries.</p>
+<p>Once a steady state is achieved in this non-equilibrium system, a steady state particle current $j$ can be defined. The current $j$
+is related to the bulk density $\rho$, on account of hard-core repulsion, 
+$$j = \rho(1-\rho)$$</p>
+<p>Density on the lattice have interesting shapes in this model with extended bulk parts. Certain narrow regions where the density varies very rapidly, are called <strong>boundary layers</strong>. These boundary layers can appear in either or both of the boundaries. </p>
 <p>The system exhibits three distinct phases.</p>
 <ul>
-<li><strong>Low density phase:</strong> If the particles are not injected too fast, \(\alpha_1&lt;1/2\), and they are absorbed at a rate higher than they are supplied, i.e.,</li>
+<li><strong>Low density phase:</strong> If the particles are not injected too fast, $\alpha_1&lt;1/2$, and they are absorbed at a rate higher than they are supplied, i.e.,  </li>
 </ul>
-<p>\[\alpha_1&lt; \beta_1;   \qquad \alpha_1&lt;1/2, \]</p>
-<p>the bulk density in the system is <strong>low, \(\rho = \alpha_1\)</strong>. In the low density phase the exponentially decaying boundary layers, having a finite size, are formed on the right boundaries.</p>
+<p>$$\alpha_1&lt; \beta_1;   \qquad \alpha_1&lt;1/2, $$</p>
+<p>the bulk density in the system is <strong>low, $\rho = \alpha_1$</strong>. In the low density phase the exponentially decaying boundary layers, having a finite size, are formed on the right boundaries.</p>
 <ul>
-<li><strong>High density phase:</strong> If the particles are not absorbed too fast, $_1 &lt; 1/2 $, and they are injected at a higher rate,</li>
+<li><strong>High density phase:</strong> If the particles are not absorbed too fast, $\beta_1 &lt; 1/2 $, and they are injected at a higher rate,</li>
 </ul>
-<p>\[\alpha_1 &gt; \beta_1;   \qquad \beta_1&lt;1/2\]</p>
-<p>and the bulk density in the system is <strong>high, \(\rho = (1-\beta_1)\)</strong>. This implies that there is a discontinuous phase transition on account of the change in bulk density along the line \(\alpha_1=\beta_1\) from \(\alpha\) to \((1-\alpha)\). Boundary layers are formed on the left side of the chain in the high density phase and it also has a finite width. Thus we see that there is discontinuous change in the boundary layer as well, as we go from low density to the high density phase. These boundary layers also decay exponentially.</p>
+<p>$$\alpha_1 &gt; \beta_1;   \qquad \beta_1&lt;1/2$$</p>
+<p>and the bulk density in the system is <strong>high, $\rho = (1-\beta_1)$</strong>. This implies that there is a discontinuous phase transition on account of the change in bulk density along the line $\alpha_1=\beta_1$ from $\alpha$ to $(1-\alpha)$. Boundary layers are formed on the left side of the chain in the high density phase and it also has a finite width. Thus we see that there is discontinuous change in the boundary layer as well, as we go from low density to the high density phase. These boundary layers also decay exponentially.</p>
 <ul>
 <li><strong>Maximal current phase:</strong> In this case the particles are both supplied and absorbed, sufficiently fast,</li>
 </ul>
-<p>\[\alpha_1, \beta_1&gt;1/2\]</p>
-<p>This is called the maximal current phase where the transport in the bulk is most appreciable. The steady state density is then, \(\rho=1/2\) and hence the steady state current reaches its maximum value, \(j=1/4\). In this case the boundary layers are formed on the both boundaries and the width of the boundary layer diverges and hence there is a power law form, indicating the continuous phase transition.</p>
+<p>$$\alpha_1, \beta_1&gt;1/2$$</p>
+<p>This is called the maximal current phase where the transport in the bulk is most appreciable. The steady state density is then, $\rho=1/2$ and hence the steady state current reaches its maximum value, $j=1/4$. In this case the boundary layers are formed on the both boundaries and the width of the boundary layer diverges and hence there is a power law form, indicating the continuous phase transition. </p>
 </div>
 </div>
 </div>
@@ -1932,14 +1960,18 @@ AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="hydrodynamic-theory-of-taseps">Hydrodynamic theory of TASEPs</h3>
-<p>The continuum limit of the stochastic equations of the motions can be obtained by invoking the conservation law, \[
+<p>The continuum limit of the stochastic equations of the motions can be obtained by invoking the conservation law,
+$$
 \frac{\partial \rho}{\partial t} = - \frac{\partial j}{\partial x} 
-\]</p>
-<p>But we know that bounary layers are formed and they will correspond to singular part of the differential function and has to be wriiten carefully. To take care of this, a second order term <a href="http://arxiv.org/pdf/cond-mat/0211659.pdf">is introduced</a> with a vanishing co-efficient (\(\epsilon\rightarrow 0\)). This regularising term renders our equations to give sensible answers. \[
+$$</p>
+<p>But we know that bounary layers are formed and they will correspond to singular part of the differential function and has to be wriiten carefully. To take care of this, a second order term 
+<a href="http://arxiv.org/pdf/cond-mat/0211659.pdf">is introduced</a> with a vanishing co-efficient ($\epsilon\rightarrow 0$). This regularising term renders our equations to give sensible answers. 
+$$
 \frac{\partial \rho}{\partial t} = \epsilon \frac{\partial^2 j}{\partial x^2}  - \frac{\partial j}{\partial x} 
-\]</p>
-<p>where, \(j= \rho(1-\rho)\), is particle current on account of hopping on the lattice.</p>
-<p>In the following code we have solved the hydrodynamic equation using scikits.bvp_solver. We specify the boundary conditions on the two ends of the lattice and then solve the resulting boundary value problem. We inject particles from the left at a rate \(\alpha_1\) while particles are absorbed from the other end on the lattice at a rate \(\beta_1\). So the boundary condition on the left side is \(\alpha_1\) while the boundary condition on the right is \((1−\beta_1)\). We put all these ingredients in our solver and we see that the hydrodynamic theory predicts all the phase as seen in the corresponding <a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cpp/asep">Monte Carlo simulaton</a>.</p>
+$$</p>
+<p>where, $j= \rho(1-\rho)$, is particle current on account of hopping on the lattice.</p>
+<p>In the following code we have solved the hydrodynamic equation using scikits.bvp_solver. We specify the boundary conditions on the two ends of the lattice and then solve the resulting boundary value problem. We inject particles from the left at a rate $\alpha_1$  while particles are absorbed from the other end on the lattice at a rate $\beta_1$. So the boundary condition on the left side is  $\alpha_1$ while the boundary condition on the right is $(1−\beta_1)$. We put all these ingredients in our solver and we see that the hydrodynamic theory predicts all the phase as seen in the corresponding 
+<a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cpp/asep">Monte Carlo simulaton</a>.</p>
 </div>
 </div>
 </div>
@@ -4135,8 +4167,8 @@ AAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="phase-transitions-in-the-single-lane-tasep">Phase transitions in the single lane TASEP</h3>
-<p>It should be noted that boundary layer is formed on <strong>right boundary</strong> for the low density phase while they are formed on the <strong>left boundary</strong> for a high density phase. Also in the low density phase the bulk density equals the left boundary condition \(\alpha_1\) while the bulk density in the high density phase is \(\beta_1\). So there is a discontinuous jump in the density from \(\alpha\) to \(1-\alpha_1\) along the \(\alpha=\beta\) line for \(\alpha,~\beta&lt;1\).</p>
-<p>Boundary layers in the low and high density phases decay exponentianlly. Thus there is a finite localization length \(\xi\) in these two phases. \(\xi\) diverges as the maximal current phase is reached where the bulk density is \(0.5\). Here we see a power law decay of the layer and hence \(\xi\rightarrow\infty\). More details can be found <a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">here</a>.</p>
+<p>It should be noted that boundary layer is formed on <strong>right boundary</strong> for the low density phase while they are formed on the <strong>left boundary</strong> for a high density phase. Also in the low density phase the bulk density equals the left boundary condition $\alpha_1$ while the bulk density in the high density phase is $\beta_1$. So there is a discontinuous jump in the density from $\alpha$ to $1-\alpha_1$ along the $\alpha=\beta$ line for $\alpha,~\beta&lt;1$.</p>
+<p>Boundary layers in the low and high density phases decay exponentianlly. Thus there is a finite localization length $\xi$ in these two phases. $\xi$ diverges as the maximal current phase is reached where the bulk density is $0.5$. Here we see a power law decay of the layer and hence $\xi\rightarrow\infty$. More details can be found <a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">here</a>.</p>
 </div>
 </div>
 </div>
@@ -4146,19 +4178,20 @@ AAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="two-lane-problems">Two-lane problems</h2>
-<p>The same model can be studied with two parallel lanes. Here, we will not consider the case without particle exchange between the lanes. These lanes affect the dynamics indirectly by tuning the transition rate on the respective lattices. This phenomenon is very nicely captured by the hydrodynamic description of the model. Thje densities on the two lanes are denoted by \(\rho\) and \(\sigma\) respectively. Also on account og the interaction between the lattice the current in the respective lattice in modified as \(j_{\rho}= \rho(1-\rho) (1- (1-\beta)\sigma)\). Below is a schematic diagram of the same.</p>
+<p>The same model can be studied with two parallel lanes. Here, we will not consider the case without particle exchange between the lanes. These lanes affect the dynamics indirectly by tuning the transition rate on the respective lattices. This phenomenon is very nicely captured by the hydrodynamic description of the model. Thje densities on the two lanes are denoted by $\rho$ and $\sigma$ respectively. Also on account og the interaction between the lattice the current in the respective lattice in modified as  $j_{\rho}= \rho(1-\rho) (1- (1-\beta)\sigma)$. 
+Below is a schematic diagram of the same.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span> 
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;asep-schema-2lane.png&#39;</span><span class="p">)</span> 
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;plots/asep-schema-2lane.png&#39;</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -4170,7 +4203,7 @@ In&nbsp;[6]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[6]:</div>
+    Out[3]:</div>
 
 
 <div class="output_png output_subarea output_pyout">
@@ -4382,14 +4415,14 @@ IQAAAMIhAAAAwiEAAADCIQAAAMIhAAAAwiEAAADCIQAAgBz4f3zmmTbEqbMvAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lets define, \(m=1-\beta\) to save some ink So \(m=0\) is no interaction while \(m=1\) is the maximum interaction. The hydrodynamic equation for lanes are</p>
-<p>\[
+<p>Lets define, $m=1-\beta$ to save some ink So $m=0$ is no interaction while $m=1$ is the maximum interaction. The hydrodynamic equation for lanes are</p>
+<p>$$
 \frac{\partial \rho}{\partial t} = - \frac{\partial j_{\rho}}{\partial x}  + \epsilon \frac{\partial^2 \rho}{\partial x^2}   
-\]</p>
-<p>\[
+$$</p>
+<p>$$
 \frac{\partial \sigma}{\partial t} = - \frac{\partial j_{\sigma}}{\partial x}  + \epsilon \frac{\partial^2 \sigma}{\partial x^2}  
-\]</p>
-<p>More details of the model can be found <a href="http://arxiv.org/pdf/1208.4916.pdf">here</a>. The resulting coupled second order boundary value problem has been solved in the following codes. It has been system that the system exhibits a &quot;traffice jam&quot; kind of situation.</p>
+$$</p>
+<p>More details of the model can be found <a href="http://arxiv.org/pdf/1208.4916.pdf">here</a>. The resulting coupled second order boundary value problem has been solved in the following codes. It has been system that the system exhibits a &quot;traffice jam&quot; kind of situation. </p>
 </div>
 </div>
 </div>
@@ -5632,23 +5665,23 @@ ALgdEhYAAAAAAMDtkLAAAAAAAABu5/8DJxESvUty02wAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="phase-plane-analysis">Phase plane analysis</h2>
-<p>The equations of the two lanes resist exact solution and hence we have analysed them on the phase plane and again we see the &quot;traffic jam&quot; here as well. In the steady state, the equations reduces to</p>
-<p>\[
+<p>The equations of the two lanes resist exact solution and hence we have analysed them on the phase plane and again we see the &quot;traffic jam&quot; here as well. In the steady state, the equations reduces to </p>
+<p>$$
  - \frac{\partial j_{\rho}}{\partial x}  + \epsilon \frac{\partial^2 \rho}{\partial x^2}   
 =0
-\]</p>
-<p>\[
+$$</p>
+<p>$$
  - \frac{\partial j_{\sigma}}{\partial x}  + \epsilon \frac{\partial^2 \sigma}{\partial x^2}  
 =0
-\]</p>
+$$</p>
 <p>These equation gives constant bulk solutions. We need to do more work to understand the boundary layers. Integrating the equation once, we get,</p>
-<p>\[
+<p>$$
  \frac{\partial \rho}{\partial \tilde{x}}  =  \rho(1-\rho) (1-m\sigma) + c_1
- \]</p>
-<p>\[
+ $$</p>
+<p>$$
   \frac{\partial \sigma}{\partial \tilde{x}} = \sigma(1-\sigma) (1-m\rho) +  c_2
-\]</p>
-<p>The above equation is then analysed for stability. In general one will get five solutions for \(\rho^*\) or \(\sigma^*\) of which only real and positive densities are physically relevant. Then we could do a stability analysis about the fixed point and argue about the existence of the boundary layer(s). The method has been discussed in detail <a href="http://arxiv.org/pdf/1208.4916.pdf">here</a>.</p>
+$$</p>
+<p>The above equation is then analysed for stability. In general one will get five solutions for $\rho^*$ or $\sigma^*$ of which only real and positive densities are physically relevant. Then we could do a stability analysis about the fixed point and argue about the existence of the boundary layer(s). The method has been discussed in detail <a href="http://arxiv.org/pdf/1208.4916.pdf">here</a>.</p>
 </div>
 </div>
 </div>
@@ -5656,18 +5689,12 @@ ALgdEhYAAAAAAMDtkLAAAAAAAABu5/8DJxESvUty02wAAAAASUVORK5CYII=
   </div>
 </body>
 </html>
-<br>
-<br>
-<br>
-<br>
         <footer>
         <p><small>Adapted from Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </footer>
-
-
-
-</div>
-</div>
-</body>
+    </div>
+    
+  </body>
 </html>
+
 

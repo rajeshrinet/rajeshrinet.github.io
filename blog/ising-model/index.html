@@ -28,6 +28,30 @@
 
 
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"type="text/javascript">
+ </script>
+ <script type="text/javascript">
+ init_mathjax = function() {
+     if (window.MathJax) {
+         // MathJax loaded
+         MathJax.Hub.Config({
+             tex2jax: {
+                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                 processEscapes: true,
+                 processEnvironments: true
+             },
+             displayAlign: 'center',
+             "HTML-CSS": {
+                 styles: {'.MathJax_Display': {"margin": 0}},
+                 linebreaks: { automatic: true }
+             }
+         });
+         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+     }
+ }
+ init_mathjax();
+ </script>
 
 
 
@@ -1716,20 +1740,21 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="ising-model">Ising model</h1>
-<p>The Ising Hamiltonian can be written as,</p>
-<p>\[ 
+<p>The Ising Hamiltonian can be written as, </p>
+<p>$$ 
 \mathcal{H} = -J \sum_{\langle i j \rangle} S_{i} S_{j}  
-\]</p>
+$$</p>
 <ul>
-<li>The spins \(S_{i}\) can take values \(\pm 1\),</li>
-<li>\(\langle i j \rangle\) implies nearest-neighbor interaction only,</li>
-<li>\(J&gt;0\) is the strength of exchange interaction,</li>
+<li>The spins $S_{i}$ can take values $\pm 1$,</li>
+<li>$\langle i j \rangle$ implies nearest-neighbor interaction only, </li>
+<li>$J&gt;0$ is the strength of exchange interaction,</li>
 </ul>
-<p>The system undergoes a 2nd order phase transition at the critical temperature \(T_{c}\).</p>
-<p>In equilibrium, for temperature \(T&lt;T_{c}\) the system magnetises which is called the ferromagnetic or the ordered state while for \(T&lt;T_{c}\), the system is in the disordered or the paramagnetic state.</p>
-<p>The order parameter \(m\),</p>
-<p>\[ m = \frac{\langle S \rangle}{N} \]</p>
-<p>for this system is the average magnetization. \(m\) is zero in the disordered state and non-zero in the ordered state,</p>
+<p>The system undergoes a 2nd order phase transition at the critical temperature $T_{c}$.</p>
+<p>In equilibrium, for temperature $T&lt;T_{c}$ the system magnetises which is called the ferromagnetic or the ordered state while for 
+ $T&lt;T_{c}$, the system is in the disordered or the paramagnetic state.</p>
+<p>The order parameter $m$,</p>
+<p>$$ m = \frac{\langle S \rangle}{N} $$</p>
+<p>for this system is the average magnetization. $m$ is zero in the disordered state and non-zero in the ordered state, </p>
 </div>
 </div>
 </div>
@@ -2991,31 +3016,34 @@ ACCDhykAAIAM/wH5XyEA6w2O+AAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="kinetic-ising-models">Kinetic Ising Models</h2>
 <ul>
-<li>Ising model has no Hamiltonian given dynamics. For kinetics we assume that an associated heat bath generates spin flip \(( S_{i} \rightarrow - S_{i})\).</li>
-<li>The kinetics can be
-<ul>
+<li>Ising model has no Hamiltonian given dynamics. For kinetics we assume that an associated heat bath generates
+  spin flip $( S_{i} \rightarrow - S_{i})$. </li>
+<li>The kinetics can be <ul>
 <li>The spin system, which have a non-conseerved kinetics. At the microscopic level, spin-flip Glauber model is used to describe the non-conserved kinetics of the paramagnetic to ferromagnetic transition</li>
 <li>The binary (AB) mixture or Lattice Gas. The spin-exchange Kawasaki model is used to describe the conserved kinetics of binary mixtures at the microscopic level</li>
-</ul></li>
-<li>Purely dissipative and stochastic models are ofter referred to as Kinetic Ising models.</li>
-<li>At the coarse-grained level the respective order parameters, \(\phi(\vec{r},t)\) are used to describe the dynamics.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Purely dissipative and stochastic models are ofter referred to as Kinetic Ising models. </li>
+<li>At the coarse-grained level the respective order parameters, $\phi(\vec{r},t)$ are used to describe the dynamics. </li>
 </ul>
 <h3 id="domain-growth-with-non-conserved-kinetics">Domain Growth with non-conserved kinetics</h3>
 <ul>
-<li>At \(t = 0,\) a paramagnetic phase is quenched below the critical temperature \(T_{c}\).</li>
+<li>At $t = 0,$ a paramagnetic phase is quenched below the critical temperature $T_{c}$.</li>
 <li>The paramagnetic state is no longer the preferred equilibrium state.</li>
 <li>The far-from-equilibrium, homogenous, state evolves towards its new equilibrium state by separating in domains.</li>
-<li>These domains coarsen with time and are characterized by length scale \(L(t)\).</li>
-<li>A finite system becomes ordered in either of two equivalent states as \(t \rightarrow \infty\).</li>
-<li>The simplest kinetics Ising model for non-conserved scalar field \(\phi(\vec{r})\) is the time dependent Ginzburg-Landau (TDGL) model.</li>
+<li>These domains coarsen with time and are characterized by length scale $L(t)$.</li>
+<li>A finite system becomes ordered in either of two equivalent states as $t \rightarrow \infty$. </li>
+<li>The simplest kinetics Ising model for non-conserved scalar field $\phi(\vec{r})$ is the time dependent Ginzburg-Landau (TDGL) model. </li>
 </ul>
 <h3 id="tdgl-equation">TDGL equation</h3>
-<p>The equation of motion for \(\phi\) can be written as:</p>
-<p>\[ \frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta \mathcal{F}}{\delta \phi} +\theta(\vec{r},t)\]</p>
-<p>where \(\frac{\delta \mathcal{F}}{\delta \phi}\) denotes functional derivative of free-energy functional</p>
-<p>\[ \mathcal{F(\phi)} = \int  \left[ a\phi^2 + b \phi^4 + \frac{1}{2}K(\nabla\phi)^{2}\right]\]</p>
-<p>For $ T &lt; T_{c} $ we can write TDGL in terms of rescaled variables as</p>
-<p>\[ \frac{\partial \phi}{\partial t} = \phi-\phi^{3}+ \nabla^{2}\phi \]</p>
+<p>The equation of motion for $\phi$ can be written as:</p>
+<p>$$ \frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta \mathcal{F}}{\delta \phi} +\theta(\vec{r},t)$$</p>
+<p>where $\frac{\delta \mathcal{F}}{\delta \phi}$ denotes functional derivative of free-energy functional</p>
+<p>$$ \mathcal{F(\phi)} = \int  \left[ a\phi^2 + b \phi^4 + \frac{1}{2}K(\nabla\phi)^{2}\right]$$</p>
+<p>For  $ T &lt; T_{c} $ we can write TDGL in terms of rescaled variables as</p>
+<p>$$ \frac{\partial \phi}{\partial t} = \phi-\phi^{3}+ \nabla^{2}\phi $$</p>
 <p>In the next section we will simulate the TDGL equation.</p>
 </div>
 </div>
@@ -14092,7 +14120,7 @@ gwxyC/n/B6v2pBztQCoAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus we see that time evolution of the Monte carlo simulation of the Ising model and that of the TDGL equation are similar. The TDGL equation is a hydrodynamic model while the simulation of the Ising model was done at the molecular level. We still see a similarity in the time evolution, as expected!</p>
+<p> Thus we see that time evolution of the Monte carlo simulation of the Ising model and that of the TDGL equation are similar. The TDGL equation is a hydrodynamic model while the simulation of the Ising model was done at the molecular level. We still see a similarity in the time evolution, as expected!</p>
 </div>
 </div>
 </div>
@@ -14100,18 +14128,12 @@ gwxyC/n/B6v2pBztQCoAAAAASUVORK5CYII=
   </div>
 </body>
 </html>
-<br>
-<br>
-<br>
-<br>
         <footer>
         <p><small>Adapted from Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </footer>
-
-
-
     </div>
-    </div>
-    </body>
+    
+  </body>
 </html>
+
 

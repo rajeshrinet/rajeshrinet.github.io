@@ -28,6 +28,30 @@
 
 
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"type="text/javascript">
+ </script>
+ <script type="text/javascript">
+ init_mathjax = function() {
+     if (window.MathJax) {
+         // MathJax loaded
+         MathJax.Hub.Config({
+             tex2jax: {
+                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                 processEscapes: true,
+                 processEnvironments: true
+             },
+             displayAlign: 'center',
+             "HTML-CSS": {
+                 styles: {'.MathJax_Display': {"margin": 0}},
+                 linebreaks: { automatic: true }
+             }
+         });
+         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+     }
+ }
+ init_mathjax();
+ </script>
 
 
 
@@ -1716,13 +1740,13 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Any general deterministic first order differential equation can be written as</p>
-<p>\[
+<p>$$
 \frac{d}{dt} X = f(X, t)
-\]</p>
-<p>where, \(f(X, t)\) is a continuous function of \(x\) and \(t\). This has a well defined time evolution. Now if we want to model stochastic problems using this equation, then we need to add some probabilistic term. So this is what we are going to model here, how to model stochastic process. In general we will be interested in update formulas as that is what we do numerically. So, the <strong>update formula</strong> for our general first order equation is</p>
-<p>\[
+$$</p>
+<p>where, $f(X, t)$ is a continuous function of $x$ and $t$. This has a well defined time evolution. Now if we want to model stochastic problems using this equation, then we need to add some probabilistic term. So this is what we are going to model here, how to model stochastic process. In general we will be interested in update formulas as that is what we do numerically. So, the <strong>update formula</strong> for our general first order equation is </p>
+<p>$$
 X(t+dt) = X(t) + f(X, t) dt
-\]</p>
+$$</p>
 </div>
 </div>
 </div>
@@ -1732,59 +1756,64 @@ X(t+dt) = X(t) + f(X, t) dt
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Lets define some terminologies used frequently.</p>
-<p><strong>Continuous Markov process</strong>: A random variable \(X(T)\) can be parametrized in terms of \(t\) such that variable \(X(t_1)\) and \(X(t_2)\) are in general two random variables . A general stochastic process, can then be modeled using this random variable \(X(t)\). X will be called a <em>continuous Markov process</em> if</p>
+<p><strong>Continuous Markov process</strong>: A random variable $X(T)$ can be parametrized in terms of $t$ such that variable $X(t_1)$ and $X(t_2)$ are in general two random variables . A general stochastic process, can then be modeled using this random variable $X(t)$. X will be called a <em>continuous Markov process</em> if</p>
 <ul>
-<li>the process is <em>memoryless</em>, i.e, the next step depends only on the previous steps. And hence, update formula looks like \[
+<li>the process is <em>memoryless</em>, i.e, the next step depends only on the previous steps. And hence, update formula looks like
+$$
 \Xi = X(t+dt) - X(t)
-\] And hence, by definition ensures that the process is <em>memoryless</em> as \(X(t+dt)\) depends <em>only</em> on the \(X(t)\).</li>
-<li>\(\Xi\) depends smoothly on \(X, t, dt\)</li>
-<li>\(X\) is a continuous variable in the sense that \(\Xi\rightarrow 0\) as \(dt\rightarrow 0\).</li>
+$$
+And hence, by definition ensures that the process is <em>memoryless</em> as $X(t+dt)$ depends <em>only</em> on the  $X(t)$.</li>
+<li>$\Xi$ depends smoothly on $X, t, dt$</li>
+<li>$X$ is a continuous variable in the sense that $\Xi\rightarrow 0$ as $dt\rightarrow 0$.</li>
 </ul>
-<p><strong>Langevin equation</strong> These three condition decide the fate of the update formula in general. Now if we also want to model stochasticity, then we should bring some probabilistic term here. The most general form of the update formula looks like \[
+<p><strong>Langevin equation</strong>
+These three condition decide the fate of the update formula in general. Now if we also want to model stochasticity, then we should bring some probabilistic term here.  The most general form of the update formula looks like
+$$
 \Xi = f(X, t)dt + \sqrt{D} N(0, 1) \sqrt{dt}
-\]</p>
-<p>where, \(f(X, t)\) is any continuous function and \(D&gt;0\) is another smooth, well-behaved function! N(0,1) is Normal distribution with zero mean and unit variance. Now this function has this form because of the <em>self-consistency</em> condition, such that increment in the sub-interval should be same as that in a full interval (See, <em>DT Gillespie - American Journal of Physics, 1996</em>).</p>
-<p>Since, we agreed on the thing that the \(X\) is a random variable and hence at each random instant \(X(t_i)\) is independent and hence the sum of all those random variables approach a <a href="http://rajeshrinet.github.io/blog/central-limit-theorem/">Normal distribution</a>. Also, the flu cation is measured by the standard deviation. So the most general form of the equation is</p>
-<p>\[
+$$</p>
+<p>where, $f(X, t)$ is any continuous function and $D&gt;0$ is another smooth, well-behaved function! N(0,1) is Normal distribution with zero mean and unit variance. Now this function has this form because of the <em>self-consistency</em> condition, such that increment in the sub-interval should be same as that in a full interval (See, <em>DT Gillespie - American Journal of Physics, 1996</em>).</p>
+<p>Since, we agreed on the thing that the $X$ is a random variable and hence at each random instant $X(t_i)$ is independent and hence the sum of all those random variables approach a <a href="http://rajeshrinet.github.io/blog/central-limit-theorem/">Normal distribution</a>.
+Also, the flu cation is measured by the standard deviation. So the most general form of the equation is </p>
+<p>$$
 X(t+dt)= X(t) + \sqrt{D} N(0, 1) \sqrt{dt}
-\]</p>
-<p>This equation is the Langevin equation in the update formula form. It is obvious that the corresponding differential equation of this equation is not well defined (try dividing throughout by dt!).</p>
+$$</p>
+<p>This equation is the Langevin equation in the update formula form. It is obvious that the corresponding differential equation of this equation is not well defined (try dividing throughout by dt!). </p>
 <p>The probability density p(x, t) of the variable satisfies the <em>Fokker–Planck equation</em>.</p>
-<p>\[
+<p>$$
 \frac{\partial}{\partial t}p(x,t) = -\frac{\partial}{\partial x}\left[f(x,t)p(x,t)\right] + \frac{\partial^2}{\partial x^2}\left[ D(x,t)p(x,t)\right].
-\]</p>
+$$</p>
 <p>For a <strong>Weiner process</strong>, where the drift term is zero, <em>Fokker–Planck equation</em>, reduces to the diffusion equation.</p>
-<p>The update equation form of the Langevin equation can be made more familiar by dividing throughout by dt and then taking the limit \(dt\rightarrow 0\) with a pinch of salt!</p>
-<p>\[
+<p>The update equation form of the Langevin equation can be made more familiar by dividing throughout by dt and then taking the limit $dt\rightarrow 0$ with a  pinch of salt!</p>
+<p>$$
 \frac{d}{dt} X = f(X, t) + \sqrt{D(X, t)} \Gamma(t)
-\]</p>
-<p>where \(\Gamma = \lim_{dt\rightarrow 0} N(0, 1/dt)\) is a Gaussian distribution with zero mean and infinite variance. This equation is called the <em>white noise</em> form of the Langevin equation.</p>
-<p>\[
+$$</p>
+<p>where $\Gamma = \lim_{dt\rightarrow 0} N(0, 1/dt)$ is a Gaussian distribution with zero mean and infinite variance. This equation is called the <em>white noise</em> form of the Langevin equation.</p>
+<p>$$
 \langle \Gamma(t) \rangle = 0\\
-\langle \Gamma(t) \Gamma(t&#39;)\rangle = \delta(t-t&#39;) 
-\]</p>
+\langle \Gamma(t) \Gamma(t')\rangle = \delta(t-t') 
+$$</p>
 <p><strong>Ornstein–Uhlenbeck process (OUP)</strong></p>
 <p>If the drift term is proportional to position and diffusion term is constant then we have what is called the OUP.</p>
-<p>\[
+<p>$$
 f(x, t) = -x/\tau,   \qquad \qquad D = c
-\]</p>
-<p>So the corresponding Langevin equation for OUP is</p>
-<p>\[
+$$</p>
+<p>So the corresponding Langevin equation for OUP is </p>
+<p>$$
 \frac{d}{dt} X = -\frac{X}{\tau} + c^{1/2}  \Gamma(t)
-\]</p>
-<p>As the addition of two Gaussian number is another Gaussian distribution. So OUP implies that X(t) is Gaussian for all times. Infinite relaxation (\(\tau\rightarrow \infty\)) is the <strong>Weiner process</strong>.</p>
+$$</p>
+<p>As the addition of two Gaussian number is another Gaussian distribution. So OUP implies that X(t) is Gaussian for all times. Infinite relaxation ($\tau\rightarrow \infty$) is the <strong>Weiner process</strong>. </p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span> 
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;langevin-equation.png&#39;</span><span class="p">)</span> 
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;plots/langevin-equation.png&#39;</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -1796,7 +1825,7 @@ In&nbsp;[1]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[1]:</div>
+    Out[2]:</div>
 
 
 <div class="output_png output_subarea output_pyout">
@@ -2563,11 +2592,11 @@ GgAAAAAAAOv8P7TwimvhFjJkAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="johnson-noise">Johnson noise</h3>
-<p>For a L-R circuit, Kirchhoff's law can be written such that</p>
-<p>\[
+<p>For a L-R circuit, Kirchhoff&#39;s law can be written such that</p>
+<p>$$
 \frac{d}{dt} I = -I\frac{R}{L} + c^{1/2}\Gamma
-\]</p>
-<p>where \(\Gamma\) is the Gaussian white noise. The noise is generated by thermal agitation of electrons. The equation can be readily mapped to OUP and more calculations can be done on similar lines.</p>
+$$</p>
+<p>where $\Gamma$ is the Gaussian white noise. The noise is generated by thermal agitation of electrons. The equation can be readily mapped to OUP and more calculations can be done on similar lines. </p>
 </div>
 </div>
 </div>
@@ -2577,26 +2606,26 @@ GgAAAAAAAOv8P7TwimvhFjJkAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="einstein-smoluchowski-relation">Einstein-Smoluchowski relation</h3>
-<p>Lets consider the density to be \(\rho(x)\). Then by Fick's law, the diffusive part of the current is</p>
-<p>\[
+<p>Lets consider the density to be $\rho(x)$. Then by Fick&#39;s law, the diffusive part of the current is </p>
+<p>$$
 j_{diffusion}(x) = -D \frac{d  \rho}{dx}
-\]</p>
+$$</p>
 <p>while there is another part of the current due to the constant drift which is,</p>
-<p>\[
+<p>$$
 j_{drift} = \rho v = \rho~ \mu F
-\]</p>
-<p>where, \(\mu\) is the mobility. At equilibrium,</p>
-<p>\[
+$$</p>
+<p>where, $\mu$ is the mobility. At equilibrium, </p>
+<p>$$
 j_{diffusion}  + j_{drift} = 0
-\]</p>
-<p>Now, \(\rho = \rho_0 e^{-U/k_B T}\). And hence the condition of the equilibrium boils down to</p>
-<p>\[
+$$</p>
+<p>Now, $\rho = \rho_0 e^{-U/k_B T}$. And hence the condition of the equilibrium boils down to</p>
+<p>$$
 \frac{D}{k_B T} \frac{dU}{dx} \rho = \mu \rho   \frac{dU}{dx}
-\]</p>
+$$</p>
 <p>And, hence we arrive at the Einstein equation</p>
-<p>\[
+<p>$$
 D = \mu k_B T
-\]</p>
+$$</p>
 </div>
 </div>
 </div>
@@ -2604,18 +2633,12 @@ D = \mu k_B T
   </div>
 </body>
 </html>
-<br>
-<br>
-<br>
-<br>
         <footer>
         <p><small>Adapted from Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </footer>
-
-
-
     </div>
-    </div>
-    </body>
+    
+  </body>
 </html>
+
 
