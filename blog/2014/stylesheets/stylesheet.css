@@ -64,8 +64,8 @@ a:hover {
 }
 
 header {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
@@ -73,7 +73,7 @@ header {
 
 header h1 {
   letter-spacing: -1px;
-  font-size: 72px;
+  font-size: 42px;
   color: #fff;
   line-height: 1;
   margin-bottom: 0.2em;
@@ -130,13 +130,13 @@ aside#sidebar p.repo-owner a {
 
 a.button {
   width: 164px;
-  height: 80%;
-  line-height: 1.0;
+  height: 190%;
+  line-height: 0.9;
   font-size: 40px;
   color: #fff;
-  padding-left: 50px;
+  padding-left: 22px;
   padding-right: 0px;
-  padding-top: 22px;
+  padding-top: 10px;
   font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
@@ -146,7 +146,7 @@ a.button small {
 header a.button {
   position: absolute;
   right: 0;
-  top: 0;
+  top: -8px;
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 aside a.button {

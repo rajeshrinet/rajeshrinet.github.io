@@ -64,20 +64,20 @@ a:hover {
 }
 
 header {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
 }
 
 header h1 {
   letter-spacing: -1px;
-  font-size: 72px;
+  font-size: 42px;
   color: #fff;
   line-height: 1;
   margin-bottom: 0.2em;
-  width: 540px;
+  width: 80%;
 }
 
 header h2 {
@@ -129,14 +129,15 @@ aside#sidebar p.repo-owner a {
 }
 
 a.button {
-  width: 134px;
-  height: 58px;
-  line-height: 1.2;
-  font-size: 23px;
+  width: 164px;
+  height: 190%;
+  line-height: 0.9;
+  font-size: 40px;
   color: #fff;
-  padding-left: 68px;
-  padding-top: 22px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  padding-left: 22px;
+  padding-right: 0px;
+  padding-top: 10px;
+  font-family: 'Times New Roman', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
   display: block;
