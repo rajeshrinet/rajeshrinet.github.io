@@ -1964,14 +1964,14 @@ $$j = \rho(1-\rho)$$</p>
 $$
 \frac{\partial \rho}{\partial t} = - \frac{\partial j}{\partial x} 
 $$</p>
-<p>But we know that bounary layers are formed and they will correspond to singular part of the differential function and has to be wriiten carefully. To take care of this, a second order term 
-<a href="http://arxiv.org/pdf/cond-mat/0211659.pdf">is introduced</a> with a vanishing co-efficient ($\epsilon\rightarrow 0$). This regularising term renders our equations to give sensible answers. 
+<p>But we know that boundary layers are formed near the boundaries of the channel. Thesec correspond to singular part of the differential function and must be written carefully. 
+To take care of this, a second order term<a href="http://arxiv.org/pdf/cond-mat/0211659.pdf">is introduced</a> with a vanishing co-efficient ($\epsilon\rightarrow 0$). This regularising term renders our equations to give sensible answers. 
 $$
 \frac{\partial \rho}{\partial t} = \epsilon \frac{\partial^2 j}{\partial x^2}  - \frac{\partial j}{\partial x} 
 $$</p>
 <p>where, $j= \rho(1-\rho)$, is particle current on account of hopping on the lattice.</p>
-<p>In the following code we have solved the hydrodynamic equation using scikits.bvp_solver. We specify the boundary conditions on the two ends of the lattice and then solve the resulting boundary value problem. We inject particles from the left at a rate $\alpha_1$  while particles are absorbed from the other end on the lattice at a rate $\beta_1$. So the boundary condition on the left side is  $\alpha_1$ while the boundary condition on the right is $(1−\beta_1)$. We put all these ingredients in our solver and we see that the hydrodynamic theory predicts all the phase as seen in the corresponding 
-<a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/cpp/asep">Monte Carlo simulaton</a>.</p>
+<p>In the following code we have solved the hydrodynamic equation using <a href="https://github.com/jsalvatier/scikits.bvp_solver">scikits.bvp_solver</a>. We specify the boundary conditions on the two ends of the lattice and then solve the resulting boundary value problem. We inject particles from the left at a rate $\alpha_1$  while particles are absorbed from the other end on the lattice at a rate $\beta_1$. So the boundary condition on the left side is  $\alpha_1$ while the boundary condition on the right is $(1−\beta_1)$. We put all these ingredients in our solver and we see that the hydrodynamic theory predicts all the phase as seen in the corresponding 
+<a href="https://github.com/rajeshrinet/compPhy/tree/master/codes/c-cpp/asep">Monte Carlo Simulation</a>.</p>
 </div>
 </div>
 </div>
@@ -4168,7 +4168,8 @@ AAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="phase-transitions-in-the-single-lane-tasep">Phase transitions in the single lane TASEP</h3>
 <p>It should be noted that boundary layer is formed on <strong>right boundary</strong> for the low density phase while they are formed on the <strong>left boundary</strong> for a high density phase. Also in the low density phase the bulk density equals the left boundary condition $\alpha_1$ while the bulk density in the high density phase is $\beta_1$. So there is a discontinuous jump in the density from $\alpha$ to $1-\alpha_1$ along the $\alpha=\beta$ line for $\alpha,~\beta&lt;1$.</p>
-<p>Boundary layers in the low and high density phases decay exponentianlly. Thus there is a finite localization length $\xi$ in these two phases. $\xi$ diverges as the maximal current phase is reached where the bulk density is $0.5$. Here we see a power law decay of the layer and hence $\xi\rightarrow\infty$. More details can be found <a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">here</a>.</p>
+<p>Boundary layers in the low and high density phases decay exponentianlly. Thus there is a finite localization length $\xi$ in these two phases. $\xi$ diverges as the maximal
+current phase is reached where the bulk density is $0.5$. Here we see a power law decay of the layer and thus $\xi\rightarrow\infty$. More details can be found <a href="http://arxiv.org/pdf/cond-mat/9303038.pdf">here</a>.</p>
 </div>
 </div>
 </div>
@@ -4178,7 +4179,7 @@ AAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="two-lane-problems">Two-lane problems</h2>
-<p>The same model can be studied with two parallel lanes. Here, we will not consider the case without particle exchange between the lanes. These lanes affect the dynamics indirectly by tuning the transition rate on the respective lattices. This phenomenon is very nicely captured by the hydrodynamic description of the model. Thje densities on the two lanes are denoted by $\rho$ and $\sigma$ respectively. Also on account og the interaction between the lattice the current in the respective lattice in modified as  $j_{\rho}= \rho(1-\rho) (1- (1-\beta)\sigma)$. 
+<p>The same model can be studied with two parallel lanes. Here, we will not consider the case without particle exchange between the lanes. These lanes affect the dynamics indirectly by tuning the transition rate on the respective lattices. This phenomenon is very nicely captured by the hydrodynamic description of the model. The densities on the two lanes are denoted by $\rho$ and $\sigma$ respectively. Also on account of the interaction between the lattice the current in the respective lattice in modified as  $j_{\rho}= \rho(1-\rho) (1- (1-\beta)\sigma)$. 
 Below is a schematic diagram of the same.</p>
 </div>
 </div>
