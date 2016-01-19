@@ -1748,11 +1748,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span class="math display">\[
-\frac{\partial u}{\partial t} = D_u \boldsymbol\nabla^2 u - uv^2 + F(1-u)
+<p>The reaction we are modeling is <span class="math display">\[
+u + 2v \rightarrow 3v
+\]</span> Gray-Scott reaction-diffusion equation is used to model the reaction <span class="math display">\[
+\frac{\partial u}{\partial t} = \underbrace{D_u \boldsymbol\nabla^2 u}_{\substack{\text{diffuse }u\\\text{ for concentration to spread}}} - \underbrace{uv^2}_{\text{probability of reaction}} + \underbrace{F(1-u)}_{\substack{\text{add more of u }  \\\text{with a bound 1}}}
 \]</span> <span class="math display">\[
-\frac{\partial v}{\partial t} = D_v \boldsymbol\nabla^2 v + uv^2 - (F+K)v
+\frac{\partial v}{\partial t} = \underbrace{D_v \boldsymbol\nabla^2 v}_{\substack{\text{diffuse }v\\\text{ for concentration to spread}}} + \underbrace{uv^2}_{\text{probability of reaction}} - \underbrace{(F+K)v}_{\substack{\text{remove } v \text{ from reaction}  \\\text{  with a bound 0}}}
 \]</span></p>
+<p>The system shows very rich set of patterns as the parameters for equations are varied.</p>
 </div>
 </div>
 </div>
