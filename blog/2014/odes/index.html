@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
-    <link rel="icon" href="../images/this.png">
+    <title>Rajesh Singh</title>
+
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <link rel="icon" href="../../../images/this.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
 
 
-    <title>ODEs</title>
+    <title>Blog</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Blog</h1>
-        <a href="http://rajeshrinet.github.io/blog" class="button"><span style="font-weight:bold">Posts</span></a>
+        <h1>
+        <a href="http://rajeshrinet.github.io/blog" class="button"><span style="font-weight:regular">Blog home</span></a>
+        </h1>
       </div>
     </header>
 
@@ -176,7 +179,7 @@
 /* Overrides of notebook CSS for static HTML export */
 body {
   overflow: visible;
-  padding: 0px;
+  padding: 8px;
 }
 
 div#notebook {
@@ -236,7 +239,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Solving-ordinary-differential-equations">*Solving ordinary differential equations<a class="anchor-link" href="#Solving-ordinary-differential-equations">&#182;</a></h2><p>Differential equations are ubiquitous in physics. Also, in many interesting cases they are not tractable analytically. So we take recourse to numerical methods, every now and then, to solve these differential equations. In this talk we will discuss some basics of solving ODEs on the computer.</p>
+<h2 id="Solving-ordinary-differential-equations">Solving ordinary differential equations<a class="anchor-link" href="#Solving-ordinary-differential-equations">&#182;</a></h2><p>Differential equations are ubiquitous in physics. Also, in many interesting cases they are not tractable analytically. So we take recourse to numerical methods, every now and then, to solve these differential equations. In this talk we will discuss some basics of solving ODEs on the computer.</p>
 
 </div>
 </div>
@@ -246,7 +249,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Euler-method">~Euler method<a class="anchor-link" href="#Euler-method">&#182;</a></h3><p>Consider a differential equation,</p>
+<h3 id="Euler-method">Euler method<a class="anchor-link" href="#Euler-method">&#182;</a></h3><p>Consider a differential equation,</p>
 $$x' = -kx$$<p></p>
 <p>for $k>0$, the explicit Euler for  a step size $h$ is,</p>
 $$ x_{n+1} = x_{n} + h x'_{n} = (1-kh) x_{n} $$<p>The local truncation error in this case is $\mathcal{O}(h^2)$, while the total accumulated error is $\mathcal{O}(h)$. This is because of the discretization as the total number of steps goes as $1/h$ while each step incurs an error $\mathcal{O}(h^2)$. The method is called explicit as new value $y_{n+1}$ is given explicitly in terms of old value $y_n$.</p>
@@ -1210,7 +1213,7 @@ $$ x_{n+1} = x_n + h x'_{n+1} $$$$ x_{n+1} = \frac{x_n}{1+kh} $$<p>is stable for
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adaptive-solvers">~Adaptive solvers<a class="anchor-link" href="#Adaptive-solvers">&#182;</a></h3><p>All of the methods described above fall into category of fixed time step integrator. Fixed time step integrators are good to learn and practice, but there is a whole new set of algorithms which are more useful than this. These are called adaptive step integrators. There are little non-trivila to code but one can use readymade codes, easily available! You can think of fixed step integrations as Riemann sum while adaptive step integation are more like Lebesgue integral. If suppose your
+<h3 id="Adaptive-solvers">Adaptive solvers<a class="anchor-link" href="#Adaptive-solvers">&#182;</a></h3><p>All of the methods described above fall into category of fixed time step integrator. Fixed time step integrators are good to learn and practice, but there is a whole new set of algorithms which are more useful than this. These are called adaptive step integrators. There are little non-trivila to code but one can use readymade codes, easily available! You can think of fixed step integrations as Riemann sum while adaptive step integation are more like Lebesgue integral. If suppose your
 problem is stiff then adaptive step integrators are the way to go. In general it is a good idea to use adaptive step integrator as this can accelerate your computational speed by making smart variable choice of step size. In the examples below we use adaptive step integrators.</p>
 
 </div>
@@ -9036,10 +9039,10 @@ ONAnIiIiIiIikhEO9ImIiIiIiIhk5H/VRONE2+gCAgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can create GIF file of these PNG files by following command on terminal,</p>
+<p>We can create .gif file of these .png files by following command on terminal,</p>
 <p><strong>convert -delay 10 -loop 0 *.png double-pendulum.gif</strong></p>
-<p>The GIF file of coupled-pendulum can be seen <a href="https://github.com/rajeshrinet/compPhy/blob/master/notebooks/2014/plots/coupled-pendulum.gif">here</a>.</p>
-<p>The same is done for the double-pendulum. The GIF in this case can be seen <a href="https://github.com/rajeshrinet/compPhy/blob/master/notebooks/2014/plots/double-pendulum.gif">here</a>.</p>
+<p>The .gif file of coupled-pendulum can be seen <a href="https://github.com/rajeshrinet/compPhy/tree/master/notebooks/2014/plotss/coupled-pendulum.gif">here</a>.</p>
+<p>The same cane done for the double-pendulum. The .gif in this case can be seen <a href="https://github.com/rajeshrinet/compPhy/tree/master/notebooks/2014/plots/double-pendulum.gif">here</a>.</p>
 
 </div>
 </div>
@@ -9048,12 +9051,3 @@ ONAnIiIiIiIikhEO9ImIiIiIiIhk5H/VRONE2+gCAgAAAABJRU5ErkJggg==
   </div>
 </body>
 </html>
-        <footer>
-        <p><small>Adapted from the <a href="https://github.com/jasonlong/architect-theme">architect theme</a> by Jason Long.</p>
-        </footer>
-    </div>
-    
-  </body>
-</html>
-
-

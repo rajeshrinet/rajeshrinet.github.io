@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
-    <link rel="icon" href="../images/this.png">
+    <title>Rajesh Singh</title>
+
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <link rel="icon" href="../../../images/this.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
 
 
-    <title>PDEs</title>
+    <title>Blog</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Blog</h1>
-        <a href="http://rajeshrinet.github.io/blog" class="button"><span style="font-weight:bold">Posts</span></a>
+        <h1>
+        <a href="http://rajeshrinet.github.io/blog" class="button"><span style="font-weight:regular">Blog home</span></a>
+        </h1>
       </div>
     </header>
 
@@ -176,7 +179,7 @@
 /* Overrides of notebook CSS for static HTML export */
 body {
   overflow: visible;
-  padding: 0px;
+  padding: 8px;
 }
 
 div#notebook {
@@ -236,7 +239,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Solving-partial-differential-equations">*Solving partial differential equations<a class="anchor-link" href="#Solving-partial-differential-equations">&#182;</a></h2><p>Differential equations are ubiquitous in physics. Also, in many interesting cases they are not tractable analytically. So we take recourse to numerical methods, every now and then, to solve these differential equations. In this talk we will discuss some basics of solving PDEs on the computer.</p>
+<h2 id="Solving-partial-differential-equations">Solving partial differential equations<a class="anchor-link" href="#Solving-partial-differential-equations">&#182;</a></h2><p>Differential equations are ubiquitous in physics. Also, in many interesting cases they are not tractable analytically. So we take recourse to numerical methods, every now and then, to solve these differential equations. In this talk we will discuss some basics of solving PDEs on the computer.</p>
 
 </div>
 </div>
@@ -246,10 +249,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Forward-difference">~Forward difference<a class="anchor-link" href="#Forward-difference">&#182;</a></h3><p>Let denote the space derivative by '. The first derivative of the function can be written in discrete form as</p>
+<h3 id="Forward-difference">Forward difference<a class="anchor-link" href="#Forward-difference">&#182;</a></h3><p>Let denote the space derivative by '. The first derivative of the function can be written in discrete form as</p>
 $$  f'(x)  \approx \frac{f(x+h)-f(x)}{h} $$<p>This is called forward difference as this uses $f(x)$ and $f(x+h)$.</p>
-$$  f'(x)  = \frac{f(x+h)-f(x)}{h} + \mathcal{O}(h)$$<h3 id="Backward-difference">~Backward difference<a class="anchor-link" href="#Backward-difference">&#182;</a></h3>$$  f'(x)  \approx \frac{f(x)-f(x-h)}{h} $$<p>This way to calculate first derivative is called backward difference as this uses $f(x)$ and $f(x-h)$.</p>
-$$  f'(x)  = \frac{f(x)-f(x-h)}{h} + \mathcal{O}(h)$$<h3 id="Central-difference">~Central difference<a class="anchor-link" href="#Central-difference">&#182;</a></h3>$$  f'(x)  \approx \frac{f(x+h)-f(x-h)}{2h} $$<p>The error in this case is $ \mathcal{O}(h^2)$</p>
+$$  f'(x)  = \frac{f(x+h)-f(x)}{h} + \mathcal{O}(h)$$<h3 id="Backward-difference">Backward difference<a class="anchor-link" href="#Backward-difference">&#182;</a></h3>$$  f'(x)  \approx \frac{f(x)-f(x-h)}{h} $$<p>This way to calculate first derivative is called backward difference as this uses $f(x)$ and $f(x-h)$.</p>
+$$  f'(x)  = \frac{f(x)-f(x-h)}{h} + \mathcal{O}(h)$$<h3 id="Central-difference">Central difference<a class="anchor-link" href="#Central-difference">&#182;</a></h3>$$  f'(x)  \approx \frac{f(x+h)-f(x-h)}{2h} $$<p>The error in this case is $ \mathcal{O}(h^2)$</p>
 <p>Laplacian can be constructed by applying the central difference twice, for step size $h/2$</p>
 $$\nabla^2  f(x) \approx \frac{f(x_{i-1}) - 2 f(x_i) + f(x_{i+1})}{h^2}$$
 </div>
@@ -972,7 +975,7 @@ AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Diffusion-equation">*Diffusion equation<a class="anchor-link" href="#Diffusion-equation">&#182;</a></h2><p>Lets solve diffusion using the machinery we have developed above.</p>
+<h2 id="Diffusion-equation">Diffusion equation<a class="anchor-link" href="#Diffusion-equation">&#182;</a></h2><p>Lets solve diffusion using the machinery we have developed above.</p>
 $$ \partial_t u = \nabla^2 u  $$<p></p>
 <p>The steps involved are</p>
 <ul>
@@ -2216,7 +2219,7 @@ AABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Using-matrices">*Using matrices<a class="anchor-link" href="#Using-matrices">&#182;</a></h2><p>All these can be done very conveniently using matrices. This has been done very nicely <a href="https://github.com/ketch/finite-difference-course">here</a> by David Ketcheson. We will follow some of the techniques used by him.</p>
+<h2 id="Using-matrices">Using matrices<a class="anchor-link" href="#Using-matrices">&#182;</a></h2><p>All these can be done very conveniently using matrices. This has been done very nicely <a href="https://github.com/ketch/finite-difference-course">here</a> by David Ketcheson. We will follow some of the techniques used by him.</p>
 <p>The central difference Laplacian</p>
 $$ \nabla^2 f(x) \approx \frac{f(x_{i-1}) - 2 f(x_i) + f(x_{i+1})}{h^2}$$<p>can be very conveniently written in matrix form</p>
 
@@ -2228,7 +2231,7 @@ $$ \nabla^2 f(x) \approx \frac{f(x_{i-1}) - 2 f(x_i) + f(x_{i+1})}{h^2}$$<p>can 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example">~Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Lets solve the following PDE:</p>
+<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Lets solve the following PDE:</p>
 $$ u_t = k \nabla^2 u + f(u)$$<p>where</p>
 $$ f(u) = a u + b u^3 $$
 </div>
@@ -12562,7 +12565,7 @@ RU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also save the plots and then convert the PNG files to <a href="https://github.com/rajeshrinet/compPhy/blob/master/notebooks/2014/plots/tdgl.gif">GIF</a> using,</p>
+<p>We can also save the plots and then convert the .pngs tp <a href="https://raw.githubusercontent.com/rajeshrinet/compPhy/master/codes/IPythonNotebooks/plots/tdgl.gif">.gif</a> using,</p>
 <p><strong>convert -delay 10 -loop 0 *.png double-pendulum.gif</strong></p>
 
 </div>
@@ -12573,7 +12576,7 @@ RU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Boundary-value-problems-(BVP)">*Boundary value problems (BVP)<a class="anchor-link" href="#Boundary-value-problems-(BVP)">&#182;</a></h2><p>We can also solve BVPs using scikits.bvp_solver. This is described separately while discussing <a href="https://rajeshrinet.github.io/blog/2014/asep/">asymmetric simple exclusion processes</a>.</p>
+<h2 id="Boundary-value-problems-(BVP)">Boundary value problems (BVP)<a class="anchor-link" href="#Boundary-value-problems-(BVP)">&#182;</a></h2><p>We can also solve BVPs using scikits.bvp_solver. This is described separately while discussing <a href="https://github.com/rajeshrinet/compPhy/blob/master/notebooks/2014/AsymmetricSimpleExclusionProcesses.ipynb">TASEPs</a>.</p>
 
 </div>
 </div>
@@ -12582,12 +12585,3 @@ RU5ErkJggg==
   </div>
 </body>
 </html>
-        <footer>
-        <p><small>Adapted from the <a href="https://github.com/jasonlong/architect-theme">architect theme</a> by Jason Long.</p>
-        </footer>
-    </div>
-    
-  </body>
-</html>
-
-

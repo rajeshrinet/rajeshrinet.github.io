@@ -91,7 +91,7 @@ header h2 {
 
 .inner {
   position: relative;
-  width: 80%;
+  width: 940px;
   margin: 0 auto;
 }
 
@@ -101,7 +101,7 @@ header h2 {
 }
 
 #main-content {
-  width: 85%;
+  width: 690px;
   float: left;
 }
 
@@ -110,7 +110,7 @@ header h2 {
 }
 
 aside#sidebar {
-  width: 10%;
+  width: 200px;
   padding-left: 20px;
   min-height: 504px;
   float: right;
@@ -146,7 +146,7 @@ a.button small {
 header a.button {
   position: absolute;
   right: 0;
-  top: -8px;
+  top: 0;
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 aside a.button {
@@ -273,7 +273,7 @@ form {
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   font-size: 15px;
   font-weight: bold;
-  color: #474747;
+  color: #1000;
 } 
 
 h4:before {
