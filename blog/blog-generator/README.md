@@ -5,6 +5,6 @@ Let us assume we want to make the blog for ``test.html''. Then test.html has bee
 The code to generate the index.html from the above input file is
 
 ``
-python site-generator.py index.html template.html test.html footer.html
+python blogGenerator.py index.html template.html test.html
 
 ``
