@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Rajesh Singh</title>
+    <title>Rajesh Singh - Research</title>
 
     <link rel="stylesheet" href="../stylesheets/styles.css">
     <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
@@ -31,7 +31,7 @@
 <hr>
 <p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/thisPyIm.png"></p>
 
-Active particles are a new class of colloids which create flow - even when stationary - due to large surface gradients from local nonequilibrium processes. These nonequilibrium processes may be due to the motion of cilia, as in microorganisms (Brennen & Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens & Howse, 2010) at the colloidal particle. The latter, often called autophoresis, is a generalisation of well-known phoretic phenomena including, inter alia, electrophoresis (electric field), diffusiophoresis (chemical field) and thermophoresis (temperature field) that occur in response to externally imposed gradients of phoretic fields (Anderson, 1989).
+Active particles are a new class of colloids which create flow - even when stationary - due to large surface gradients from local nonequilibrium processes. These nonequilibrium processes may be due to the motion of cilia, as in microorganisms (Brennen & Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens & Howse, 2010) at the colloidal particle. The latter, often called autophoresis, is a generalisation of well-known phoretic phenomena including, <em>inter alia</em>, electrophoresis (electric field), diffusiophoresis (chemical field) and thermophoresis (temperature field) that occur in response to externally imposed gradients of phoretic fields (Anderson, 1989).
 <br>
 <br>
 <p>Hydrodynamic and phoretic interactions between active particles in a viscous fluid are central to the understanding of their collective dynamics.  Under experimentally relevant conditions, the motion of the fluid is governed by the Stokes equation and that of the phoretic field, if one is present, by the Laplace equation.  The “activity” appears in these equations as boundary conditions on the particle surfaces that prescribe the slip velocity in the Stokes equation and flux of the phoretic field in the Laplace equation</p>
@@ -85,6 +85,7 @@ I have pursed two directions in continuum theoretic of active matter. The first 
 
 The second is motivated by experimental observation of microphase separation in disparate experiments of spherical active colloids. At the continuum level, there is no orientational order due to absence of alignment interactions, and thus, the only order parameter for such particles is their scalar concentration. Currently, a field theoretic understanding of this microphase separation via the arrest of droplet growth (as opposed to bicontinuous structures) ignores hydrodynamic interactions, but these are an important part of all the experiments reporting microphase separation. In this work, I have shown that microphase separation is possible with activity in the hydrodynamic sector (fluid flow) alone. Contractile mechanical stresses lead to a novel self-shearing instability, which interrupts the growth of droplets (or bubbles) by splitting. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability 
 <br>
+<img src="https://raw.githubusercontent.com/rajeshrinet/pygl/master/examples/banner.jpeg" alt="Imagel"> 
 I have also developed a numerical library <a href="https://github.com/rajeshrinet/pygl">PyGL</a> to study such field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation.</p>
 
 <h4 id="2020">References</h4>
@@ -104,6 +105,7 @@ I have also developed a numerical library <a href="https://github.com/rajeshrine
 </header>
 <section>
 <h3><a name="About" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Bayesian inference of stochastic processes</h3>
+<hr>
 
 <p>I am also interested in exploring how techniques of statistical mechanics can be used to design fast inference tools. In probability theory and statistics, <a href="http://www.gaussianprocess.org/">Gaussian processes</a> has been an area of extensive research in the past few decades. I have developed an O(N) method for inference of a stationary Gauss-Markov processes using four sufficient statistics matrices. This is in contrast to O(N^{3}) cost using the general Gaussian process, which makes approximate methods a necessity for large data-sets. My method, on the other hand, exploits the Gauss-Markov property to obtain accurate and efficient inference. The formalism is then used to do inference on experimental data and we find that it outperforms fitting and sampling methods both in accuracy and speed.</p>
 
@@ -120,26 +122,28 @@ I have also developed a numerical library <a href="https://github.com/rajeshrine
 
 <br>
 <br>
-<h3 id="software">Software</h3>
+<h3 id="software">Mathematical modelling of infectious diseases</h3>
 <hr>
-
-I have developed state-of-the-art numerical methods to solve complex in theoretical physics and applied mathematics. These include:
-
-
+I am also interested in application of mathematical and statistical tools to study the spread of infectious diseases. In particular, 
+we seek to obtain the optimal intervention strategies which minimize the transmission of infection. For this, we use our numerical 
+library <a href="https://github.com/rajeshrinet/pyross">PyRoss</a> which provides an integrated platform for inference, forecasts, and control for epidemiological models. 
 <br>
 <br>
+
+<img src="https://raw.githubusercontent.com/rajeshrinet/pyross/master/examples/banner.jpg" alt="Imagel">
+
+<br>
+<h4 id="Preprints">References</h4>
+<hr>
 <ul>
-<li><h3 id="-pygl-field-theories-without-time-reversal-symmetry-in-python-https-github-com-rajeshrinet-pygl-imagel-https-raw-githubusercontent-com-rajeshrinet-pygl-master-examples-banner-jpeg-"><a href="https://github.com/rajeshrinet/pygl">PyGL: statistical field theory in Python</a> <img src="https://raw.githubusercontent.com/rajeshrinet/pygl/master/examples/banner.jpeg" alt="Imagel"></h3>
-<p><br/></p>
-</li>
-<li><h3 id="-pyross-inference-forecasts-and-control-for-epidemiological-models-in-python-https-github-com-rajeshrinet-pyross-br-br-imagel-https-raw-githubusercontent-com-rajeshrinet-pyross-master-examples-banner-jpg-"><a href="https://github.com/rajeshrinet/pyross">PyRoss: inference, forecasts, and control for epidemiological models in Python</a>  <br/><br/><img src="https://raw.githubusercontent.com/rajeshrinet/pyross/master/examples/banner.jpg" alt="Imagel"></h3>
-<p><br/></p>
-</li>
-<li><h3 id="-pystokes-phoresis-and-stokesian-hydrodynamics-in-python-https-github-com-rajeshrinet-pystokes-br-br-imagel-https-raw-githubusercontent-com-rajeshrinet-pystokes-master-examples-banner-png-"><a href="https://github.com/rajeshrinet/pystokes">PyStokes: phoresis and Stokesian hydrodynamics in Python</a> <br/><br/><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes/master/examples/banner.png" alt="Imagel"></h3>
-</li>
+    <p>Age-structured impact of social distancing on the COVID-19 epidemic in India<br>
+    R Singh and R Adhikari<br>
+    <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a></p>
+    
+    <p>Inference, prediction and optimization of non-pharmaceutical interventions using compartment models: the PyRoss library<br>
+    R Adhikari <em>et al</em><br>
+    <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a></p>
 </ul>
-
-See a full list of software I have developed for my research on <a href="https://github.com/rajeshrinet">GitHub</a>. 
 
 <br>
 <br>
