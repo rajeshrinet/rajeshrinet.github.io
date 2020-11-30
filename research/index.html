@@ -87,14 +87,15 @@ See also this
 
 <h4 id="2020">Splitting active droplets</h4>
 <hr>
-<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/active_stress.jpg" width="356" alt="Imagel"> 
+<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssi.gif" alt="Imagel" > 
 <br>
- Microphase separation is often observed in suspensions of spherical active particles. In such suspensions, the scalar concentration is the only order parameter, when there is no orientational order in the bulk. 
+Microphase separation (phase separation arrested to a length-scale) is often observed in suspensions of spherical active particles. In such suspensions, the scalar concentration is the only order parameter, when there is no orientational order in the bulk. We show that such microphase separations can be achieved by extending theories of passive binary mixtures (for example, phase separation of oil droplets in passive binary oil-water mixtures). In thermal equilibrium systems, phase separation is a thermodynamic process where a uniformly mixed state can lower its free energy by dividing into phases. Ostwald ripening (small droplets disappear and bigger droplets grow) drives thermal equilibrium systems to full phase separation. We show that, by coupling the scalar density to fluid flow, the negative mechanical tension of an active suspension creates, via a self-shearing instability, a steady-state life cycle of droplet growth interrupted by division whose scaling behavior we predict.
 
  Our starting point is a scalar field theory with mass and momentum conservation (model H). A self-shearing instability is obtained if active extensile stress, which does not respect time-reversal symmetry, is added to the momentum conservation equation in model H. This instability interrupts the growth of droplets by splitting them. The extensile active stress has the effect of reversing the sign of the effective tension which arrests the growth. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability. 
 <br>
 <br>
-<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssi.gif" alt="Imagel" > 
+<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/active_stress.jpg" width="756" alt="Imagel"> 
+<br>
 <br>
 
 <h4 id="2020">References</h4>
@@ -110,8 +111,11 @@ See also this
 In this work, we present a model of self-propulsion in active droplets, such as cells, by extending the above theory to two scalar fields. The two scalar fields, in the case of a cell, represent the cytoplasm and a contractile cortex. An active stress couples the two scalar fields. The self-propulsion results from the activity when rotational symmetry is spontaneously broken. We find, both analytically and numerically, that the swimming speed does not depend on the radius of the droplet, while it varies linearly with the activity parameter and with the droplet area fraction.
 <br>
 <br>
-I have also developed, <a href="https://github.com/rajeshrinet/pygl">PyGL</a>, a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry.
-The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation.</p>
+
+<p>
+See also this 
+    <a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html">blog post.</a></p>
+</p>
 
 <h4 id="2020">References</h4>
 <ul>
@@ -129,7 +133,7 @@ The library constructs differentiation matrices using finite-difference and spec
 <h3><a name="About" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Bayesian inference of stochastic processes</h3>
 <hr>
 
-<p>I am also interested in exploring how techniques of statistical mechanics can be used to design fast inference tools. In probability theory and statistics, <a href="http://www.gaussianprocess.org/">Gaussian processes</a> has been an area of extensive research in the past few decades. I have developed an O(N) method for inference of a stationary Gauss-Markov processes using four sufficient statistics matrices. This is in contrast to O(N^{3}) cost using the general Gaussian process, which makes approximate methods a necessity for large data-sets. My method, on the other hand, exploits the Gauss-Markov property to obtain accurate and efficient inference. The formalism is then used to do inference on experimental data and we find that it outperforms fitting and sampling methods both in accuracy and speed.</p>
+<p>I am also interested in exploring how techniques of statistical mechanics can be used to design fast inference tools. In probability theory and statistics, <a href="http://www.gaussianprocess.org/">Gaussian processes</a> has been an area of extensive research in the past few decades. We have developed an O(N) method for inference of a stationary Gauss-Markov processes using four sufficient statistics matrices. This is in contrast to O(N^{3}) cost using the general Gaussian process, which makes approximate methods a necessity for large data-sets. Our method, on the other hand, exploits the Gauss-Markov property to obtain accurate and efficient inference. The formalism is then used to do inference on experimental data and we find that it outperforms fitting and sampling methods both in accuracy and speed.</p>
 
 <h4 id="2020">References</h4>
 <ul>
