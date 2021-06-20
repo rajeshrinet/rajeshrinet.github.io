@@ -26,7 +26,10 @@
         <br>
 </header>
 <section>
-My research is in soft matter physics. With this principal theme, I have studied problems in statistical physics, stochastic processes, numerical and computational physics, fluid dynamics, biophysics, and Bayesian statistics.  A recent interest is the application of mathematical and statistical tools to study the spread of infectious diseases. An itemized summary of my current interests follows.
+<h3><a name="About" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Research</h3>
+    <hr>
+My research is in soft matter physics. With this principal theme, I have studied problems in statistical physics, stochastic processes, numerical and computational physics, fluid dynamics, biophysics, and Bayesian statistics.  
+An itemized summary of my current interests follows.
 <br>
 <br>
 <ul>
@@ -34,9 +37,6 @@ My research is in soft matter physics. With this principal theme, I have studied
 <a href="#div_id1">Phoresis and Stokesian hydrodynamics</a>
 <li>
 <a href="#div_id2">Continuum theories of active matter</a>
-<li>
-<a href="#div_id5">Mathematical epidemiology </a>
-
 <li>
 <a href="#div_id3">Stochastic processes</a>
 <li>
@@ -105,6 +105,7 @@ See also my
     <a href="http://dx.doi.org/10.1088/1742-5468/2015/06/P06017">J. Stat. Mech. P06017, 2015</a>
 </ul>
 <br>
+<br>
 
 </header>
 <section>
@@ -119,13 +120,21 @@ Field-theoretic description of active matter systems can be obtained from coarse
 <hr>
 <img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssi.gif" alt="Imagel" > 
 <br>
+<br>
 Microphase separation (phase separation arrested to a length-scale) is often observed in suspensions of spherical active particles. In such suspensions, the scalar concentration is the only order parameter, when there is no orientational order in the bulk. We show that such microphase separations can be achieved by extending theories of passive binary mixtures (for example, phase separation of oil droplets in passive binary oil-water mixtures). In thermal equilibrium systems, phase separation is a thermodynamic process where a uniformly mixed state can lower its free energy by dividing into phases. Ostwald ripening (small droplets disappear and bigger droplets grow) drives thermal equilibrium systems to full phase separation. We show that, by coupling the scalar density to fluid flow, the negative mechanical tension of an active suspension creates, via a self-shearing instability, a steady-state life cycle of droplet growth interrupted by division whose scaling behavior we predict.
-
- Our starting point is a scalar field theory with mass and momentum conservation (model H). A self-shearing instability is obtained if active extensile stress, which does not respect time-reversal symmetry, is added to the momentum conservation equation in model H. This instability interrupts the growth of droplets by splitting them. The extensile active stress has the effect of reversing the sign of the effective tension which arrests the growth. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability. 
 <br>
 <br>
 <a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html"><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/active_stress.jpg"></a>
 <br>
+<br>
+
+ Our starting point is a scalar field theory with mass and momentum conservation (model H). A self-shearing instability is obtained if active extensile stress, which does not respect time-reversal symmetry, is added to the momentum conservation equation in model H. This instability interrupts the growth of droplets by splitting them. The extensile active stress has the effect of reversing the sign of the effective tension which arrests the growth. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability. 
+<br>
+<br>
+<p>
+See also my 
+    <a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html">blog post</a> which provides an introduction to the active scalar field theory described above. </p>
+</p>
 <br>
 <h4>Self-propelling active droplets</h3>
 <hr>
@@ -136,14 +145,10 @@ spontaneously broken. Ours is the first phase-field modeling of cellular motilit
 This is consistent with swimming of cells without long-range liquid-crystalline order within the cytoplasm. 
 <br>
 
-We present a model of self-propulsion in active droplets, such as cells, in terms of two scalar fields. The two scalar fields, in the case of a cell, represent the cytoplasm and a contractile cortex. An active stress, of nonequilibrium origin, couples the two scalar fields. The self-propulsion results from the activity when rotational symmetry is spontaneously broken. We find, both analytically and numerically, that the swimming speed does not depend on the radius of the droplet, while it varies linearly with the activity parameter and with the droplet area fraction.
+Our model of self-propulsion in active droplets, such as cells, is obtained in terms of two scalar fields. The two scalar fields, in the case of a cell, represent the cytoplasm and a contractile cortex. An active stress, of nonequilibrium origin, couples the two scalar fields. The self-propulsion results from the activity when rotational symmetry is spontaneously broken. We find, both analytically and numerically, that the swimming speed does not depend on the radius of the droplet, while it varies linearly with the activity parameter and with the droplet area fraction.
 <br>
 <br>
 
-<p>
-See also my 
-    <a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html">blog post</a> which provides an introduction to the active scalar field theory described above. </p>
-</p>
 
 <h4 id="2020">References</h4>
 <ul>
@@ -153,37 +158,11 @@ See also my
     <p style="margin-bottom:.2cm;">
     Hydrodynamically interrupted droplet growth in scalar active matter.
     <a href="https://dx.doi.org/10.1103/PhysRevLett.123.148005">Phys. Rev. Lett. 123(14), 148005, 2019</a></p>
-    
-
 </ul>
 <br>
-
-<div id="div_id5"></div>
-<h3 id="software">Mathematical modelling of infectious diseases</h3>
-<hr>
-A recent interest is the application of mathematical and statistical tools to study the spread of infectious diseases. 
-In particular, 
-we seek to obtain the optimal intervention strategies which minimize the transmission of infection. For this, we have developed a numerical library, <a href="https://github.com/rajeshrinet/pyross">PyRoss</a>, which provides an integrated platform for inference, forecasts, and control for epidemiological models. 
-<br>
 <br>
 
-<a href="https://github.com/rajeshrinet/pyross"><img src="https://raw.githubusercontent.com/rajeshrinet/pyross/master/examples/banner.jpg" alt="Imagel"></a>
 
-<br>
-<h4 id="Preprints">References</h4>
-<ul>
-    <p style="margin-bottom:.2cm;">
-    Efficient Bayesian inference of fully stochastic epidemiological models with applications to COVID-19.
-    <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783, 2020</a></p>
-    
-    <p style="margin-bottom:.2cm;">
-    Inference, prediction and optimization of non-pharmaceutical interventions using compartment models: the PyRoss library.
-    <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a></p>
-    
-    <p>Age-structured impact of social distancing on the COVID-19 epidemic in India.
-    <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a></p>
-</ul>
-<br>
 
 
 <div id="div_id3"></div>
@@ -191,11 +170,35 @@ we seek to obtain the optimal intervention strategies which minimize the transmi
 <hr>
 
 <p>
+In this section, I provide a brief description of my work on (a) Bayesian inference of stochastic process, and (b) Ritz method for finding most probable transition paths between meta-stable states of stochastic dynamical systems. 
+</p>
+
+<h4>Bayesian inference of the stationary multivariate Ornstein-Uhlenbeck process</h3>
+<hr>
+<p>
 In probability theory and statistics, Gaussian processes has been an area of extensive research in the past few decades. See my <a href="https://rajeshrinet.github.io/blog/2018/gaussian-processes/">blog post</a> on Gaussian processes for more details.
 We have developed an O(N) method for inference of a stationary Gauss-Markov processes using four sufficient statistics matrices. This is in contrast to O(N^3) cost using the direct method of Gaussian processes, which makes approximate methods a necessity for large data-sets. Our method, on the other hand, exploits the Gauss-Markov property to obtain accurate and efficient inference. The formalism is then used to do inference on experimental data and we find that it outperforms fitting and sampling methods both in accuracy and speed.
 </p>
+
+
+<h4>Bayesian inference of a non-stationary multivariate Ornstein-Uhlenbeck process</h3>
+<hr>
 <p>
-I have also worked on developing a direct method, for computing transition paths and quasipotentials of rare diffusive events. In our direct method, utilizing the Ritz discretization, the most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analyzing the paths in a spectral basis of Chebyshev polynomials, nonlinear optimization is used to obtain coefficients that give the least action from which the instanton is synthesized in the spectral basis.
+A recent interest is the application of mathematical and statistical tools to study the spread of infectious diseases. 
+In particular, 
+we seek to obtain the optimal intervention strategies which minimize the transmission of infection. For this, we have developed a numerical library, <a href="https://github.com/rajeshrinet/pyross">PyRoss</a>, which provides an integrated platform for inference, forecasts, and control for epidemiological models. 
+</p>
+<a href="https://github.com/rajeshrinet/pyross"><img src="https://raw.githubusercontent.com/rajeshrinet/pyross/master/examples/banner.jpg" alt="Imagel"></a>
+
+<p>
+Bayesian inference in PyRoss, on pre-defined or user-defined models, is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process. 
+Read more: <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783, 2020</a>.</p>
+</p>
+
+<h4>Ritz method for transition paths and quasipotentials</h3>
+<hr>
+<p> 
+We present a Ritz method for finding most probable transition paths between meta-stable states of stochastic dynamical systems. Our method provides a route to constructing quasipotentials (non-equilibrium potentials) by repeatedly sampling transition paths asymptotically in time. In our direct method, utilizing the Ritz discretization, the most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analyzing the paths in a spectral basis of Chebyshev polynomials, nonlinear optimization is used to obtain coefficients that give the least action from which the instanton is synthesized in the spectral basis.
 </p>
 
 <h4 id="2020">References</h4>
@@ -219,9 +222,22 @@ I have also worked on developing a direct method, for computing transition paths
     <p style="margin-bottom:.2cm;">
     Fast Bayesian inference of optical trap stiffness and particle diffusion.
     <a href="http://doi.org/10.1038/srep41638">Sci. Rep. 7, 41638, 2017</a></p>
+    
+    <p style="margin-bottom:.2cm;">
+    Efficient Bayesian inference of fully stochastic epidemiological models with applications to COVID-19.
+    <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783, 2020</a></p>
+    
+    <p style="margin-bottom:.2cm;">
+    Inference, prediction and optimization of non-pharmaceutical interventions using compartment models: the PyRoss library.
+    <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a></p>
+    
+    <p>Age-structured impact of social distancing on the COVID-19 epidemic in India.
+    <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a></p>
 </ul>
-
 <br>
+<br>
+
+
 <div id="div_id4"></div>
 <h3 id="software">Scientific software</h3>
 <hr>
@@ -250,6 +266,7 @@ A summary of the selected libraries follows.
     <a href="https://github.com/rajeshrinet/pygl">PyGL</a> is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation. 
     </p>
 
+<br>
 <br>
 
 
