@@ -52,14 +52,16 @@ An itemized summary of my current interests follows.
 <p>
 <a href="https://github.com/rajeshrinet/pystokes"><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/thisPyIm.png"></p></a>
 
-Active particles are a new class of colloids which create flow - even when stationary - due to large surface gradients from local nonequilibrium processes. These nonequilibrium processes may be due to the motion of cilia, as in microorganisms (Brennen & Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens & Howse, 2010) at the colloidal particle. The latter, often called autophoresis, is a generalisation of well-known phoretic phenomena including, <em>inter alia</em>, electrophoresis (electric field), diffusiophoresis (chemical field) and thermophoresis (temperature field) that occur in response to externally imposed gradients of phoretic fields (Anderson, 1989).
+Active particles are a class of colloids that create exterior fluid flow - even when stationary - due to nonequilibrium processes on their surfaces. Their examples include microorganisms [ciliary motion is the cause of exterior flow (Brennen & Winet 1977)] and autophoretic particles [osmotic flow, in response to spontaneously generated gradients of phoretic fields, drive exterior flow (Ebbens & Howse, 2010)]. Autophoresis is a generalization of well-known phoretic phenomena due to spontaneously generated gradients of phoretic fields. Phoretic phenomena - electrophoresis (electric field), diffusiophoresis (chemical field), and thermophoresis (temperature field) - occur in response to externally imposed gradients of phoretic fields (Anderson, 1989).
 <br>
 <br>
 <p>
-Hydrodynamic and phoretic interactions between active particles in a viscous fluid are central to the understanding of their collective dynamics. Under experimentally relevant conditions, the motion of the fluid flow is governed by the Stokes equation and that of the phoretic field, if one is present, by the Laplace equation. The “activity” appears in these equations as boundary conditions on the particle surfaces that prescribe the slip velocity in the Stokes equation and flux of the phoretic field in the Laplace equation. We solve these equations simultaneously - using a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization - to compute phoretic and hydrodynamic interactions between spheres with slip boundary conditions on their surfaces. This formalism has been implemented in a numerical library, <a href="https://github.com/rajeshrinet/pystokes">PyStokes</a>, to study phoresis and Stokesian hydrodynamics in Python. The resulting methodology has been applied to study various experimental phenomena of recent interest in active matter.
+Hydrodynamic and phoretic interactions between active particles are central to the understanding of their collective dynamics. Under experimentally relevant conditions, the motion of the fluid flow is governed by the Stokes equation and that of the phoretic field, if one is present, by the Laplace equation. The “activity” appears in these equations as boundary conditions on the particle surfaces that prescribe the slip velocity in the Stokes equation and flux of the phoretic field in the Laplace equation. We have obtained a complete formalism to study phoresis and Stokesian hydrodynamics of colloidal spheres with slip. We use a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization. This formalism has been implemented in a free and open-source numerical library, 
+<a href="https://github.com/rajeshrinet/pystokes">PyStokes</a>, and applied to study various experimental phenomena of recent interest in active matter.
 </p>
+<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/2_volvox.gif" alt="drawing" width="800"/>
 <p>
-See also my 
+The above animation is an application of our theoretical and numerical framework [<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">Phys. Rev. Lett. 124(8), 088003, 2020</a>]. Here, we show that the oscillatory dynamics of a pair of active particles near a boundary, best exemplified by the fascinating dance of the green algae Volvox, can be understood in terms of Hamiltonian mechanics, even though the system does not conserve energy. See also my 
     <a href="https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html">blog post</a> which provides more details of the theory and applications of the method described above.</p>
 </p>
 
@@ -298,7 +300,7 @@ Exclusion processes refer to a family of models of transport where particles hav
 <br>
 <hr>
 <p><small>adapted from the <a href="https://github.com/orderedlist/minimal">minimal theme</a> | 
-last updated 2021-10-02
+last updated  4-Oct-2021
 </small></p>
 </div>
 <script src="javascripts/scale.fix.js"></script>
