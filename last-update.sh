@@ -11,7 +11,7 @@ sed -i "" "s/.*last updated.*/last updated $(date '+%v')/g" $file
 
 
 
-file='gallery/index.html'
+file='contact/index.html'
 echo "Updating file: $file" 
 sed -i "" "s/.*last updated.*/last updated $(date '+%v')/g" $file
 
