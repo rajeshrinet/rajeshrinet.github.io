@@ -13,7 +13,7 @@ body {
 .navbar {
   background-color: #313236;
   border-radius: 3px;
-  max-width: 640px;
+  max-width: 750px;
 }
 
 .navbar a {
@@ -84,7 +84,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:640px;
+  width:750px;
   margin:0;
 }
 
