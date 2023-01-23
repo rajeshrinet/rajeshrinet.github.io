@@ -13,7 +13,7 @@ body {
 .navbar {
   background-color: #313236;
   border-radius: 3px;
-  max-width: 900px;
+  max-width: 640px;
 }
 
 .navbar a {
@@ -84,8 +84,8 @@ a:hover small {
 }
 
 .wrapper {
-  width:900px;
-  margin:0 auto;
+  width:640px;
+  margin:0;
 }
 
 blockquote {
