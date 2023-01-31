@@ -1,4 +1,4 @@
-body {
+body {;
   background-color: #fff;
   padding-right: 30px;
   padding-bottom: 50px;
@@ -8,24 +8,24 @@ body {
   font-weight:400;
 }
 
-
-
 .navbar {
-  background-color: #313236;
+  background-color: #000000;
   border-radius: 3px;
   max-width: 750px;
+  padding-left: 0px;
 }
 
 .navbar a {
   color: #aaa;
   display: inline-block;
-  font-size: 16px;
-  padding: 12px;
+  font-size: 18px;
+  padding: 16px;
   text-decoration: none;
 }
 
 .navbar a:hover {
-  color: #ffffff;
+  color: #FFFFFF;
+  display: inline-block;
 }
 
 
