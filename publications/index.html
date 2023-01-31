@@ -1,36 +1,72 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Rajesh Singh</title>
-
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Publications | Rajesh Singh</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../images/this.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  </head>
-  <body>
-    <div class="wrapper">
-    <div class="navbar">
-        <a href="https://rajeshrinet.github.io/">HOME</a><a href="https://rajeshrinet.github.io/research/">RESEARCH</a><a href="https://rajeshrinet.github.io/publications/"><b>PUBLICATIONS</b></a>
-    </div>
-<br>
-        
-<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body>
+<header class="site-header">
+
+
+  <div class="wrapper"><a class="site-title" rel="author" href="https://rajeshrinet.github.io/">Homepage</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+            
+        <div class="trigger"><a class="page-link" href="https://rajeshrinet.github.io/research/">Research</a><a class="page-link" href="https://rajeshrinet.github.io/publications/">Publications</a> </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>
 Scientific software
-</h3>
-        <hr>
+</h2>
 I develop state-of-the-art numerical libraries for my research in theoretical physics and applied mathematics. 
     See my    <a href="https://github.com/rajeshrinet">GitHub</a>
     profile for a full list of open-source projects. 
     <br>
     <br>
-    <br>
-<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Publications</h3>
-        <hr>
+<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Publications</h2>
     <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Link to my Google Scholar page</a> 
 <!---    <a href="https://www.researchgate.net/profile/Rajesh_Singh66">ResearchGate</a> --->
-    <br>
     <br>
 <h4>A list of publications in reverse-chronological order follows.</h4>
     <br>
@@ -233,277 +269,25 @@ I develop state-of-the-art numerical libraries for my research in theoretical ph
 
 <br>
 <br>
-<hr>
 <br>
-<br>
-<section>
-<div id="div_id1"></div>
-<h3>Phoresis and Stokesian hydrodynamics of active and driven particles</h3>
 
-<hr>
-
-Active particles are a class of colloids that create exterior fluid flow - even when stationary - due to nonequilibrium processes on their surfaces. Their examples include microorganisms [ciliary motion drives exterior flow (Brennen & Winet 1977)] and autophoretic particles [exterior osmotic flow in response to spontaneously generated gradients of phoretic fields (Ebbens & Howse, 2010)]. 
-<br>
-<br>
-<p>
-Hydrodynamic and phoretic interactions between active particles are central to the understanding of their collective dynamics. Under experimentally relevant conditions, the motion of the fluid flow is governed by the Stokes equation and that of the phoretic field, if one is present, by the Laplace equation. The “activity” appears in these equations as boundary conditions on the particle surfaces that prescribe the slip velocity in the Stokes equation and flux of the phoretic field in the Laplace equation. 
-</p>
-<p>
-We have obtained a complete formalism to study phoresis and Stokesian hydrodynamics of colloidal spheres with slip. We use a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization. This formalism has been implemented in a free and open-source numerical library, 
-<a href="https://github.com/rajeshrinet/pystokes">PyStokes</a>, and applied to study various experimental phenomena of recent interest in active matter.
-</p>
-<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/2_volvox.gif" alt="drawing" width="800"/>
-<p>
-The above animation is an application of our theoretical and numerical framework [<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">Phys. Rev. Lett. 124(8), 088003, 2020</a>]. Here, we show that the oscillatory dynamics of a pair of active particles near a boundary, best exemplified by the fascinating dance of the green algae Volvox, can be understood in terms of Hamiltonian mechanics, even though the system does not conserve energy. See also my 
-    <a href="https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html">blog post</a> which provides more details of the theory and applications of the method described above.</p>
-</p>
-
-
-<h4 id="2020">References</h4>
-<ul>
-    <p style="margin-bottom:.2cm;">
-Exact boundary integral solution for the Stokes traction of an active particle.
-<a href="https://arxiv.org/abs/2109.02581">arXiv:2109.02581, 2021</a></p>
-     
-
-
-    <p style="margin-bottom:.2cm;">
-    Controlled optofluidic crystallization of colloids tethered at interfaces.
-    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.068001">Phys. Rev. Lett. 125(6), 068001, 2020</a></p>
-     
-
-    <p style="margin-bottom:.2cm;">
-    PyStokes: phoresis and Stokesian hydrodynamics in Python.
-    <a href="https://doi.org/10.21105/joss.02318">J. Open Source Software 5(50), 2318, 2020</a></p>
   
-    <p style="margin-bottom:.2cm;">
-    Periodic orbits of active particles induced by hydrodynamic monopoles.
-    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">Phys. Rev. Lett. 124(8), 088003, 2020</a></p>
-   
-    <p style="margin-bottom:.2cm;">
-    Competing chemical and hydrodynamic effects in autophoretic colloidal suspensions
-    <a href="https://dx.doi.org/10.1063/1.5090179">J. Chem. Phys. 161, 044901, 2019</a>
-    </p>
-  
-    <p style="margin-bottom:.2cm;">
-    Flow-induced phase separation of active particles is controlled by boundary conditions.
-    <a href="https://doi.org/10.1073/pnas.1718807115">PNAS 115(21), 5403, 2018</a></p>
-  
-    <p style="margin-bottom:.2cm;">
-    Generalized Stokes laws for active colloids and their applications.
-    <a href="https://dx.doi.org/10.1088/2399-6528/aaab0d">J. Phys. Commun. 2, 025025, 2018</a></p>
-
-    <p style="margin-bottom:.2cm;">
-    Fluctuating hydrodynamics and the Brownian motion of an active colloid near a wall.
-    <a href="http://www.tandfonlinEcom/doi/abs/10.1080/17797179.2017.1294829?journalCode=tecm20/a">Eur. J. Comp. Mech. 26, 78-97,  2017</a></p>
-    
-    <p style="margin-bottom:.2cm;">
-    Universal Hydrodynamic Mechanisms for Crystallization in Active Colloidal Suspensions.
-    <a href="https://doi.org/10.1103/PhysRevLett.117.228002">Phys. Rev. Lett. 117(22), 228002, 2016</a>
-    </p>
-
-    <p style="margin-bottom:.2cm;">
-    Many-body microhydrodynamics of colloidal particles with active boundary layers.
-    <a href="http://dx.doi.org/10.1088/1742-5468/2015/06/P06017">J. Stat. Mech. P06017, 2015</a>
-    </p>
-<p><a href="https://github.com/rajeshrinet/pystokes"><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/thisPyIm.png"></p></a>
-<hr>
-</ul>
-<br>
-<br>
-
-</header>
-<section>
-<div id="div_id2"></div>
-<h3>Continuum theories of active matter</h3>
-
-<hr>
-Field-theoretic description of active matter systems can be obtained from coarse-graining the microscopic dynamics. An alternative way is to write the continuum equations for the dynamics of the order parameter that respect the underlying symmetries of the system and break the detailed balance condition minimally. I have explored such field theories without time-reversal symmetries to understand recent experiments in active matter, as summarized below. My main focus in this field is to explore the role of fluid flows due to stresses of nonequilibrium origin.
-<br>
-<br>
-<h4>Splitting active droplets</h3>
-<hr>
-<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssi.gif" alt="Imagel" > 
-<br>
-<br>
-Microphase separation (phase separation arrested to a length-scale) is often observed in suspensions of spherical active particles. In such suspensions, the scalar concentration is the only order parameter, when there is no orientational order in the bulk. We show that such microphase separations can be achieved by extending theories of passive binary mixtures (for example, phase separation of oil droplets in passive binary oil-water mixtures). In thermal equilibrium systems, phase separation is a thermodynamic process where a uniformly mixed state can lower its free energy by dividing into phases. Ostwald ripening (small droplets disappear and bigger droplets grow) drives thermal equilibrium systems to full phase separation. We show that, by coupling the scalar density to fluid flow, the negative mechanical tension of an active suspension creates, via a self-shearing instability, a steady-state life cycle of droplet growth interrupted by division whose scaling behavior we predict.
-<br>
-<br>
-<a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html"><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/active_stress.jpg"></a>
-<br>
-<br>
-
- Our starting point is a scalar field theory with mass and momentum conservation (model H). A self-shearing instability is obtained if active extensile stress, which does not respect time-reversal symmetry, is added to the momentum conservation equation in model H. This instability interrupts the growth of droplets by splitting them. The extensile active stress has the effect of reversing the sign of the effective tension which arrests the growth. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability. 
-<br>
-<br>
-<p>
-See also my 
-    <a href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html">blog post</a> which provides an introduction to the active scalar field theory described above. </p>
-</p>
-<br>
-<h4>Self-propelling active droplets</h3>
-<hr>
-
-<a href="https://github.com/rajeshrinet/pygl"><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssb.jpg" alt="Imagel"></a>
-In this work, we have shown that active stresses can drive Marangoni flow (resulting in motility) on the surface of the droplet when the rotational symmetry is
-spontaneously broken. Ours is the first phase-field modeling of cellular motility using scalar order parameters alone.
-This is consistent with swimming of cells without long-range liquid-crystalline order within the cytoplasm. 
-<br>
-
-Our model of self-propulsion in active droplets, such as cells, is obtained in terms of two scalar fields. The two scalar fields, in the case of a cell, represent the cytoplasm and a contractile cortex. An active stress, of nonequilibrium origin, couples the two scalar fields. The self-propulsion results from the activity when rotational symmetry is spontaneously broken. We find, both analytically and numerically, that the swimming speed does not depend on the radius of the droplet, while it varies linearly with the activity parameter and with the droplet area fraction.
-<br>
-<br>
 
 
-<h4 id="2020">References</h4>
-<ul>
-    <p style="margin-bottom:.2cm;">
-    Self-propulsion of active droplets without liquid-crystalline order.
-    <a href="https://dx.doi.org/10.1103/PhysRevResearch.2.032024">Phys. Rev. Research 2(3), 032024(R), 2020</a></p>
-    <p style="margin-bottom:.2cm;">
-    Hydrodynamically interrupted droplet growth in scalar active matter.
-    <a href="https://dx.doi.org/10.1103/PhysRevLett.123.148005">Phys. Rev. Lett. 123(14), 148005, 2019</a></p>
-</ul>
-<br>
-<br>
-
-
-
-
-<div id="div_id3"></div>
-<h3>Stochastic processes</h3>
-<hr>
-
-<p>
-In this section, I provide a brief description of my work on (a) Bayesian inference of stochastic process, and (b) Ritz method for finding most probable transition paths between meta-stable states of stochastic dynamical systems. 
-</p>
-
-<h4>Bayesian inference of the stationary multivariate Ornstein-Uhlenbeck process</h3>
-<hr>
-<p>
-In probability theory and statistics, Gaussian processes has been an area of extensive research in the past few decades. See my <a href="https://rajeshrinet.github.io/blog/2018/gaussian-processes/">blog post</a> on Gaussian processes for more details.
-We have developed an O(N) method for inference of a stationary Gauss-Markov processes using four sufficient statistics matrices. This is in contrast to O(N^3) cost using the direct method of Gaussian processes, which makes approximate methods a necessity for large data-sets. Our method, on the other hand, exploits the Gauss-Markov property to obtain accurate and efficient inference. The formalism is then used to do inference on experimental data and we find that it outperforms fitting and sampling methods both in accuracy and speed.
-Read more: <a href="http://arxiv.org/abs/1706.04961">arXiv:1706.04961.</a>
-</p>
-
-
-<h4>Bayesian inference of a non-stationary multivariate Ornstein-Uhlenbeck process</h3>
-<hr>
-<p>
-A recent interest is the application of mathematical and statistical tools to study the spread of infectious diseases. 
-In particular, 
-we seek to obtain the optimal intervention strategies which minimize the transmission of infection. For this, we have developed a numerical library, <a href="https://github.com/rajeshrinet/pyross">PyRoss</a>, which provides an integrated platform for inference, forecasts, and control for epidemiological models. 
-</p>
-<a href="https://github.com/rajeshrinet/pyross"><img src="https://raw.githubusercontent.com/rajeshrinet/pyross/master/examples/others/banner.jpg" alt="Imagel"></a>
-
-<p>
-Bayesian inference in PyRoss, on pre-defined or user-defined models, is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process. 
-Read more: <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783.</a></p>
-</p>
-
-<h4>Ritz method for transition paths and quasipotentials</h3>
-<hr>
-<p> 
-We present a Ritz method for finding most probable transition paths between meta-stable states of stochastic dynamical systems. Our method provides a route to constructing quasipotentials (non-equilibrium potentials) by repeatedly sampling transition paths asymptotically in time. In our direct method, utilizing the Ritz discretization, the most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analyzing the paths in a spectral basis of Chebyshev polynomials, nonlinear optimization is used to obtain coefficients that give the least action from which the instanton is synthesized in the spectral basis.
-</p>
-
-<h4 id="2020">References</h4>
-<ul>
-    
-    <p style="margin-bottom:.2cm;">
-    <em>Ritz method for transition paths and quasipotentials of rare diffusive events.</em>
-    <br>
-    <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033208">Phys. Rev. Research 2(3), 033208, 2020</a>
-    </p>
-    
-    <p style="margin-bottom:.2cm;">
-    Fast Bayesian inference of the multivariate Ornstein-Uhlenbeck process.
-    <a href="https://dx.doi.org/10.1103/PhysRevE.98.012136">Phys. Rev. E 98, 012136, 2018</a></p>
-
-    <p style="margin-bottom:.2cm;">
-    <em>Direct verification of the fluctuation-dissipation relation in viscously coupled oscillators.</em>
-    <a href="https://doi.org/10.1103/PhysRevE.96.050102">Phys. Rev. E 96, 050102(R), 2017</a>
-    </p>
-    
-    <p style="margin-bottom:.2cm;">
-    Fast Bayesian inference of optical trap stiffness and particle diffusion.
-    <a href="http://doi.org/10.1038/srep41638">Sci. Rep. 7, 41638, 2017</a></p>
-    
-    <p style="margin-bottom:.2cm;">
-    Efficient Bayesian inference of fully stochastic epidemiological models with applications to COVID-19.
-    <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783, 2020</a></p>
-    
-    <p style="margin-bottom:.2cm;">
-    Inference, prediction and optimization of non-pharmaceutical interventions using compartment models: the PyRoss library.
-    <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a></p>
-    
-    <p>Age-structured impact of social distancing on the COVID-19 epidemic in India.
-    <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a></p>
-</ul>
-<br>
-<br>
-
-
-<div id="div_id4"></div>
-<h3 id="software">Scientific software</h3>
-<hr>
-<p>
-I develop state-of-the-art numerical libraries for my research in theoretical physics and applied mathematics. 
-See <a href="https://github.com/rajeshrinet/">my Github profile</a> for a full list of open-source projects and the list of contributors to these libraries. 
-A summary of the selected libraries follows.
-
-</p>
-<h4 id="Preprints">PyStokes</h4><hr>
-    <p>
-    <a href="https://github.com/rajeshrinet/pystokes">PyStokes</a> is a numerical library for phoresis and Stokesian hydrodynamics in Python. The PyStokes library has been specifically designed for studying phoretic and hydrodynamic interactions in suspensions of active particles. It uses a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization, to compute phoretic and hydrodynamic interactions between spherical active particles with slip boundary conditions on their surfaces. The library has been used to model suspensions of microorganisms, synthetic autophoretic particles and self-propelling droplets. The current implementation includes unbounded volumes, volumes bounded by plane walls or interfaces, and periodic volumes.  
-PyStokes, <a href="https://github.com/rajeshrinet/pystokes">GitHub link</a>, has more than 20 thousands downloads in the last year on GitHub.
-    </p>
-<h4 id="Preprints">PyRoss</h4><hr>
-    <p>
-    <a href="https://github.com/rajeshrinet/pyross">PyRoss</a> is a numerical library that offers an integrated platform for inference, forecasts and non-pharmaceutical interventions in structured epidemiological compartment models. Generative processes can be formulated stochastically (as Markov population processes) or deterministically (as systems of differential equations). Population processes are sampled exactly by the Doob-Gillespie algorithm or approximately by the tau-leaping algorithm while differential equations are integrated by both fixed and adaptive time-stepping. A hybrid algorithm transits dynamically between these depending on the magnitude of the compartmental fluctuations. Bayesian inference on pre-defined or user-defined models is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process.
-PyRoss, <a href="https://github.com/rajeshrinet/pyross">GitHub link</a>, has been
-downloaded more than 18 thousands times in the last year and has over 125 stars on GitHub.
-    </p>
-
-<h4 id="Preprints">PyRitz</h4><hr>
-    <p>
-    <a href="https://github.com/lukastk/PyRitz">PyRitz</a> is a Python package, using the Ritz method, for computing transition paths and quasipotentials in Python. The most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analysing the paths in a spectral basis of Chebyshev polynomial, nonlinear optimisation is used to obtain coefficients that give the least action from which the instanton is synthesised in the spectral basis.
-    </p>
-
-<h4 id="Preprints">PyGL</h4><hr>
-    <p>
-    <a href="https://github.com/rajeshrinet/pygl">PyGL</a> is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation. 
-    </p>
-
-<br>
-<br>
-
-
-
-
-<h3 id="software">Asymmetric simple exclusion processes</h3>
-<hr>
-<p>
-Exclusion processes refer to a family of models of transport where particles have hard-core interaction. A randomly chosen particle on a 1D lattice will move to its neighboring site if it is empty. These models can be studied under different kinds of boundary conditions. We consider open-chain exclusion processes where particles are injected from the left boundary at a rate α and are absorbed in the right boundary at rate β. We study the role of interaction between several such "lanes". In <a href="https://rajeshrinet.github.io/blog/2014/asep/"> this blog post</a>, I provide an introduction to the asymmetric exclusion process and describes our work on multi-lane exclusion models.
-</p>
-<h4 id="Preprints">References</h4>
-<ul>
-    <p>
-    <em>Phase-plane analysis of driven multi-lane exclusion models.</em>
-    <a href="http://dx.doi.org/10.1088/1742-5468/2012/04/P04004">J. Stat. Mech. P04004, 2012</a>
-    </p>
-</ul>
-<br>
-<br>
-
-<br>
-<hr>
+    </div>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
 <p><small>
 last updated 31-Jan-2023
 </small></p>
-</div>
-<script src="javascripts/scale.fix.js"></script>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
-
 
