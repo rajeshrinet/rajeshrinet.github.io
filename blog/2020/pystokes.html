@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Phoresis and Stokesian hydrodynamics | Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Phoresis and Stokesian hydrodynamics" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Phoresis and Stokesian hydrodynamics of active and driven particles" />
+<meta property="og:description" content="Phoresis and Stokesian hydrodynamics of active and driven particles" />
+<link rel="canonical" href="https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html" />
+<meta property="og:url" content="https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html" />
+<meta property="og:site_name" content="Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html","@type":"BlogPosting","headline":"Phoresis and Stokesian hydrodynamics","dateModified":"2020-07-19T00:00:00-05:00","datePublished":"2020-07-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rajeshrinet.github.io/blog/markdown/2020/07/19/pystokes.html"},"description":"Phoresis and Stokesian hydrodynamics of active and driven particles","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rajeshrinet.github.io/blog/feed.xml" title="Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/archive/">Archive</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Phoresis and Stokesian hydrodynamics</h1><p class="page-description">Phoresis and Stokesian hydrodynamics of active and driven particles</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-19T00:00:00-05:00" itemprop="datePublished">
+        Jul 19, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#about">About</a></li>
+<li class="toc-entry toc-h3"><a href="#controlled-optofluidic-crystallization-of-colloids-tethered-at-interfaces">Controlled optofluidic crystallization of colloids tethered at interfaces</a></li>
+<li class="toc-entry toc-h3"><a href="#periodic-orbits-of-active-particles">Periodic orbits of active particles</a></li>
+<li class="toc-entry toc-h3"><a href="#crystallization-at-a-plane-no-slip-surface">Crystallization at a plane no-slip surface</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#kinetics-of-crystallization">Kinetics of crystallization</a></li>
+<li class="toc-entry toc-h4"><a href="#attractive-monopolar-flow-of-active-particles-near-a-plane-surface">Attractive monopolar flow of active particles near a plane surface</a></li>
+<li class="toc-entry toc-h4"><a href="#self-assembly-of-hexagonal-cluster-of-active-particles">Self-assembly of hexagonal cluster of active particles</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#flow-induced-phase-separation-is-controlled-by-boundary-conditions">Flow-induced phase separation is controlled by boundary conditions</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#vortex-stabilised-crystallites-at-a-plane-no-slip-surface">Vortex-stabilised crystallites at a plane no-slip surface</a></li>
+<li class="toc-entry toc-h4"><a href="#two-dimensional-crystallites-at-a-plane-no-shear-surface">Two-dimensional crystallites at a plane no-shear surface</a></li>
+<li class="toc-entry toc-h4"><a href="#traveling-bands-in-a-hele-shaw-cell">Traveling bands in a Hele-Shaw cell</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#autophoretic-arrest-of-flow-induced-phase-separation">Autophoretic arrest of flow-induced phase separation</a></li>
+<li class="toc-entry toc-h3"><a href="#active-particles-in-external-potentials">Active particles in external potentials</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#non-equilibrium-convective-rolls-of-confined-active-particles-in-a-single-harmonic-trap">Non-equilibrium convective rolls of confined active particles in a single harmonic trap</a></li>
+<li class="toc-entry toc-h4"><a href="#dynamics-in-an-optical-lattice">Dynamics in an optical lattice</a></li>
+<li class="toc-entry toc-h4"><a href="#dynamics-of-1024-contractile-and-extensile-active-colloids-in-a-spherical-confinement">Dynamics of 1024 contractile and extensile active colloids in a spherical confinement</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#electrohydrodynamic-flows-self-assembly-of-nanoparticles">Electrohydrodynamic flows: self-assembly of nanoparticles</a></li>
+</ul><h3 id="about">
+<a class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h3>
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/thisPyIm.png" alt="Image"></p>
+
+<p>In this blog, I describe a theory for studying phoretic and hydrodynamic interactions of colloidal particles. The main focus is to understand these long-ranged interactions for a new class of colloids, called active particles, which are distinguished by their ability to produce flow, and thus motion, in the absence of external forces or torques. Active particles can create flow - even when stationary - due to large surface gradients from local nonequilibrium processes. These nonequilibrium processes may be due to the motion of cilia, as in microorganisms (Brennen &amp; Winet, 1977) or osmotic flows of various kinds in response to spontaneously generated gradients of phoretic fields (Ebbens &amp; Howse, 2010) at the colloidal particle. The latter, often called autophoresis, is a generalisation of well-known phoretic phenomena including, inter alia, electrophoresis (electric field), diffusiophoresis (chemical field) and thermophoresis (temperature field) that occur in response to externally imposed gradients of phoretic fields (Anderson, 1989).</p>
+
+<p>Hydrodynamic and phoretic interactions between active particles in a viscous fluid are central to the understanding of their collective dynamics.  Under experimentally relevant conditions, the motion of the fluid is governed by the Stokes equation and that of the phoretic field, if one is present, by the Laplace equation.  The “activity” appears in these equations as boundary conditions on the particle surfaces that prescribe the slip velocity in the Stokes equation and flux of the phoretic field in the Laplace equation. The slip is a mechanism to drive fluid flow in absence of any external forces and torques.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes/master/docs/paper/FigSchema.png" alt="Input and output structure of PyStokes to determine the hydrodynamic and phoretic interactions between active particles in a three-dimensional domain $V$. The equations are coupled by active boundary conditions on the surface $S_{i}$ of the particles. Particle indices are $i=1,\ldots,N$ and harmonic indices are $l=1,2,\ldots$ and $\sigma=s,a,t$ (see text). \label{fig:figS}"></p>
+
+<p>We model an active particle as a spherical colloidal particle with surface slip.  Thus, the theory is applicable to both active and driven particles.
+The slip velocity and the phoretic flux are related by a linear constitutive law that can be derived from a detailed analysis of the boundary layer physics (Anderson, 1989). The Stokes and Laplace equations are coupled by this linear constitutive law only at the particle boundaries. The linearity of the governing equations and the coupling boundary conditions allows for a formally exact solution of the problem of determining the force per unit area on the particle surfaces. This formally exact solution can be approximated to any desired degree of accuracy by a truncated series expansion in a complete basis of functions on the particle boundaries. This, in turn, leads to an efficient and accurate numerical method for computing hydrodynamic and phoretic interactions between active particles. We solve these equations simultaneously - using a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization - to compute phoretic and hydrodynamic interactions between spheres with slip boundary conditions on their surfaces. Details are available in <a href="https://dx.doi.org/10.1088/2399-6528/aaab0d">Singh and Adhikari JPC 2018</a> and <a href="https://dx.doi.org/10.1063/1.5090179">Singh, Adhikari and Cates JCP 2019</a></p>
+
+<p>The above formalism has been implemented in a numerical library, PyStokes. <a href="https://github.com/rajeshrinet/pystokes">PyStokes</a> is a numerical library for phoresis and Stokesian hydrodynamics in Python. The resulting methodology has been applied to study various experimental phenomena of recent interest in active and driven matter. In what follows, a selected list of applications is presented.</p>
+
+<p><br>
+<br></p>
+<h3 id="controlled-optofluidic-crystallization-of-colloids-tethered-at-interfaces">
+<a class="anchor" href="#controlled-optofluidic-crystallization-of-colloids-tethered-at-interfaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlled optofluidic crystallization of colloids tethered at interfaces</h3>
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/optofluidic_crystals.gif" alt="drawing" width="500"></p>
+
+<p>Reference: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.068001">A Caciagli, R Singh, D Joshi, R Adhikari, and E Eiser,
+ Physical Review Letters 125 (6), 068001 (2020)</a></p>
+
+<p>The interplay between laser light, trapped particles, and fluid flow can produce counterintuitive effects in optical tweezing. Here we uncover an attractive, long-ranged, non-equilibrium force field centered on an optically trapped particle near a water-oil interface, produced by local heating and mediated by global fluid flow. This causes surrounding untrapped colloids, tethered to the interface but allowed to diffusely freely along it, to crystallize around the force center. In this configuration, the non-equilibrium force is the gradient of a potential, of strength proportional to the local heating, which, surprisingly, allows for an effective equilibrium description. Our results open unexplored routes to optofluidic manipulation and assembly of colloidal particles.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/figs/optofluidic.jpeg" alt="drawing" width="500"></p>
+
+<p>See also this synopsis: <a href="https://physics.aps.org/articles/v13/s102"><strong>Small Spheres Freeze When Hot</strong></a></p>
+
+<p><br><br></p>
+
+<h3 id="periodic-orbits-of-active-particles">
+<a class="anchor" href="#periodic-orbits-of-active-particles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Periodic orbits of active particles</h3>
+<p>Reference: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">A Bolitho, R Singh, R Adhikari, Physical Review Letters 124 (8), 088003 (2020)</a></p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/2_volvox.gif" alt="Image"></p>
+
+<p>Our work shows that the oscillatory dynamics of a pair of active particles near
+a boundary, best exemplified by the fascinating dance of the green algae
+Volvox, can be understood in terms of Hamiltonian mechanics, even though the
+system does not conserve energy. At the heart of this dance, which is a limit
+cycle of a dynamical system, is a Hamiltonian, damped  by gravitational torque
+and driven by fluid flow reflected off the boundary. 
+For small oscillations, this Hamiltonian is identical to that of a pendulum and, like a metronome, sets
+the beat of the dance. For large oscillations, the beat can be evaluated with
+the same mathematics as for a pendulum, and when damping and driving are taken
+into account, agrees very well with experiment. This establishes without doubt
+that the enigmatic Volvox dance, rather than being an evolutionarily selected
+biological phenomenon, is a physical phenomenon that can be understood fully
+in terms of the familiar concepts of mechanics. Our study highlights the
+significance of fluid flows and their distortion by boundaries in active matter
+and shows that the applicability of Hamiltonian mechanics extends beyond its
+intended domain of energy-conserving systems to time-irreversible, dissipative,
+active systems.</p>
+
+<p><br><br></p>
+
+<h3 id="crystallization-at-a-plane-no-slip-surface">
+<a class="anchor" href="#crystallization-at-a-plane-no-slip-surface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crystallization at a plane no-slip surface</h3>
+<p>Reference: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.117.228002">R Singh, R Adhikari, Physical Review Letters 117, 228002 (2016)</a></p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/popSumFig.jpg" alt="drawing" width="800"></p>
+
+<p>It is well-known that crystallization of colloids approximating hard spheres
+is due, paradoxically, to the higher entropy of the ordered crystalline state
+compared to that of  the disordered liquid state. Out of equilibrium, no such general
+principle is available to rationalize crystallization. Here, we identify a new non-equilibrium mechanism, associated with entropy production rather than entropy gain, which drives crystallization of active colloids near plane walls. This is a new mechanism of spontaneous symmetry breaking, with no analogue in equilibrium. The properties of the non-equilibrium crystal, consequently, show remarkable exceptions: strong dissipation suppresses propagating phonon-modes and turns them diffusive, yet, activity enhances the elastic moduli of the crystal. An active crystal, then, has reduced phase fluctuations and is less susceptible to the destruction of long-ranged order, even though it is two-dimensional. The investigation of topological phase transitions in these systems presents, therefore, exciting avenues for future research. There is an excellent qualitative and quantitative match of our results with two recent experiments.</p>
+
+<h4 id="kinetics-of-crystallization">
+<a class="anchor" href="#kinetics-of-crystallization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kinetics of crystallization</h4>
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/crystallization_kinetics.gif" alt="Image"></p>
+
+<h4 id="attractive-monopolar-flow-of-active-particles-near-a-plane-surface">
+<a class="anchor" href="#attractive-monopolar-flow-of-active-particles-near-a-plane-surface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attractive monopolar flow of active particles near a plane surface</h4>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/crystallization_flow.gif" alt="Image"></p>
+
+<h4 id="self-assembly-of-hexagonal-cluster-of-active-particles">
+<a class="anchor" href="#self-assembly-of-hexagonal-cluster-of-active-particles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-assembly of hexagonal cluster of active particles</h4>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/crystallization_crystallites.gif" alt="Image"></p>
+
+<p><br><br></p>
+
+<h3 id="flow-induced-phase-separation-is-controlled-by-boundary-conditions">
+<a class="anchor" href="#flow-induced-phase-separation-is-controlled-by-boundary-conditions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flow-induced phase separation is controlled by boundary conditions</h3>
+<p>Reference: <a href="https://www.pnas.org/content/115/21/5403.short">S Thutupalli, D Geyer, R Singh, R Adhikari, H Stone Proceedings of the National Academy of Sciences 115, 5403 (2018)</a></p>
+
+<p>Active colloids - microorganisms, synthetic microswimmers, and self-propelling droplets - are known to self-organize into ordered structures at fluid-solid boundaries. Their mutual entrainment in the attractive component of the flow has been postulated as a possible mechanism underlying this phenomenon. In this work, we describe this fluid-induced phase separation by combining experiments, theory, and numerical simulations, and demonstrate its control by changing the hydrodynamic boundary conditions. We show that, for flow in Hele-Shaw cells, metastable lines or stable traveling bands of colloids can be obtained by varying the cell height, while for flow bounded by a plane, dynamic crystallites are formed. At a plane no-slip wall, these crystallites are characterized by a continuous out-of-plane flux of particles that circulate and re-enter at the crystallite edges, thereby stabilizing them, while the crystallites are strictly two-dimensional at a plane where the tangential stress vanishes. These results are elucidated by deriving, using the boundary-domain integral formulation of Stokes flow, exact expressions for dissipative, long-ranged, many-body active forces and torques between them in respective boundary conditions. The resulting numerical simulations of motion under the action of the active forces and torques are in excellent agreement with experiments. Our work demonstrates the control of phase separation of active particles by boundary conditions.</p>
+
+<h4 id="vortex-stabilised-crystallites-at-a-plane-no-slip-surface">
+<a class="anchor" href="#vortex-stabilised-crystallites-at-a-plane-no-slip-surface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vortex-stabilised crystallites at a plane no-slip surface</h4>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/FIPS_wall.gif" alt="Image"></p>
+
+<h4 id="two-dimensional-crystallites-at-a-plane-no-shear-surface">
+<a class="anchor" href="#two-dimensional-crystallites-at-a-plane-no-shear-surface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Two-dimensional crystallites at a plane no-shear surface</h4>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/FIPS_interface.gif" alt="Image"></p>
+
+<h4 id="traveling-bands-in-a-hele-shaw-cell">
+<a class="anchor" href="#traveling-bands-in-a-hele-shaw-cell" aria-hidden="true"><span class="octicon octicon-link"></span></a>Traveling bands in a Hele-Shaw cell</h4>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/FIPS_HeleShaw_2b.gif" alt="Image"></p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/FIPS_HeleShaw_8b.gif" alt="Image"></p>
+
+<p><br><br></p>
+
+<h3 id="autophoretic-arrest-of-flow-induced-phase-separation">
+<a class="anchor" href="#autophoretic-arrest-of-flow-induced-phase-separation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Autophoretic arrest of flow-induced phase separation</h3>
+<p>Reference: <a href="https://aip.scitation.org/doi/abs/10.1063/1.5090179">R Singh, R Adhikari, ME Cates, The Journal of Chemical Physics 151, 044901 (2019)</a></p>
+
+<p>Recent experiments have reported the arrest of phase separation in a suspension of active colloids at a plane wall. Attractive hydrodynamic forces are known to cause the aggregation of active colloids at a plane wall. This flow-induced phase separation, in absence of any other interactions, drives the system to a complete phase separation. Here, we describe the role of chemical interactions in modifying this flow-induced phase separation of active colloids at a plane wall. We derive chemohydrodynamic forces and torques on colloids in the limit of rapid diffusion and slow viscous flow. We find that near a plane wall, these forces can be expressed as a gradient of a non-equilibrium potential. This potential can be varied from being purely repulsive to purely attractive by tuning the chemical activity of the colloids. The arrest of phase separation can then be understood from the emergence of a barrier in the effective potential.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/arrested-clusters.gif" alt="Image"></p>
+
+<p><br><br></p>
+
+<h3 id="active-particles-in-external-potentials">
+<a class="anchor" href="#active-particles-in-external-potentials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Active particles in external potentials</h3>
+
+<p>The simplest system in which an interplay of non-uniform external fields, activity and Brownian motion can be studied is an active colloid confined in a three-dimensional harmonic potential. We consider two examples: (a) active particles in a single trap, and (b) active particles in a lattice of harmonic traps (optical lattice).</p>
+
+<h4 id="non-equilibrium-convective-rolls-of-confined-active-particles-in-a-single-harmonic-trap">
+<a class="anchor" href="#non-equilibrium-convective-rolls-of-confined-active-particles-in-a-single-harmonic-trap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Non-equilibrium convective rolls of confined active particles in a single harmonic trap</h4>
+
+<p>Reference: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2015/06/P06017/meta">R Singh, S Ghose, R Adhikari, Journal of Statistical Mechanics: Theory and Experiment 2015 (6), P06017 (2015)</a></p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/harmonic_trap.gif" alt="Image"></p>
+
+<h4 id="dynamics-in-an-optical-lattice">
+<a class="anchor" href="#dynamics-in-an-optical-lattice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamics in an optical lattice</h4>
+<p>Reference: <a href="https://iopscience.iop.org/article/10.1088/2399-6528/aaab0d/meta">R Singh, R Adhikari, Journal of Physics Communications 2, 025025 (2018)</a></p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/3x3.gif" alt="Image"></p>
+
+<h4 id="dynamics-of-1024-contractile-and-extensile-active-colloids-in-a-spherical-confinement">
+<a class="anchor" href="#dynamics-of-1024-contractile-and-extensile-active-colloids-in-a-spherical-confinement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamics of 1024 contractile and extensile active colloids in a spherical confinement</h4>
+<p>Reference: <a href="https://iopscience.iop.org/article/10.1088/2399-6528/aaab0d/meta">R Singh, R Adhikari, Journal of Physics Communications 2, 025025 (2018)</a></p>
+
+<p>In this examples we consider apolar particles confined in a sphere. We show that the dynamics is different for contractile and extensile particles respectively.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/contractile_sphConfine.gif" alt="Image">
+<img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/extensile_sphConfine.gif" alt="Image"></p>
+
+<p><br><br></p>
+
+<h3 id="electrohydrodynamic-flows-self-assembly-of-nanoparticles">
+<a class="anchor" href="#electrohydrodynamic-flows-self-assembly-of-nanoparticles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Electrohydrodynamic flows: self-assembly of nanoparticles</h3>
+<p>Reference: <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpcc.8b04169">D Sarkar, R Singh, A Som, CK Manju, M Ganayee, R Adhikari, T Pradeep, The Journal of Physical Chemistry C 122, 17777 (2018)</a></p>
+
+<p>In the work, we consider a suspension of driven particles. Unlike an active colloid, a driven colloid can move only under the effect of external potentials. Here, we study the motion of particles under electrohydrodynamic flow in a rectangular geometry. Electrohydrodynamics is the study of the effects of electrostatic forces on fluid flow. Electrohydrodynamic flows result from the motion of free charges on the surface of a fluid by application of a tangential electric field along with the container (Melcher and Taylor, Annu Rev Fluid Mech 1969). In our case, free charged ions are sprayed using electrospray on the air-liquid interface of a rectangular container with an electrode, which provides a tangential electric field. The spray from the cone deposits charges at the air-liquid interface which is then set into motion by the tangential electric field due to the electrode. Thus, the formation of nanoparticle-nanosheet (NP-NS) is observed at the air-liquid interface.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/electrohydrodynamics_2.4X_speed.gif" alt="Image"></p>
+
+  </div><a class="u-url" href="/blog/markdown/2020/07/19/pystokes.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>rajeshrinet.github.io</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/rajeshrinet" target="_blank" title="rajeshrinet"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

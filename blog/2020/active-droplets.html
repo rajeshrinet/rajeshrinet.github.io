@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Active scalar field theory | Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Active scalar field theory" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Statistical field theory without time-reversal symmetry" />
+<meta property="og:description" content="Statistical field theory without time-reversal symmetry" />
+<link rel="canonical" href="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html" />
+<meta property="og:url" content="https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html" />
+<meta property="og:site_name" content="Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html","@type":"BlogPosting","headline":"Active scalar field theory","dateModified":"2020-08-01T00:00:00-05:00","datePublished":"2020-08-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rajeshrinet.github.io/blog/markdown/2020/08/01/active-droplets.html"},"description":"Statistical field theory without time-reversal symmetry","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rajeshrinet.github.io/blog/feed.xml" title="Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/archive/">Archive</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Active scalar field theory</h1><p class="page-description">Statistical field theory without time-reversal symmetry</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-01T00:00:00-05:00" itemprop="datePublished">
+        Aug 1, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#splitting-active-droplets">Splitting active droplets</a></li>
+<li class="toc-entry toc-h2"><a href="#self-propelling-active-droplets">Self-propelling active droplets</a></li>
+</ul><p>In this blog, an active scalar field theory with mass and momentum conservation has been used to rationalize recent experimental phenomena in nonequilibrium statistical physics.</p>
+
+<h3 id="splitting-active-droplets">
+<a class="anchor" href="#splitting-active-droplets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Splitting active droplets</h3>
+
+<p>Microphase separation (phase separation arrested to a length-scale) is often observed in suspensions of spherical active particles. In such suspensions, the scalar concentration is the only order parameter, when there is no orientational order in the bulk. We show that such microphase separations can be achieved by extending theories of passive binary mixtures (for example, phase separation of oil droplets in passive binary oil-water mixtures). In thermal equilibrium systems, phase separation is a thermodynamic process where a uniformly mixed state can lower its free energy by dividing into phases. Ostwald ripening (small droplets disappear and bigger droplets grow) drives thermal equilibrium systems to full phase separation. In this blog, we show that by coupling the scalar density to fluid flow, the negative mechanical tension of an active suspension creates, via a self-shearing instability, a steady-state life cycle of droplet growth interrupted by division whose scaling behavior we predict.</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssi.gif" alt=""></p>
+
+<p>The starting point in this theory is the diffusive dynamics of a conserved scalar field $\phi(\boldsymbol{r},t)$ in a momentum-conserving fluid of velocity $\boldsymbol{v}(\boldsymbol{r},t)$:
+$
+\dot{\phi}+\boldsymbol{\nabla}\cdot\boldsymbol{J}+\boldsymbol{v}\cdot\boldsymbol{\nabla}\phi=0.
+$
+Here, $\boldsymbol{J}$ is the current density of $\phi$, which obeys
+$
+\boldsymbol{J}=-M \boldsymbol{\nabla}\frac{\delta\mathcal{F}}{\delta\phi} + \sqrt{2DM}\boldsymbol{\Lambda},
+$
+where $M$ is a mobility, $\boldsymbol{\Lambda}$ is a zero-mean, unit-variance Gaussian white noise, and $D$ is a noise temperature, while $\mathcal{F}$ is the Landau-Ginzburg free energy functional: 
+$
+\mathcal{F}[\phi]=\int\left(\frac{a}{2}\phi^{2}+\frac{b}{4}\phi^{4}+\frac{\kappa}{2}(\boldsymbol{\nabla}\phi)^{2}\right)d\boldsymbol{r}.
+$
+This free energy functional admits bulk phase separation for $a&lt;0$, with $b,\kappa&gt;0$ for stability [Chaikin and Lubensky(2000)].</p>
+
+<p>The fluid will be set into motion if the interfaces are not flat. The fluid flow, in the limit of low Reynolds number, is obtained from the solution of the Stokes equation:
+$\boldsymbol{\nabla}\cdot\boldsymbol{\sigma}=-\boldsymbol{f}$ with
+$\boldsymbol{f}=\boldsymbol{\nabla}\cdot(\boldsymbol{\Sigma}^{E}+\boldsymbol{\Sigma}^{A})$. Here $\boldsymbol{\sigma}=-p\boldsymbol{I}+\eta(\boldsymbol{\nabla}\boldsymbol{v}+(\boldsymbol{\nabla}\boldsymbol{v})^{T})$ is the Cauchy fluid stress, $\eta$ is viscosity, $\boldsymbol{I}$ is the identity tensor, and $p$ is the pressure field which contains all isotropic terms and ensures incompressibility $(\nabla\cdot\boldsymbol{v}=0)$. The deviatoric stresses in the bulk are due to gradients of the field $\phi$. Their explicit forms are: 
+$\boldsymbol{\Sigma}^{E}=-\kappa\boldsymbol{S}$ and $\boldsymbol{\Sigma}^{A}=-(\tilde{\kappa}-\kappa)\boldsymbol{S}$, with $\boldsymbol{S}=(\boldsymbol{\nabla}\phi)(\boldsymbol{\nabla}\phi)-\tfrac{1}{d}|\boldsymbol{\nabla}\phi|^{2}\boldsymbol{I}$ in $d$-dimensions.</p>
+
+<p>In the absence of $\boldsymbol{\Sigma}^{A}$, the above scalar field theory with mass and momentum conservation is called model H. With the addition of the active stress $\boldsymbol{\Sigma}^{A}$, which does not belong to any free energy, we have obtained $active$ Model H. By construction, active model H does not respect time-reversal symmetry.  The interfacial tension, without activity, $\gamma_0=\sqrt{-8\kappa a^{3}/9b^{2}}$, is modified to $\gamma_{v}=\tilde{\kappa}\gamma_0/{\kappa}$. A self-shearing instability is obtained for active extensile stress ($\gamma_v &lt;0$) due to stretching of the interface from the resulting fluid flow (see below).</p>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/active_stress.jpg" alt="drawing" width="800"></p>
+
+<p>This instability interrupts the growth of droplets by splitting them. The extensile active stress has the effect of reversing the sign of the effective tension which arrests the growth. This is balanced by Ostwald ripening: small droplets evaporate while large ones grow until they in turn become unstable. The result is a dynamical steady state maintained by the self-shearing instability. We show that the typical length scale at steady state is proportional to the $1/\sqrt{\tilde{\kappa}}$. When the diffusive tension is also negative, this is replaced by an arrested regime (mechanistically distinct, but with similar scaling) where division of small droplets is prevented by reverse Ostwald ripening.</p>
+
+<p>Reference: <a href="https://doi.org/10.1103/PhysRevLett.123.148005">Rajesh Singh and Michael E. Cates. Phys. Rev. Lett. 123, 148005 (2019)</a></p>
+
+<p><br><br></p>
+
+<h2 id="self-propelling-active-droplets">
+<a class="anchor" href="#self-propelling-active-droplets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-propelling active droplets</h2>
+
+<p><img src="https://raw.githubusercontent.com/rajeshrinet/pystokes-misc/master/gallery/droplets/ssb.jpg" alt=""></p>
+
+<p>In this work, we present a model of self-propulsion in active droplets, such as cells, by extending the above theory to two scalar fields. The two scalar fields, in the case of a cell, represent the cytoplasm and a contractile cortex. An active stress couples the two scalar fields. The self-propulsion results from the activity when rotational symmetry is spontaneously broken. We find, both analytically and numerically, that the swimming speed does not depend on the radius of the droplet, while it varies linearly with the activity parameter and with the droplet area fraction.</p>
+
+<p>I have also developed, <a href="https://github.com/rajeshrinet/pygl">PyGL</a>, a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation.</p>
+
+<p>Reference: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.032024">Rajesh Singh, Elsen Tjhung, and Michael E. Cates. Phys. Rev. Research 2, 032024(R) (2020)</a></p>
+
+  </div><a class="u-url" href="/blog/markdown/2020/08/01/active-droplets.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>rajeshrinet.github.io</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/rajeshrinet" target="_blank" title="rajeshrinet"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
