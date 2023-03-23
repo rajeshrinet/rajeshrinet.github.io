@@ -2599,7 +2599,7 @@ RU5ErkJggg==
 <h2 id="Multivariate-Gaussian-distribution">Multivariate Gaussian distribution<a class="anchor-link" href="#Multivariate-Gaussian-distribution">&#182;</a></h2><p>A multivariate Gaussian distribution is completely specified by its mean $\boldsymbol\mu$ and matrix of covariances  $\boldsymbol\Sigma$.</p>
 <p>For a $n$-dimensional vector $\boldsymbol X$, the distribution is written as</p>
 $$
-\boldsymbol{X}\sim\mathcal{N}\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right).
+\boldsymbol{X}\sim{N}\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right).
 $$<p>The covariance matrix $\boldsymbol\Sigma$ is an $n\times n$ matrix for a n-variate Gaussian distribution, while the mean is a $n$-dimensional vector. Their formal expressions are</p>
 $$
 {\displaystyle {\boldsymbol {\mu }}=\operatorname {E} [\mathbf {X} ]},\qquad
@@ -2618,7 +2618,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="A-bivariate-normal-would-look-like">A bivariate normal would look like<a class="anchor-link" href="#A-bivariate-normal-would-look-like">&#182;</a></h4>$$
 \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} 
-\sim \mathcal N \bigg( 
+\sim  N \bigg( 
 \begin{Bmatrix} \mu_1 \\ \mu_2 \end{Bmatrix},
 \begin{Bmatrix}\sigma_{11} & \sigma_{12}\\ \sigma_{21} & \sigma_{22} \end{Bmatrix}
 \bigg).
@@ -5535,7 +5535,7 @@ gg==
 <h2 id="Gaussian-Processes-Regression">Gaussian Processes Regression<a class="anchor-link" href="#Gaussian-Processes-Regression">&#182;</a></h2><p>Thus, we have joint probability distribution of many variables. Using Bayes theorem, it is possible to derive posterior for a set of test variables from prior constructed out of the training points. Let's assume that we have a training set $(y,x)$ and we want to predict $(y_*,x_*)$. So the joint probability will look like</p>
 $$
 \begin{pmatrix}y \\ y_* \end{pmatrix} 
-= \mathcal N\bigg( 
+=  N\bigg( 
 \begin{Bmatrix}\mu \\ \mu_* \end{Bmatrix},
 \begin{Bmatrix}K & K_*\\ K_*^T & K_{**} \end{Bmatrix}
 \bigg).
@@ -5566,7 +5566,7 @@ $$<p>The above exponential choice of kernel function is popular as it has desira
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So we have a prior distribution over the training set and we seek to obtain the posterior $y_* | y$. It is given as</p>
 $$
-y_* | y \sim \mathcal N(\mu^*, \Sigma^*).
+y_* | y \sim  N(\mu^*, \Sigma^*).
 $$<p>The mean is the best estimate of the posterior of $y_*$. It comes out to be</p>
 $$
 \mu_* = K^T_*K^{-1}y,
@@ -5575,7 +5575,7 @@ $$
 \Sigma^* = K_{**}-K^T_* K^{-1}K_*.
 $$<p>Explicitly, the posterior is then</p>
 $$
-y_* = \mu_* + L \mathcal N(0, I).
+y_* = \mu_* + L  N(0, I).
 $$
 </div>
 </div>

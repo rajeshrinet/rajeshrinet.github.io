@@ -11762,7 +11762,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Ising-model">Ising model<a class="anchor-link" href="#Ising-model">&#182;</a></h1><p>The Ising Hamiltonian can be written as,</p>
 $$ 
-\mathcal{H} = -J \sum_{\langle i j \rangle} S_{i} S_{j}.  
+{H} = -J \sum_{\langle i j \rangle} S_{i} S_{j}.  
 $$<ul>
 <li>The spins $S_{i}$ can take values $\pm 1$,</li>
 <li>$\langle i j \rangle$ implies nearest-neighbor interaction only, </li>
@@ -13761,8 +13761,8 @@ ACBCeAIAAAAg4meOaw4P0Zxp4wAAAABJRU5ErkJggg==
 <li>The simplest kinetics Ising model for non-conserved scalar field $\phi(\vec{r})$ is the time dependent Ginzburg-Landau (TDGL) model. </li>
 </ul>
 <h3 id="TDGL-equation">TDGL equation<a class="anchor-link" href="#TDGL-equation">&#182;</a></h3><p>The equation of motion for $\phi$ can be written as:</p>
-$$ \frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta \mathcal{F}}{\delta \phi} +\theta(\vec{r},t)$$<p>where $\frac{\delta \mathcal{F}}{\delta \phi}$ denotes functional derivative of free-energy functional</p>
-$$ \mathcal{F(\phi)} = \int  \left[ a\phi^2 + b \phi^4 + \frac{1}{2}K(\nabla\phi)^{2}\right]$$<p>For  $ T < T_{c} $ we can write TDGL in terms of rescaled variables as</p>
+$$ \frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta {F}}{\delta \phi} +\theta(\vec{r},t)$$<p>where $\frac{\delta {F}}{\delta \phi}$ denotes functional derivative of free-energy functional</p>
+$$ {F(\phi)} = \int  \left[ a\phi^2 + b \phi^4 + \frac{1}{2}K(\nabla\phi)^{2}\right]$$<p>For  $ T < T_{c} $ we can write TDGL in terms of rescaled variables as</p>
 $$ \frac{\partial \phi}{\partial t} = \phi-\phi^{3}+ \nabla^{2}\phi $$<p>In the next section we will simulate the TDGL equation.</p>
 
 </div>
