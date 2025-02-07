@@ -11773,8 +11773,20 @@ $$<ul>
 $$ m = \frac{\langle S \rangle}{N}, $$<p>for this system is the average magnetization. The order parameter distinguishes the two phases realized by the systems. It is zero in the disordered state, while non-zero in the ordered, ferromagnetic, state.</p>
 <p>The one dimensional (1D) Ising model does not exhibit the phenomenon of phase transition while higher dimensions do. This can be argued based on arguments, due to Peierls, related to the net change in free energy, $F = E-TS$. Here $E$ and $S$ are, respectively, the energy and entropy of the system. We estimate the net change in free energy for introducing a disorder in an otherwise ordered system. The ordered state can only be stable if the net change in free energy is positive, $\Delta F>0$, for any non-zero temperature.</p>
 <p><strong>1D Ising model</strong>: Introducing a domain wall (defect) in an ordered state increases the energy by $4J$, while the entropy change is $k_B \ln N$, due to $N$ choices to introduce the domain. So net change in the free energy, $\Delta F = 4J - k_BT \ln N $, is always negative for $N\rightarrow\infty$. Thus, the system prefers a disordered state. So, there is no spontaneous symmetry breaking in 1D for an infinite Ising chain. This argument can be generalized for any domain of length $L$ and higher dimensions.</p>
-<p><strong>2D Ising model</strong>: For two and higher dimensions, we can introduce islands of defects, which cost only at the boundaries, and are thus, proportional to the perimeter $L=\varepsilon N^2$, where $0<\varepsilon<1$. In 2D, the number of islands scale as $3^{\varepsilon N^2}$, while $\Delta E = \varepsilon 4JN^2$. $\Delta F$ is then $\varepsilon 4JN^2 - k_BT \ln (N^{2}3^{\varepsilon N^2})$. This gives a rough estimate of the critical temperature $T_{c} \sim J/k_B$.</p>
+<p><strong>2D Ising model</strong>: 
+In two (and higher dimensions), we can introduce islands of defects, which cost only at the boundaries, and are thus, proportional to the perimeter $L=\varepsilon N$
+, where $0<\varepsilon\leq1$. Total number of spins: $N$.
+Consider an ordered state in 2D. One may now introduce a defect, which can be a loop of perimeter $L$. The number
+of ways to introduce a defect of length $L$ is $3^L$ on a square lattice. Note after each site, there are, at the most, 3
+possible options on a square lattice in 2D. There are $N$ ways to start the loop.
 
+
+<ul>
+<li> 
+The energetic cost for this defect is: $\Delta U = 4JL=\varepsilon 4JN$
+<li> Thus, change in free energy is:$\Delta F =\varepsilon 4JN - k_BT \log (N3^{\varepsilon N})$
+<li> The above estimates show that the typical value of the critical temperature is: $T_c \sim \dfrac{4}{log 3}\dfrac{J}{k_B}$
+</ul>
 </div>
 </div>
 </div>
