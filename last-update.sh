@@ -15,6 +15,12 @@ echo "Updating file: $file"
 sed -i "" "s/.*last updated.*/last updated $(date '+%v')/g" $file
 
 
+file='software/index.html'
+echo "Updating file: $file" 
+sed -i "" "s/.*last updated.*/last updated $(date '+%v')/g" $file
+
+
+
 file='teaching/index.html'
 echo "Updating file: $file" 
 sed -i "" "s/.*last updated.*/last updated $(date '+%v')/g" $file

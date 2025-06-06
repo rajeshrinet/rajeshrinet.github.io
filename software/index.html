@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Rajesh Singh</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../images/this.png">
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body>
+<header class="site-header">
+
+
+  <div class="wrapper"><a class="site-title" rel="author" href="https://rajeshrinet.github.io/">Homepage</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+        <div class="trigger">
+<a class="page-link" href="https://rajeshrinet.github.io/publications/">Publications</a>
+<a class="page-link" href="https://rajeshrinet.github.io/research/">Research</a>
+<a class="page-link" href="https://rajeshrinet.github.io/software/">Software</a>
+<a class="page-link" href="https://rajeshrinet.github.io/teaching/">Teaching</a>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+<section>
+<div id="div_id4"></div>
+<h2 id="software">Scientific software</h2>
+<hr>
+<p>
+Along with my collaborators, I develop state-of-the-art numerical libraries for research in theoretical physics and applied mathematics. 
+See <a href="https://github.com/rajeshrinet/">my Github profile</a> for a full list of open-source projects and the list of contributors to these libraries. 
+A summary of the selected libraries follows.
+<br>
+<br>
+
+</p>
+<h3 id="Preprints">PyStokes</h3>
+    <p>
+    <a href="https://github.com/rajeshrinet/pystokes">PyStokes</a> is a numerical library for phoresis and Stokesian hydrodynamics in Python. The PyStokes library has been specifically designed for studying phoretic and hydrodynamic interactions in suspensions of active particles. It uses a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization, to compute phoretic and hydrodynamic interactions between spherical active particles with slip boundary conditions on their surfaces. The library has been used to model suspensions of microorganisms, synthetic autophoretic particles and self-propelling droplets. The current implementation includes unbounded volumes, volumes bounded by plane walls or interfaces, and periodic volumes.  
+    </p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pystokes
+</code></pre></div></div>
+<br>
+<br>
+<h3 id="Preprints">PyRoss</h3>
+    <p>
+    <a href="https://github.com/rajeshrinet/pyross">PyRoss</a> is a numerical library that offers an integrated platform for inference, forecasts and non-pharmaceutical interventions in structured epidemiological compartment models. Generative processes can be formulated stochastically (as Markov population processes) or deterministically (as systems of differential equations). Population processes are sampled exactly by the Doob-Gillespie algorithm or approximately by the tau-leaping algorithm while differential equations are integrated by both fixed and adaptive time-stepping. A hybrid algorithm transits dynamically between these depending on the magnitude of the compartmental fluctuations. Bayesian inference on pre-defined or user-defined models is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process.
+    </p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pyross
+</code></pre></div></div>
+
+<br>
+<br>
+<h3 id="Preprints">PyGL</h3>
+    <p>
+    <a href="https://github.com/rajeshrinet/pygl">PyGL</a> is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation. 
+    </p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pygl
+</code></pre></div></div>
+<br>
+<br>
+<h3 id="Preprints">PyRitz</h3>
+    <p>
+    <a href="https://github.com/lukastk/PyRitz">PyRitz</a> is a Python package, using the Ritz method, for computing transition paths and quasipotentials in Python. The most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analysing the paths in a spectral basis of Chebyshev polynomial, nonlinear optimisation is used to obtain coefficients that give the least action from which the instanton is synthesised in the spectral basis.
+    </p>
+
+
+    </div>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+<p><small>
+last updated  6-Jun-2025
+</small></p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+
