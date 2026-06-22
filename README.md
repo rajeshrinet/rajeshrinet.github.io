@@ -1,2 +1,0 @@
-rajeshrinet.github.io
-=====================

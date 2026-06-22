@@ -1,108 +1,202 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rajesh Singh</title>
-<link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/this.png">
     <style type="text/css">
-        .e-mail:before {
-            content: attr(data-website) "\0040" attr(data-user);
-            unicode-bidi: bidi-override;
-            direction: rtl;
+    /* Theme Variables - Dark Theme by Default */
+    :root {
+        --bg: #121212; --text: #e0e0e0; --text-muted: #cccccc; --header-bg: #1a1a1a; --border: #333333;
+        --link: #64b5f6; --link-visited: #90caf9; --link-hover: #ffffff;
+        --code-bg: #1e1e24; --table-even: #1c1c1c; --table-th: #252525; --accent: #ffffff;
+    }
+    /* Light Theme Overrides */
+    body.light-mode {
+        --bg: #fdfdfd; --text: #111111; --text-muted: #515151; --header-bg: #eef2f6; --border: #e8e8e8;
+        --link: #2a7ae2; --link-visited: #1756a9; --link-hover: #111111;
+        --code-bg: #eeeeff; --table-even: #f7f7f7; --table-th: #f0f0f0; --accent: #424242;
+    }
+
+    .e-mail:before { content: attr(data-website) "\0040" attr(data-user); unicode-bidi: bidi-override; direction: rtl; }
+    .layout-container { display: flex; gap: 20px; padding: 20px; }
+    .text-column { flex: 78%; }
+    .photo-column { flex: 22%; }
+    .photo-column img { width: 100%; height: auto; }
+
+    body, h1, h2, h3, h4, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
+    body { font: 400 16px/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background-color: var(--bg); display: flex; min-height: 100vh; flex-direction: column; overflow-wrap: break-word; }
+    h1, h2, h3, h4, p, blockquote, pre, ul, ol, dl, figure { margin-bottom: 15px; }
+    hr { margin: 30px 0; }
+    main { display: block; }
+    img { max-width: 100%; vertical-align: middle; }
+    ul, ol { margin-left: 30px; }
+    li > ul, li > ol { margin-bottom: 0; }
+    h1, h2, h3, h4 { font-weight: 400; color: var(--accent); }
+    
+    a { color: var(--link); text-decoration: none; }
+    a:visited { color: var(--link-visited); }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    
+    blockquote { color: #828282; border-left: 4px solid var(--border); padding-left: 15px; font-size: 1.125rem; font-style: italic; }
+    pre, code { font-family: monospace; font-size: 0.9375em; border: 1px solid var(--border); border-radius: 3px; background-color: var(--code-bg); }
+    code { padding: 1px 5px; }
+    pre { padding: 8px 12px; overflow-x: auto; }
+    
+    .wrapper { max-width: calc(1000px - 30px); margin: 0 auto; padding: 0 15px; }
+    @media screen and (min-width: 1200px) { .wrapper { max-width: calc(1000px - 60px); padding: 0 30px; } }
+    
+    table { margin-bottom: 30px; width: 100%; text-align: left; color: var(--text); border-collapse: collapse; border: 1px solid var(--border); }
+    table tr:nth-child(even) { background-color: var(--table-even); }
+    table th, table td { padding: 10px 15px; border: 1px solid var(--border); }
+    table th { background-color: var(--table-th); }
+    @media screen and (max-width: 1000px) { table { display: block; overflow-x: auto; } }
+    
+    .site-header { min-height: 55.95px; line-height: 54px; position: fixed; top: 0; width: 100%; z-index: 1000; background-color: var(--header-bg); }
+    .site-title, .site-title:visited { font-size: 1.625rem; font-weight: 300; letter-spacing: -1px; float: left; color: var(--accent); }
+    
+    /* Cleaned up Navigation Styles */
+    .site-nav { float: right; }
+    .site-nav .nav-trigger, .site-nav label[for="nav-trigger"] { display: none; }
+    .site-nav .page-link { color: var(--text); display: inline; margin-left: 20px; }
+    
+    @media screen and (max-width: 1000px) { 
+        .site-nav label[for="nav-trigger"] { display: block; float: right; width: 36px; height: 36px; padding-top: 10px; cursor: pointer; text-align: center; }
+        .site-nav .menu-icon > svg path { fill: var(--text); }
+        .site-nav .trigger { display: none; position: absolute; top: 54px; right: 0; background-color: var(--header-bg); border: 1px solid var(--border); border-radius: 5px; text-align: right; padding: 5px 0; }
+        .site-nav .nav-trigger:checked ~ .trigger { display: block; }
+        .site-nav .page-link { display: block; padding: 5px 20px; margin: 0; } 
+    }
+    
+    .theme-toggle-container { float: right; margin-left: 15px; display: flex; align-items: center; height: 54px; }
+    .theme-toggle-btn { padding: 4px 12px; cursor: pointer; border: 1px solid var(--text); border-radius: 4px; background: transparent; color: var(--text); font-size: 14px; transition: all 0.2s ease; }
+    .theme-toggle-btn:hover { background-color: var(--text); color: var(--bg); }
+    @media screen and (max-width: 1000px) { .theme-toggle-container { position: absolute; right: 60px; top: 0; } }
+
+    .page-content { padding: 30px 0; flex: 1 0 auto; margin-top: 60px; }
+    .post-content p, .post-content li { font-size: 20px; color: var(--text-muted); }
+    .anchor-link { opacity: 0; padding-left: 0.375em; }
+    h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link { opacity: 1; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".anchor-link").forEach(e => e.innerHTML = '<i class="fas fa-link fa-xs"></i>');
+        
+        const toggleBtn = document.getElementById("theme-toggle");
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+            toggleBtn.textContent = "Dark Mode";
         }
-    </style>
-
-<script>
-function wrap_img(fn) {
-    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
-        var elements = document.querySelectorAll(".post img");
-        Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("title") && (el.className != "emoji")) {
-                const caption = document.createElement('figcaption');
-                var node = document.createTextNode(el.getAttribute("title"));
-                caption.appendChild(node);
-                const wrapper = document.createElement('figure');
-                wrapper.className = 'image';
-                el.parentNode.insertBefore(wrapper, el);
-                el.parentNode.removeChild(el);
-                wrapper.appendChild(el);
-                wrapper.appendChild(caption);
-            }
+        
+        toggleBtn.addEventListener("click", () => {
+            const isLight = document.body.classList.toggle("light-mode");
+            localStorage.setItem("theme", isLight ? "light" : "dark");
+            toggleBtn.textContent = isLight ? "Dark Mode" : "Light Mode";
         });
-    } else { document.addEventListener('DOMContentLoaded', fn); }
-}
-window.onload = wrap_img;
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-    // add link icon to anchor tags
-    var elem = document.querySelectorAll(".anchor-link")
-    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
     });
-</script>
+  </script>
 </head>
 <body>
+
 <header class="site-header">
-
-
-<div class="wrapper"><a class="site-title" rel="author" href="#about">Homepage</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-        
-<div class="trigger">
-<a class="page-link"<a href="#div_id2">Publications</a>
-<a class="page-link"<a href="#software">Software</a>
-<a class="page-link"<a href="#div_id0">Group</a>
-      </nav></div>
+    <div class="wrapper">
+        <a class="site-title" rel="author" href="#about">Home</a>
+        <div class="theme-toggle-container">
+            <button id="theme-toggle" class="theme-toggle-btn">Light Mode</button>
+        </div>
+        <nav class="site-nav">        
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />        
+            <label for="nav-trigger">          
+                <span class="menu-icon">            
+                    <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/></svg>          
+                </span>        
+            </label>        
+            <div class="trigger">
+                <a class="page-link" href="#div_id2">Publications</a>
+                <a class="page-link" href="#software">Software</a>
+                <a class="page-link" href="#div_id0">Group</a>      
+            </div>
+        </nav>
+    </div>
 </header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-<h1 id="about">About</h1>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-  <p>
-    <table>
-      <tr>
-        <td style="width:69%"> 
 
-Rajesh Singh is an Assistant Professor in the Department of Physics at the Indian Institute of Technology (IIT) Madras. His research focuses on theoretical soft condensed matter physics, specifically exploring the dynamics of soft, active, and living materials. By integrating principles from statistical mechanics and fluid mechanics with modern computational physics and machine learning, his research group seeks to uncover the physics of soft matter, active matter, and biological systems.
-<br><br>
-    <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>  | 
-    <!---    <a href="https://www.researchgate.net/profile/Rajesh_Singh66">ResearchGate</a>  | 
-    <a href="https://docs.google.com/document/d/1KM0iBBwVCik6G_TANcgmZ6P4wh0fxuzSKW23wab2gqA/edit?usp=sharing">Journal Club</a> | --->
-    <!---a href="https://physics.iitm.ac.in/people/facultyinfo/rajeshsingh.html">IITM Page</a>  |  --->
-    <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a>   | 
-    <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>  | 
-    <a href="https://github.com/rajeshrinet">GitHub</a> |
-<span class="e-mail" data-user="hgnisr" data-website="ni.ca.mtii.scisyhp"></span>
-</td>
-        <td  style="text-align: center; vertical-align:center; width:36%">
-        <img src="images/rs.jpg" width="200"></td>
-      </tr>
-     </table>
+<main class="page-content" aria-label="Content">      
+    <div class="wrapper">
+        <h1 id="about">About</h1>
+        <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>  
+        <div class="layout-container">    
+            <div class="text-column">
+                <div class="profile-container">Dr. Rajesh Singh is an Assistant Professor in the Department of Physics at the Indian Institute of Technology Madras.    
+                <br>
+                <br>
+                    <h3>Research and Methodology</h3>    
+                    <ul>        
+                        <li>Research Interests: Soft matter, active matter, and biological systems</li>        
+                        <li>Methodology: Statistical physics, fluid mechanics, and computational physics</li>    
+                    </ul>        
+            </div>
+    <h3>Academic Journey</h3>
+    <ul>
+        <li>Postdoc, University of Cambridge (Group of Prof. M. E. Cates)</li>
+        <li>PhD in Physics, IMSc Chennai (Advised by Prof. R. Adhikari)</li>
+    </ul>
+    </div>
+    <div class="photo-column">
+        <img src="images/rs.jpg" alt="A beautiful placeholder">
+    </div>
+</div>
    </p>
-<img src="images/banner.jpg" width="99%" height="99%"/>
-<br>
-<br>
+<h1>Links and contact</h1>
+        <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>  
+    <br>
+    <a href="https://github.com/rajeshrinet">GitHub</a> |
+    <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>  | 
+    <a href="https://physics.iitm.ac.in/people/facultyinfo/rsingh.html">IITM Webpage</a> |
+    <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a>   | 
+    <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>  | 
+<span class="e-mail" data-user="hgnisr" data-website="ni.ca.mtii.scisyhp"></span>
 <div id="div_id2"></div>
+<br>
+<br>
 <br>
 <h1>Publications</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
-    <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>  
-|
-    <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a> 
-<br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2026</h2>
+<h2>
+2026</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
+<br>
+M Deb, and R Singh<br>
+   <em>Hydrodynamic Phase Separation and Morphological Evolution in Chiral
+  Active-Passive Mixtures
+</em>
+   <br><a href="https://doi.org/">Soft Matter, 2026</a>
+| <a href="https://arxiv.org/abs/2606.18742">arXiv:2606.18742</a>
+        <details>
+            <summary>Abstract</summary>
+            <div class="content">
+                <p>
+The collective behavior of passive particles within chiral active matter has
+emerged as a significant area of soft matter research. However, most existing
+studies focus on systems where chirality is imposed by external torques rather
+than intrinsic activity. In this work, we study emergent dynamics in a
+suspension of active spinners and passive colloids by computing many-body
+hydrodynamic interactions via Ewald summation. By systematically exploring a
+broad range of area fractions and rotational velocities, we identify distinct
+phase-separation regimes sensitive to the system's kinematic parameters.
+Specifically, we report the emergence of unique structural morphologies,
+including the formation of passive particle vortices surrounding
+phase-separated active spinners and the development of large-scale
+active-passive bands. We characterize the underlying dynamics by analyzing the
+temporal evolution of characteristic length scales and the non-equilibrium
+velocity distributions of the passive particles. Our findings provide new
+insights into the role of long-range hydrodynamic couplings in governing the
+self-organization of non-equilibrium condensed matter.
+</p>
+            </div>
+        </details>
 <br>
 S Adhikary, and R Singh<br>
    <em>
@@ -118,7 +212,6 @@ Recent studies of active colloidal matter have revealed that a global polar orde
 </p>
             </div>
         </details>
-    <br>
 <br>
 U Maurya, K Swaminathan, E Ashraf, and R Singh
 <br>
@@ -135,7 +228,6 @@ The control of active colloidal particles via optical traps is a cornerstone for
             </div>
         </details>
 <br>
-<br>
 S Adhikary, AG Subramaniam, and R Singh<br>
    <em>Flocking transition in phoretically interacting active particles with pinning disorder
 </em>
@@ -149,7 +241,6 @@ Recent studies in the collective behavior of active colloids have shown that a g
 </p>
             </div>
         </details>
-    <br>
 <br>
 AG Subramaniam, T Banerjee, and R Singh<br>
    <em>Shape-specific fluctuations of an active colloidal interface
@@ -164,13 +255,15 @@ Motivated by a recently synthesizable class of active interfaces formed by linke
 </p>
             </div>
         </details>
-    <br>
-    <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2025</h2>
+<br>
+<br>
+<h2>
+2025</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 AG Subramaniam*, S Adhikary*, and R Singh<br>
-   <em>Minimal mechanism for flocking in phoretically interacting active particles
+   <em>
+A minimal mechanism for flocking in phoretically interacting active particles
 </em>
    <br>
     <a href="https://dx.doi.org/10.1039/D5SM01005E">Soft Matter, 21, 9058, 2025</a> |
@@ -183,8 +276,7 @@ Coherent collective motion is a widely observed phenomenon in active matter syst
 </p>
             </div>
         </details>
-    <br>
-    <br>
+<br>
 S Roy*, AG Subramaniam*, S Chakraborty, J Goswami, S Ariraman, KK Swain, S Sudhakar, R Singh, and B Roy
  <br>
    <em>Intracellular phagosome shell is rigid enough to transfer outside torque to the inner spherical particle
@@ -198,8 +290,7 @@ Intracellular phagosomes have a lipid bilayer-encapsulated fluidic shell outside
 </p>
             </div>
         </details>
-    <br>
-    <br>
+<br>
 G Turk, R Singh, and HA Stone<br>
    <em>Autophoretic skating along permeable surfaces</em>
     <br><a href="https://doi.org/10.1017/jfm.2025.10628">J. Fluid Mech. 1019, A57, 2025</a> | 
@@ -212,12 +303,12 @@ The dynamics of self-propelled colloidal particles is strongly influenced by the
 </p>
             </div>
         </details>
-    <br>
-    <br>
+<br>
 A Mohapatra, A Kumar, M Deb, S Dhomkar, and R Singh<br>
    <em>Inferring activity from the flow field around active colloidal particles using deep learning
 </em>
-   <br> <a href="https://doi.org/10.1017/jfm.2025.10502">J. Fluid Mech. 1018, R1, 2025</a> | <a href="https://arxiv.org/abs/2505.10270">arXiv:2505.10270</a>
+   <br> <a href="https://doi.org/10.1017/jfm.2025.10502">J. Fluid Mech. 1018, R1, 2025</a> 
+| <a href="https://arxiv.org/abs/2505.10270">arXiv:2505.10270</a>
         <details>
             <summary>Abstract</summary>
             <div class="content">
@@ -227,11 +318,11 @@ Active colloidal particles create flow around them due to non-equilibrium proces
             </div>
         </details>
     <br>
-    <br>
 M Deb, and R Singh<br>
    <em>Ewald summing irreducible components of flow around active particles 
 </em>
    <br><a href="https://doi.org/10.1063/5.0270763">J. Chem. Phys. 163, 024901, 2025</a>
+| <a href="https://arxiv.org/abs/2606.18742">arXiv:2606.18742</a>
         <details>
             <summary>Abstract</summary>
             <div class="content">
@@ -241,15 +332,15 @@ We present a method to compute the Ewald summation for the irreducible component
             </div>
         </details>
 <br>
-<br>
 K Panja, and R Singh<br>
    <em>Active phase separation: role of attractive interactions from stalled particles
 </em>
    <br>
     <a href="http://arxiv.org/abs/2512.24805">arXiv:2512.24805</a>
-    <br>
-    <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2024</h2>
+<br>
+<br>
+<h2>
+2024</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
    G Turk, R Adhikari, and R Singh<br>
@@ -288,9 +379,10 @@ M Kumar, A Murali, AG Subramaniam, R Singh, S Thutupalli<br>
 </em>
    <br>
     <a href="https://doi.org/10.1103/PhysRevE.109.024604">Phys. Rev. E 109, 024604, 2024</a>
-    <br>
-    <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2023</h2>
+<br>
+<br>
+<h2>
+2023</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
     U Nakul, S Roy, G Nalupurackal, S Chakraborty, P Siwach, J Goswami, P Edwina, SK Bajpai, R Singh, and B Roy
@@ -326,9 +418,9 @@ familiar active forces</em>
    <em>Triple-line dynamics of a soft colloid-laden drop on a hydrophobic surface</em>
    <br>
     <a href="https://doi.org/10.1039/D2SM01486F">Soft Matter, 19, 1803, 2023</a>
-    <br>
-    <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2022</h2>
+<br>
+<br>
+<h2>2022</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
    G Nalupurackal,  M Gunaseelan, S Roy, M Lokesh, S Kumar, R Vaippully, R Singh, and B Roy <br> 
@@ -345,7 +437,7 @@ familiar active forces</em>
    <a href="https://arxiv.org/abs/2109.02581">arXiv:2109.02581</a>
 <br>
 <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2021</h2>
+<h2>2021</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 
@@ -357,11 +449,7 @@ familiar active forces</em>
    <a href="https://doi.org/10.1098/rsos.211065">R. Soc. open sci. 8: 211065, 2021</a> | <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783</a>
 <br>
 <br>
-    
-
-    
-
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2020</h2>
+<h2>2020</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
     A Caciagli, R Singh<sup></sup>, D Joshi, R Adhikari, and E Eiser<br>
@@ -373,9 +461,6 @@ familiar active forces</em>
     <u> Editors’ Suggestion</u> | <a href="https://physics.aps.org/articles/v13/s102">Featured in Physics: small spheres freeze when hot </a>
 <br>
 <br>
-    
-
-
     L Kikuchi, R Singh, ME Cates, and R Adhikari<br>
     <em>Ritz method for transition paths and quasipotentials of rare diffusive events</em>
     <br>
@@ -383,7 +468,6 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/2001.10759">arXiv:2001.10759</a>
 <br>
 <br>
-    
     R Singh, E Tjhung, and ME Cates<br>
     <em>Self-propulsion of active droplets without liquid-crystalline order</em>
     <br>
@@ -393,8 +477,6 @@ familiar active forces</em>
     <u>Editors’ Suggestion</u>
 <br>
 <br>
-   
- 
     R Singh, and R Adhikari<br> 
     <em>PyStokes: phoresis and Stokesian hydrodynamics in Python</em>
     <br>
@@ -408,15 +490,12 @@ familiar active forces</em>
 <a href="https://github.com/rajeshrinet/pyross">PyRoss</a> technical report, <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a>
 <br>
 <br>
-
     R Singh, and R Adhikari<br>
     <em>Age-structured impact of social distancing on the COVID-19 epidemic in India</em>
     <br>
     <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a>
 <br>
 <br>
-
-  
     A Bolitho, R Singh, and R Adhikari<br> 
     <em>Periodic orbits of active particles induced by hydrodynamic monopoles</em>
     <br>
@@ -424,11 +503,9 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1911.10970">arXiv:1911.10970</a>
 <br>
 <br>
-
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2019</h2>
+<h2>2019</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
-
     R Singh, and ME Cates<br>
     <em>Hydrodynamically interrupted droplet growth in scalar active matter</em> 
     <br>
@@ -438,8 +515,6 @@ familiar active forces</em>
     Recommended with a commentary by <a href="https://www.condmatjclub.org/?p=4163">the Journal Club for Condensed Matter Physics</a>.</u>
 <br>
 <br>
-    
-   
     R Singh, R Adhikari, and ME Cates<br>
     <em>Competing chemical and hydrodynamic effects in autophoretic colloidal suspensions</em>
     <br>
@@ -447,8 +522,7 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1811.04658">arXiv:1811.04658</a>
 <br>
 <br>
-    
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2018</h2>
+<h2>2018</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 
@@ -459,27 +533,18 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1706.04961">arXiv:1706.04961</a>
 <br>
 <br>
-
-
      S Ghosh, R Singh, and A Banerjee<br>  
      <em>Assembly and manipulation of mesoscopic particles using micro bubbles in thermo-optical tweezers</em>
     <br>
     <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10723/107232Q/Assembly-and-manipulation-of-mesoscopic-particles-using-micro-bubbles-in/10.1117/12.2323084.short">Optical Trapping and Optical Micromanipulation XV, 10723, 310-318, 2018</a>
 <br>
 <br>
-
-
-
-
-
     D Sarkar, R Singh<sup></sup>, A Som, CK Manju, MA Ganayee, R Adhikari, and T Pradeep<br>
     <em>Electrohydrodynamic assembly of ambient ion-derived nanoparticles to nanosheets at liquid surfaces</em>
     <br>
     <a href="https://dx.doi.org/10.1021/acs.jpcc.8b04169">J. Phys. Chem. C 122, 32, 2018</a>
 <br>
 <br>
-  
-  
     S Thutupalli, D Geyer, R Singh<sup></sup>, R Adhikari, and HA Stone</em>
     <br> 
     <em>Flow-induced phase separation of active particles is controlled by boundary conditions</em>
@@ -488,16 +553,13 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1710.10300">arXiv:1710.10300</a>
 <br>
 <br>
-
-  
     R Singh, and R Adhikari<br> 
     <em>Generalized Stokes laws for active colloids and their applications</em>    <br>
     <a href="https://dx.doi.org/10.1088/2399-6528/aaab0d">J. Phys. Commun. 2, 025025, 2018</a>
     | <a href="http://arxiv.org/abs/1603.05735">arXiv:1603.05735</a>
 <br>
 <br>
-
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>2017 and earlier</h2>
+<h2>2017 and earlier</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
     S Paul, A Laskar, R Singh, B Roy, R Adhikari, and A Banerjee
@@ -508,8 +570,6 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1707.00660">arXiv:1707.00660</a>
 <br>
 <br>
-
-    
     R Singh, and R Adhikari<br> 
     <em>Fluctuating hydrodynamics and the Brownian motion of an active colloid near a wall</em>
     <br>
@@ -517,8 +577,6 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1702.01403">arXiv:1702.01403</a>
 <br>
 <br>
-
-    
     S Bera, S Paul, R Singh<sup></sup>, D Ghosh, A Kundu, A Banerjee, and R Adhikari 
     <br>
     <em>Fast Bayesian inference of optical trap stiffness and particle diffusion</em>
@@ -533,42 +591,33 @@ familiar active forces</em>
     | <a href="http://arxiv.org/abs/1610.06528">arXiv:1610.06528</a>
 <br>
 <br>
-
-
     R Singh, S Ghose, and R Adhikari<br> 
     <em>Many-body microhydrodynamics of colloidal particles with active boundary layers</em> <br>
     <a href="http://dx.doi.org/10.1088/1742-5468/2015/06/P06017">J. Stat. Mech. P06017, 2015</a>
     | <a href="http://arxiv.org/abs/1411.0278">arXiv:1411.0278</a>
 <br>
 <br>
-
-
     V Yadav, R Singh, and S Mukherji<br>
     <em>Phase-plane analysis of driven multi-lane exclusion models</em> <br>
     <a href="http://dx.doi.org/10.1088/1742-5468/2012/04/P04004">J. Stat. Mech. P04004, 2012</a>
     | <a href="http://arxiv.org/abs/1208.4916">arXiv:1208.4916</a>
 <br>
 <br>
-
     R Singh,
     PhD Thesis, IMSc-HBNI
-
 <br>
     <a href="http://www.hbni.ac.in/phdthesis/phys/PHYS10201204001.pdf">Microhydrodynamics of active colloids</a>
-
-<br>
-<br>
-<br>
 <div id="software"></div>
 <br>
-<h1>Scientific software</h1>
 <br>
+<br>
+<h1>Scientific software</h1>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
+<br>
 <p>
 Along with my collaborators, I develop state-of-the-art numerical libraries for research in theoretical physics and applied mathematics. 
 See <a href="https://github.com/rajeshrinet/">my Github profile</a> for a full list of open-source projects and the list of contributors to these libraries. 
 A summary of the selected libraries follows.
-<br>
 <br>
 
 </p>
@@ -578,38 +627,33 @@ A summary of the selected libraries follows.
     </p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pystokes
 </code></pre></div></div>
-<br>
-<br>
 <h3 id="Preprints">PyRoss</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
     <p> PyRoss (<a href="https://github.com/rajeshrinet/pyross">GitHub Link</a>) is a numerical library that offers an integrated platform for inference, forecasts and non-pharmaceutical interventions in structured epidemiological compartment models. Generative processes can be formulated stochastically (as Markov population processes) or deterministically (as systems of differential equations). Population processes are sampled exactly by the Doob-Gillespie algorithm or approximately by the tau-leaping algorithm while differential equations are integrated by both fixed and adaptive time-stepping. A hybrid algorithm transits dynamically between these depending on the magnitude of the compartmental fluctuations. Bayesian inference on pre-defined or user-defined models is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process.
     </p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pyross
 </code></pre></div></div>
-
-<br>
-<br>
 <h3 id="Preprints">PyGL</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
     <p> PyGL (<a href="https://github.com/rajeshrinet/pygl">GitHub Link</a>) is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation. 
     </p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pygl
 </code></pre></div></div>
-<br>
-<br>
 <h3 id="Preprints">PyRitz</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
     <p>PyRitz (<a href="https://github.com/lukastk/PyRitz">GitHub Link</a>) is a Python package, using the Ritz method, for computing transition paths and quasipotentials in Python. The most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analysing the paths in a spectral basis of Chebyshev polynomial, nonlinear optimisation is used to obtain coefficients that give the least action from which the instanton is synthesised in the spectral basis.
     </p>
 
 
-
 <div id="div_id0"></div>
+<br>
 <br>
 <h1>Group</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
+<br>
 <h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Current members</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
+<br>
 <h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>PhD students</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
@@ -620,65 +664,46 @@ A summary of the selected libraries follows.
 <li> Ejaz Ashraf
 <li> Kamaldeep Singh
 </ul>
-<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>BTech/BS/MS/MSc students</h3>
+<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Project students</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 <ul>
 <li> Abhijay Ashok
 <li> 
 Saratha S 
+<li> Shruti N
 </ul>
 <br>
 
 <h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Past members</h2>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
+<br>
 <h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Postdoc</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 <ul>
 <li> Sagarika Adhikary (2024-2026)
 </ul>
-<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>BTech/BS/MS/MSc students</h3>
+<br>
+<h3>Project students</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 <ul>
 <li> 2026: Dinesh M | Renuka NA | Utkarsh Maurya 
 <li> 2025: Tonpha Luklem | Snigdha Mohanty | Aditya Mohapatra | Kavya Swaminathan | Rohan Yadav 
-<li> 2024: Aditya Kumar (jointly with Prof. S Dhomkar) | Shyam Sunder 
-<li> 2023: Yathindra Sai Rahul Mattegunta | Jonah Padung
+<li> 2024: Aditya Kumar (jointly with Prof. S Dhomkar) | Shyam Sunder | Anagha V
+<li> 2023: Yathindra Sai Rahul Mattegunta | Jonah Padung | Sidarth S
+<li> 
+2022: Yashwant Kumar Sahu
 </ul>
-
-<h3><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Visitors</h3>
+<br>
+<h3>Visitors</h3>
 <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
 <br>
 <ul>
-<li> 2024: 
-Anagha V 
-<li> 2023: Sidarth S
-<li> 2023: Günther Turk 
-<li> 2022: Yashwant Kumar Sahu
+<li> 2023: Günther Turk (David Crighton Fellow)
 </ul>
 <br>
-<h2><a name="Publications" class="anchor" href="#About"><span class="octicon octicon-link"></span></a>Prospective candidates</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-<ul>
-<li>Postdoc position: there are two options to join the group: 
-<ul>
-<li> IPDF positions at IITM - https://www.iitm.ac.in/careers/post-doctoral-opportunities.
-<li> ANRF National Post Doctoral Fellowship - https://www.anrfonline.in/ANRF/npdf
-</ul>
-<br>
-<li>
-PhD projects: please apply directly - 
-https://research.iitm.ac.in/
-<br>
-<li> Summer projects:
-please apply directly - https://ssp.iitm.ac.in/summer-fellowship-registration
-</ul>
-</ul>
-  
-
     </div>
       </div>
     </main><footer class="site-footer h-card">
@@ -687,7 +712,7 @@ please apply directly - https://ssp.iitm.ac.in/summer-fellowship-registration
     <div class="footer-col-wrapper">
       <div class="footer-col">
 <p><small>
-last updated 28-Mar-2026
+last updated 22-June-2026
 </small></p>
       </div>
     </div>
@@ -695,4 +720,3 @@ last updated 28-Mar-2026
 </footer>
 </body>
 </html>
-
