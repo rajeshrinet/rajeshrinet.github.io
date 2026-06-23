@@ -21,7 +21,7 @@
     }
 
     .e-mail:before { content: attr(data-website) "\0040" attr(data-user); unicode-bidi: bidi-override; direction: rtl; }
-    .layout-container { display: flex; gap: 20px; padding: 20px; }
+    .layout-container { display: flex; gap: 20px; padding: 0px; }
     .text-column { flex: 78%; }
     .photo-column { flex: 22%; }
     .photo-column img { width: 100%; height: auto; }
@@ -126,39 +126,41 @@
     <div class="wrapper">
         <h1 id="about">About</h1>
         <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>  
+        <br>
         <div class="layout-container">    
             <div class="text-column">
-                <div class="profile-container">Dr. Rajesh Singh is an Assistant Professor in the Department of Physics at the Indian Institute of Technology Madras.    
+                <div class="profile-container">
+                Dr. Rajesh Singh is an Assistant Professor in the Department of Physics at the Indian Institute of Technology Madras.    
                 <br>
                 <br>
-                    <h3>Research and Methodology</h3>    
+                <h3>Research Interests</h3>    
                     <ul>        
-                        <li>Research Interests: Soft matter, active matter, and biological systems</li>        
-                        <li>Methodology: Statistical physics, fluid mechanics, and computational physics</li>    
+                        <li>Soft matter, active matter, and biological systems</li>        
+                        <li>Statistical physics, fluid mechanics, and computational physics</li>    
                     </ul>        
+                <h3>Academic Journey</h3>
+                    <ul>
+                    <li>Postdoc, University of Cambridge (Group of Prof. M. E. Cates)</li>
+                    <li>PhD in Physics, IMSc Chennai (Advised by Prof. R. Adhikari)</li>
+                </ul>
             </div>
-    <h3>Academic Journey</h3>
-    <ul>
-        <li>Postdoc, University of Cambridge (Group of Prof. M. E. Cates)</li>
-        <li>PhD in Physics, IMSc Chennai (Advised by Prof. R. Adhikari)</li>
-    </ul>
-    </div>
-    <div class="photo-column">
+        </div>
+        <div class="photo-column">
         <img src="images/rs.jpg" alt="A beautiful placeholder">
+        </div>
     </div>
-</div>
-   </p>
-<h1>Links and contact</h1>
-        <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>  
-    <br>
-    <a href="https://github.com/rajeshrinet">GitHub</a> |
+<h3>Links and contact</h3>
+    <ul>
+   <li> <a href="https://github.com/rajeshrinet">GitHub</a> |
     <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>  | 
     <a href="https://physics.iitm.ac.in/people/facultyinfo/rsingh.html">IITM Webpage</a> |
     <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a>   | 
-    <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>  | 
+    <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>  
+<br> 
+<li>
 <span class="e-mail" data-user="hgnisr" data-website="ni.ca.mtii.scisyhp"></span>
+</ul>
 <div id="div_id2"></div>
-<br>
 <br>
 <br>
 <h1>Publications</h2>
@@ -172,8 +174,8 @@ M Deb, and R Singh<br>
    <em>Hydrodynamic Phase Separation and Morphological Evolution in Chiral
   Active-Passive Mixtures
 </em>
-   <br><a href="https://doi.org/">Soft Matter, 2026</a>
-| <a href="https://arxiv.org/abs/2606.18742">arXiv:2606.18742</a>
+   <br>Soft Matter, 2026
+| <a href="https://arxiv.org/abs/2606.22903">arXiv:2606.22903</a>
         <details>
             <summary>Abstract</summary>
             <div class="content">
@@ -712,7 +714,7 @@ Saratha S
     <div class="footer-col-wrapper">
       <div class="footer-col">
 <p><small>
-last updated 22-June-2026
+last updated 23-June-2026
 </small></p>
       </div>
     </div>
