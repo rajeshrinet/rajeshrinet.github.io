@@ -1,233 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Rajesh Singh —  Faculty of Physics at IIT Madras. Soft matter, active matter, statistical and computational physics.">
 <title>Rajesh Singh</title>
-    <link rel="icon" href="images/this.png">
-    <style type="text/css">
-    /* Theme Variables - Dark Theme by Default */
-    :root {
-        --bg: #121212; --text: #e0e0e0; --text-muted: #cccccc; --header-bg: #1a1a1a; --border: #333333;
-        --link: #64b5f6; --link-visited: #90caf9; --link-hover: #ffffff;
-        --code-bg: #1e1e24; --table-even: #1c1c1c; --table-th: #252525; --accent: #ffffff;
-    }
-    /* Light Theme Overrides */
-    body.light-mode {
-        --bg: #fdfdfd; --text: #111111; --text-muted: #515151; --header-bg: #eef2f6; --border: #e8e8e8;
-        --link: #2a7ae2; --link-visited: #1756a9; --link-hover: #111111;
-        --code-bg: #eeeeff; --table-even: #f7f7f7; --table-th: #f0f0f0; --accent: #424242;
-    }
+<link rel="icon" href="images/this.png">
+<script>
+  /* Dark unless the visitor has explicitly chosen light. Runs before first paint, so no flash. */
+  (function () {
+    var t = "dark";
+    try { if (localStorage.getItem("theme") === "light") t = "light"; } catch (e) {}
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #0e1116; --surface: #161a22; --surface-2: #1c212b; --border: #2a303c;
+    --text: #e7e9ee; --muted: #a2a9b8; --faint: #7c8494;
+    --link: #7fb6ff; --link-hover: #b9d7ff; --accent: #f0b866;
+    --header-bg: rgba(14, 17, 22, 0.85);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfbf9; --surface: #ffffff; --surface-2: #f2f3f0; --border: #dfe1dc;
+    --text: #16181d; --muted: #4c525e; --faint: #6d7480;
+    --link: #1a5fc4; --link-hover: #0d3f8a; --accent: #9a5b0a;
+    --header-bg: rgba(251, 251, 249, 0.88);
+    color-scheme: light;
+  }
 
-    .e-mail:before { content: attr(data-website) "\0040" attr(data-user); unicode-bidi: bidi-override; direction: rtl; }
-    .layout-container { display: flex; gap: 20px; padding: 0px; }
-    .text-column { flex: 78%; }
-    .photo-column { flex: 22%; }
-    .photo-column img { width: 100%; height: auto; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-wrap: break-word; transition: background-color .2s ease, color .2s ease;
+  }
+  h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrapper { max-width: 920px; margin: 0 auto; padding: 0 24px; }
 
-    body, h1, h2, h3, h4, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
-    body { font: 400 16px/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background-color: var(--bg); display: flex; min-height: 100vh; flex-direction: column; overflow-wrap: break-word; }
-    h1, h2, h3, h4, p, blockquote, pre, ul, ol, dl, figure { margin-bottom: 15px; }
-    hr { margin: 30px 0; }
-    main { display: block; }
-    img { max-width: 100%; vertical-align: middle; }
-    ul, ol { margin-left: 30px; }
-    li > ul, li > ol { margin-bottom: 0; }
-    h1, h2, h3, h4 { font-weight: 400; color: var(--accent); }
-    
-    a { color: var(--link); text-decoration: none; }
-    a:visited { color: var(--link-visited); }
-    a:hover { color: var(--link-hover); text-decoration: underline; }
-    
-    blockquote { color: #828282; border-left: 4px solid var(--border); padding-left: 15px; font-size: 1.125rem; font-style: italic; }
-    pre, code { font-family: monospace; font-size: 0.9375em; border: 1px solid var(--border); border-radius: 3px; background-color: var(--code-bg); }
-    code { padding: 1px 5px; }
-    pre { padding: 8px 12px; overflow-x: auto; }
-    
-    .wrapper { max-width: calc(1000px - 30px); margin: 0 auto; padding: 0 15px; }
-    @media screen and (min-width: 1200px) { .wrapper { max-width: calc(1000px - 60px); padding: 0 30px; } }
-    
-    table { margin-bottom: 30px; width: 100%; text-align: left; color: var(--text); border-collapse: collapse; border: 1px solid var(--border); }
-    table tr:nth-child(even) { background-color: var(--table-even); }
-    table th, table td { padding: 10px 15px; border: 1px solid var(--border); }
-    table th { background-color: var(--table-th); }
-    @media screen and (max-width: 1000px) { table { display: block; overflow-x: auto; } }
-    
-    .site-header { min-height: 55.95px; line-height: 54px; position: fixed; top: 0; width: 100%; z-index: 1000; background-color: var(--header-bg); }
-    .site-title, .site-title:visited { font-size: 1.625rem; font-weight: 300; letter-spacing: -1px; float: left; color: var(--accent); }
-    
-    /* Cleaned up Navigation Styles */
-    .site-nav { float: right; }
-    .site-nav .nav-trigger, .site-nav label[for="nav-trigger"] { display: none; }
-    .site-nav .page-link { color: var(--text); display: inline; margin-left: 20px; }
-    
-    @media screen and (max-width: 1000px) { 
-        .site-nav label[for="nav-trigger"] { display: block; float: right; width: 36px; height: 36px; padding-top: 10px; cursor: pointer; text-align: center; }
-        .site-nav .menu-icon > svg path { fill: var(--text); }
-        .site-nav .trigger { display: none; position: absolute; top: 54px; right: 0; background-color: var(--header-bg); border: 1px solid var(--border); border-radius: 5px; text-align: right; padding: 5px 0; }
-        .site-nav .nav-trigger:checked ~ .trigger { display: block; }
-        .site-nav .page-link { display: block; padding: 5px 20px; margin: 0; } 
-    }
-    
-    .theme-toggle-container { float: right; margin-left: 15px; display: flex; align-items: center; height: 54px; }
-    .theme-toggle-btn { padding: 4px 12px; cursor: pointer; border: 1px solid var(--text); border-radius: 4px; background: transparent; color: var(--text); font-size: 14px; transition: all 0.2s ease; }
-    .theme-toggle-btn:hover { background-color: var(--text); color: var(--bg); }
-    @media screen and (max-width: 1000px) { .theme-toggle-container { position: absolute; right: 60px; top: 0; } }
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 100; background: var(--header-bg);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .wrapper { display: flex; align-items: center; gap: 20px; height: 60px; }
+  .site-title { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-right: auto; }
+  .site-title:hover { color: var(--text); text-decoration: none; }
+  .site-nav { display: flex; gap: 22px; }
+  .site-nav a { color: var(--muted); font-size: 0.95rem; }
+  .site-nav a:hover { color: var(--text); text-decoration: none; }
+  .theme-toggle {
+    display: grid; place-items: center; width: 36px; height: 36px; padding: 0; cursor: pointer;
+    background: transparent; color: var(--muted); border: 1px solid var(--border); border-radius: 8px;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: var(--faint); }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .theme-toggle .moon { display: none; }
+  :root[data-theme="light"] .theme-toggle .sun { display: none; }
+  :root[data-theme="light"] .theme-toggle .moon { display: block; }
 
-    .page-content { padding: 30px 0; flex: 1 0 auto; margin-top: 60px; }
-    .post-content p, .post-content li { font-size: 20px; color: var(--text-muted); }
-    .anchor-link { opacity: 0; padding-left: 0.375em; }
-    h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link { opacity: 1; }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".anchor-link").forEach(e => e.innerHTML = '<i class="fas fa-link fa-xs"></i>');
-        
-        const toggleBtn = document.getElementById("theme-toggle");
-        if (localStorage.getItem("theme") === "light") {
-            document.body.classList.add("light-mode");
-            toggleBtn.textContent = "☀️";
-        }
-        
-        toggleBtn.addEventListener("click", () => {
-            const isLight = document.body.classList.toggle("light-mode");
-            localStorage.setItem("theme", isLight ? "light" : "dark");
-            toggleBtn.textContent = isLight ? "🌙" : "☀️";
-        });
-    });
-  </script>
+  /* Sections */
+  main section.block { padding: 56px 0 8px; }
+  .section-title {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 1.9rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.2;
+    padding-bottom: 14px; margin-bottom: 26px; border-bottom: 1px solid var(--border);
+  }
+  .section-title small { font: 400 0.9rem/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--faint); margin-left: 10px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; }
+  .about h1 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-size: 2.6rem; font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; }
+  .lede { margin-top: 12px; font-size: 1.15rem; color: var(--muted); }
+  .research { margin-top: 16px; max-width: 64ch; color: var(--text); }
+  .about h2 { margin: 28px 0 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+  .about li { color: var(--text); padding: 2px 0; }
+  .about li span { color: var(--faint); }
+  .photo img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .links a {
+    padding: 5px 13px; font-size: 0.92rem; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+  }
+  .links a:hover { border-color: var(--link); color: var(--link); text-decoration: none; }
+  .email-line { margin-top: 14px; color: var(--muted); font-size: 0.98rem; }
+
+  /* Publications */
+  .year-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .year-nav a {
+    padding: 3px 11px; font-size: 0.88rem; font-variant-numeric: tabular-nums; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 6px;
+  }
+  .year-nav a:hover { color: var(--text); border-color: var(--faint); text-decoration: none; }
+  .year { display: grid; grid-template-columns: 84px 1fr; gap: 0 24px; padding-top: 30px; }
+  .year-label {
+    position: sticky; top: 80px; align-self: start;
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 1.35rem; font-weight: 400; line-height: 1.3; color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .pub { padding: 0 0 22px; }
+  .pub + .pub { padding-top: 22px; border-top: 1px solid var(--border); }
+  .pub-title { font-size: 1.06rem; font-weight: 600; line-height: 1.4; color: var(--text); }
+  .pub-authors { margin-top: 4px; font-size: 0.95rem; color: var(--muted); }
+  .pub-authors strong { color: var(--text); font-weight: 600; }
+  .pub-links, .pub-note { margin-top: 4px; font-size: 0.93rem; color: var(--muted); }
+  .sep { color: var(--faint); margin: 0 2px; }
+  .badge {
+    display: inline-block; padding: 0 8px; font-size: 0.8rem; line-height: 1.7; color: var(--accent);
+    border: 1px solid currentColor; border-radius: 4px;
+  }
+  .abstract { margin-top: 8px; }
+  .abstract summary { display: inline-block; cursor: pointer; padding: 2px 12px 2px 8px; font-size: 0.88rem; color: var(--link); border: 1px solid var(--border); border-radius: 6px; list-style: none; user-select: none; }
+  .abstract summary::-webkit-details-marker { display: none; }
+  .abstract summary::before { content: "+"; display: inline-block; width: 1em; font-weight: 600; }
+  .abstract[open] summary::before { content: "\2212"; }
+  .abstract summary:hover, .abstract[open] summary { color: var(--text); border-color: var(--faint); }
+  .abstract-body {
+    margin-top: 10px; padding: 14px 18px; font-size: 0.94rem; line-height: 1.7; color: var(--muted);
+    background: var(--surface); border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0;
+  }
+
+  /* Software */
+  .intro { color: var(--muted); max-width: 70ch; margin-bottom: 24px; }
+  .software { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card { display: flex; flex-direction: column; padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .card h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 1.2rem; font-weight: 600; }
+  .card h3 a { font-size: 0.85rem; font-weight: 400; }
+  .card .tag { margin-top: 2px; font-size: 0.9rem; color: var(--accent); }
+  .card p.desc { margin: 12px 0 16px; font-size: 0.93rem; line-height: 1.65; color: var(--muted); }
+  .card pre {
+    margin: auto 0 0; padding: 9px 13px; overflow-x: auto;
+    font: 0.88rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+  }
+  .card pre::before { content: "$ "; color: var(--faint); }
+
+  .site-footer { margin-top: 64px; padding: 22px 0 40px; border-top: 1px solid var(--border); color: var(--faint); font-size: 0.85rem; }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .wrapper { padding: 0 18px; }
+    .site-header .wrapper { gap: 14px; }
+    .site-nav { gap: 14px; }
+    .site-nav a { font-size: 0.88rem; }
+    main section.block { padding-top: 40px; }
+    .about { grid-template-columns: 1fr; gap: 24px; }
+    .about h1 { font-size: 2.1rem; }
+    .photo { order: -1; max-width: 150px; }
+    .year { grid-template-columns: 1fr; }
+    .year-label { position: static; margin-bottom: 14px; }
+    .software { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 400px) { .site-title { display: none; } .site-nav { margin-right: auto; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } body { transition: none; } }
+  @media print {
+    .site-header, .year-nav { display: none; }
+    .abstract-body { background: none; }
+  }
+</style>
 </head>
 <body>
 
 <header class="site-header">
-    <div class="wrapper">
-        <a class="site-title" rel="author" href="#about">Home</a>
-        <div class="theme-toggle-container">
-            <button id="theme-toggle" class="theme-toggle-btn">☀️</button>
-        </div>
-        <nav class="site-nav">        
-            <input type="checkbox" id="nav-trigger" class="nav-trigger" />        
-            <label for="nav-trigger">          
-                <span class="menu-icon">            
-                    <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/></svg>          
-                </span>        
-            </label>        
-            <div class="trigger">
-                <a class="page-link" href="#div_id2">Publications</a>
-                <a class="page-link" href="#software">Software</a>
-                &thinsp;
-                &thinsp;
-            </div>
-        </nav>
-    </div>
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="#about">Rajesh Singh</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#software">Software</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+    </button>
+  </div>
 </header>
 
-<main class="page-content" aria-label="Content">      
-    <div class="wrapper">
-        <h1 id="about">About</h1>
-        <hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>  
-        <br>
-        <div class="layout-container">    
-            <div class="text-column">
-                <div class="profile-container">
-                Dr. Rajesh Singh is an Assistant Professor in the Department of Physics at the Indian Institute of Technology Madras.    
-                <br>
-                <br>
-                <h3>Research Interests</h3>    
-                    <ul>        
-                        <li>Soft matter, Active matter, and Biological systems</li>        
-                        <li>Statistical physics, Machine learning, and Computational physics</li>    
-                    </ul>        
-                <h3>Academic Journey</h3>
-                    <ul>
-                    <li>Postdoc, University of Cambridge (Advised by Prof. M. E. Cates)</li>
-                    <li>PhD in Physics, IMSc Chennai (Advised by Prof. R. Adhikari)</li>
-                </ul>
-            </div>
+<main aria-label="Content">
+  <section class="block" id="about">
+    <div class="wrapper about">
+      <div>
+        <h1>Rajesh Singh</h1>
+        <p class="lede">Faculty member in the Department of Physics at the Indian Institute of Technology Madras.</p>
+        <p class="research">My research is in the theory of soft and active matter: systems, such as suspensions of self-propelled colloids, that are driven out of equilibrium by energy dissipated at the scale of their constituents. I study how hydrodynamic and chemical (phoretic) interactions between active particles, and with nearby walls and interfaces, give rise to collective states such as flocking, phase separation and crystallisation. To do this I combine analytical theory with numerical simulation, much of it built on the open-source libraries described below, and use Bayesian inference and machine learning to infer models from data. Much of this work is done in close collaboration with experimental groups.</p>
+
+        <h2>Research interests</h2>
+        <ul>
+          <li>Soft matter, Active matter, and Biological systems</li>
+          <li>Statistical physics, Machine learning, and Computational physics</li>
+        </ul>
+
+        <h2>Academic journey</h2>
+        <ul>
+          <li>Postdoc, University of Cambridge <span>· advised by Prof. M. E. Cates</span></li>
+          <li>PhD in Physics, IMSc Chennai <span>· advised by Prof. R. Adhikari</span></li>
+        </ul>
+
+        <h2>Links and contact</h2>
+        <div class="links">
+          <a href="https://github.com/rajeshrinet">GitHub</a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>
+          <a href="https://softmatter.gitlab.io">Group webpage</a>
+          <a href="https://physics.iitm.ac.in/people/facultyinfo/rsingh.html">IITM webpage</a>
+          <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a>
+          <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>
         </div>
-        <div class="photo-column">
-        <img src="images/rs.jpg" alt="A_Photo">
-        </div>
+        <p class="email-line"><span id="email">rsingh [at] physics.iitm.ac.in</span></p>
+      </div>
+      <div class="photo">
+        <img src="images/rs.jpg" alt="Portrait of Rajesh Singh">
+      </div>
     </div>
-<h3>Links and contact</h3>
-    <ul>
-   <li> <a href="https://github.com/rajeshrinet">GitHub</a> |
-    <a href="https://scholar.google.com/citations?hl=en&amp;user=wcAFi2cAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>  | 
-    <a href="https://softmatter.gitlab.io">Group-Webpage</a> |
-    <a href="https://physics.iitm.ac.in/people/facultyinfo/rsingh.html">IITM-Webpage</a> |
-    <a href="https://www.researchgate.net/profile/Rajesh-Singh-97">ResearchGate</a>   | 
-    <a href="https://speakerdeck.com/rajeshrinet/">SpeakerDeck</a>  
-<br> 
-<li>
-<span class="e-mail" data-user="hgnisr" data-website="ni.ca.mtii.scisyhp"></span>
-</ul>
-<div id="div_id2"></div>
-<br>
-<br>
-<h1>Publications</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-<h2>
-2026</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-K Panja, G Turk, and R Singh
-<br>
-   <em>Boundary- and Screening-Induced Bubbly Phases in Autophoretic Active Matter
-</em>
-   <br>
-    <a href="http://arxiv.org/abs/2609.03991">arXiv:2609.03991</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
+  </section>
+
+  <section class="block" id="publications">
+    <div class="wrapper">
+      <div id="div_id2"></div>
+      <h2 class="section-title">Publications <small>49 entries</small></h2>
+      <nav class="year-nav" aria-label="Jump to year">
+<a href="#y2026">2026</a>
+<a href="#y2025">2025</a>
+<a href="#y2024">2024</a>
+<a href="#y2023">2023</a>
+<a href="#y2022">2022</a>
+<a href="#y2021">2021</a>
+<a href="#y2020">2020</a>
+<a href="#y2019">2019</a>
+<a href="#y2018">2018</a>
+<a href="#y2017">≤ 2017</a>
+      </nav>
+<section class="year" id="y2026">
+<h3 class="year-label">2026</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Boundary- and Screening-Induced Bubbly Phases in Autophoretic Active Matter</p>
+  <p class="pub-authors">K Panja, G Turk, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="http://arxiv.org/abs/2609.03991">arXiv:2609.03991</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
 <p id="abstract1.1" class="ltx_p">Spatial confinement and chemical screening fundamentally reshape the non-equilibrium phase behavior of autophoretic active particles. Here, we present a systematic study mapping the collective dynamics of self-propelled particles governed by chemo-attractive translational forces (<math id="abstract1.m1" class="ltx_Math" alttext="\mu_{t}&lt;0" display="inline" intent=":literal"><semantics><mrow><msub><mi>μ</mi><mi>t</mi></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu_{t}&lt;0</annotation></semantics></math>) and chemo-repulsive rotational torques (<math id="abstract1.m2" class="ltx_Math" alttext="\mu_{r}&gt;0" display="inline" intent=":literal"><semantics><mrow><msub><mi>μ</mi><mi>r</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mu_{r}&gt;0</annotation></semantics></math>) across varying screening parameters <math id="abstract1.m3" class="ltx_Math" alttext="\kappa" display="inline" intent=":literal"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>, torque magnitudes <math id="abstract1.m4" class="ltx_Math" alttext="\mu_{r}" display="inline" intent=":literal"><semantics><msub><mi>μ</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\mu_{r}</annotation></semantics></math>, and boundary condition coefficients <math id="abstract1.m5" class="ltx_Math" alttext="\Lambda^{c}" display="inline" intent=":literal"><semantics><msup><mi mathvariant="normal">Λ</mi><mi>c</mi></msup><annotation encoding="application/x-tex">\Lambda^{c}</annotation></semantics></math>. Beyond standard chemotactic macro-phase separation and dynamic clustering, we report the emergence of novel boundary- and screening-induced <span id="abstract1.1.1" class="ltx_text ltx_font_italic">bubbly phases</span>, classified into <span id="abstract1.1.2" class="ltx_text ltx_font_italic">boiling</span> and <span id="abstract1.1.3" class="ltx_text ltx_font_italic">bursting</span> bubbles. Using a metric triad of steady-state cluster fraction <math id="abstract1.m6" class="ltx_Math" alttext="\langle S\rangle" display="inline" intent=":literal"><semantics><mrow><mo stretchy="false">⟨</mo><mi>S</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\langle S\rangle</annotation></semantics></math>, temporal fluctuation magnitude <math id="abstract1.m7" class="ltx_Math" alttext="\sigma_{S}" display="inline" intent=":literal"><semantics><msub><mi>σ</mi><mi>S</mi></msub><annotation encoding="application/x-tex">\sigma_{S}</annotation></semantics></math>, and coordination number <math id="abstract1.m8" class="ltx_Math" alttext="\langle Q\rangle" display="inline" intent=":literal"><semantics><mrow><mo stretchy="false">⟨</mo><mi>Q</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\langle Q\rangle</annotation></semantics></math>, we
 draw phase diagrams to demarcate phases for no-flux boundaries (<math id="abstract1.m9" class="ltx_Math" alttext="\Lambda^{c}=1" display="inline" intent=":literal"><semantics><mrow><msup><mi mathvariant="normal">Λ</mi><mi>c</mi></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\Lambda^{c}=1</annotation></semantics></math>) and chemically permeable interfaces (<math id="abstract1.m10" class="ltx_Math" alttext="\Lambda^{c}=0" display="inline" intent=":literal"><semantics><mrow><msup><mi mathvariant="normal">Λ</mi><mi>c</mi></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Lambda^{c}=0</annotation></semantics></math>).
 Increasing chemical screening (<math id="abstract1.m11" class="ltx_Math" alttext="\kappa" display="inline" intent=":literal"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>) systematically suppresses long-range attraction, driving sequential phase transitions from macro-scale collapse toward bubbly states, dynamic micro-clusters, and homogeneous <span id="abstract1.1.4" class="ltx_text ltx_font_italic">gas</span> phases, while simultaneously inducing aggregate shape anisotropy.
 These findings provide predictive design rules for controlling active assembly and transport in microfluidic environments.</p>
-            </div>
-        </details>
-<br>
-AG Subramaniam, and R Singh
-<br>
-   <em>Mechanics and statistics of a self-interacting autophoretic colloidal chain
-</em>
-   <br><a href="https://doi.org/10.1103/4qts-l51g">APS Open Sci. 2026</a> |
-    <a href="http://arxiv.org/abs/2608.28041">arXiv:2608.28041</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Mechanics and statistics of a self-interacting autophoretic colloidal chain</p>
+  <p class="pub-authors">AG Subramaniam, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/4qts-l51g">APS Open Sci. 2026</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2608.28041">arXiv:2608.28041</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Equilibrium statistical mechanics owes much of its analytical tractability to symmetry: detailed balance, gradient dynamics, and the resulting vanishing of steady-state entropy production are properties that follow directly from the structure of the underlying dynamics, not from any smallness of the perturbation. Exact solutions of this kind are rare away from equilibrium. Here we identify and characterize a class of far-from-equilibrium colloidal chains – coupled through roto-translational and autophoretic interactions – that, for a specified set of bilaterally-symmetric initial conditions, nevertheless admit an exact description. For fixed chain geometries, the monomer orientational dynamics map directly onto a scalar potential. Detailed balance holds strictly within the orientational sector, causing its steady-state entropy production rate (EPR) to vanish identically despite the system being manifestly driven and dissipative. We solve these reduced dynamics exactly for dimers and semi-analytically for general 𝑁-mers, deriving closed-form expressions for mean-squared orientational fluctuations and total EPR. Crucially, this exact mapping demonstrates that, at fixed chain geometry, all non-equilibrium entropy production is strictly partitioned into the translational (center-of-mass) sector. Extending the framework to incorporate dipolar chemical emission reveals that while dimers retain this quasi-equilibrium structure, longer chains (𝑁>2) break it completely—generating a genuinely non-equilibrium state whose EPR fails to reach a steady state. Monopolar coupling is thus both necessary and sufficient to sustain the polarized quasi-equilibrium state, establishing explicit physical boundaries for exact thermodynamic descriptions of active colloidal chains.
 </p>
-            </div>
-        </details>
-<br>
-AG Subramaniam, and R Singh
-<br>
-   <em>Collective dynamics of chemo-mechanical colloidal chains with active tips
-</em>
-   <br>
-    <a href="http://arxiv.org/abs/2608.22318">arXiv:2608.22318</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Collective dynamics of chemo-mechanical colloidal chains with active tips</p>
+  <p class="pub-authors">AG Subramaniam, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="http://arxiv.org/abs/2608.22318">arXiv:2608.22318</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 We report a study of the emergent dynamics arising in two-dimensional suspensions of semi-flexible chains whose tip is chemically active, generating a phoretic field. By varying the chain length (number of monomers per chain Npc), the area fraction ϕ , and the sign of the phoretic coupling J 0 , we map out a rich non-equilibrium phase diagram in the presence of phoretic interactions. For repulsive phoretic interactions (J0>0) between the chains, we find that short chains (Npc=2) develop a transient chaotic flow state that crosses over at long times to a global polar flock with super-diffusive mean-squared displacement and long-ranged velocity correlations. Surprisingly, we find this state to have suppressed density fluctuations, indicating the emergence of hyperuniformity. At intermediate chain lengths (Npc ∼ 4 – 8 ), the repulsive chemical field drives chaotic mesoscale flows — a dry route to active turbulence without the need to hydrodynamic interactions or steric alignment interactions. For attractive phoretic interactions 
 (J0<0), chains self-organise into hedgehog-like micellar aggregates with heads forming the core and flexible tails radiating outward, in structural analogy with amphiphile micellisation but driven entirely by non-equilibrium self-propulsion. A coarse-grained theory of a tip-emitting active rod predicts the onset of the flocking of dimers, though overestimates the presence of polar order for longer chains. Our results establish phoretic tip activity as a minimal, experimentally realisable mechanism for a spectrum of collective states hitherto attributed to hydrodynamic interactions or steric alignment.
 </p>
-            </div>
-        </details>
-<br>
-A Mohapatra, S Adhikary, and R Singh<br>
-   <em>Model inference from fluid flow in continuum theories of active matter
-</em>
-   <br><a href="https://doi.org/10.1103/st8r-wrrd">Phys. Rev. E. 2026</a> |
-<a href="https://arxiv.org/abs/2607.20100">arXiv:2607.20100</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Model inference from fluid flow in continuum theories of active matter</p>
+  <p class="pub-authors">A Mohapatra, S Adhikary, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/st8r-wrrd">Phys. Rev. E. 2026</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2607.20100">arXiv:2607.20100</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
     Active matter systems are driven out of 
     thermodynamic equilibrium by localized, microscale energy dissipation. 
     While active field theories
@@ -247,19 +302,15 @@ A Mohapatra, S Adhikary, and R Singh<br>
     The classification of the models requires comparison using conventional numerical work against predicted parameters.
     Our deep learning method presents a principled way to bear upon questions of model inference and selection given the flow field data in continuum models of active matter. 
 </p>
-            </div>
-        </details>
-<br>
-M Deb, and R Singh<br>
-   <em>Hydrodynamic Phase Separation and Morphological Evolution in Chiral
-  Active-Passive Mixtures
-</em>
-   <br><a href="https://doi.org/10.1039/D6SM00188B">Soft Matter, 22, 4846, 2026</a>
-| <a href="https://arxiv.org/abs/2606.22903">arXiv:2606.22903</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Hydrodynamic Phase Separation and Morphological Evolution in Chiral Active-Passive Mixtures</p>
+  <p class="pub-authors">M Deb, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1039/D6SM00188B">Soft Matter, 22, 4846, 2026</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2606.22903">arXiv:2606.22903</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 The collective behavior of passive particles within chiral active matter has
 emerged as a significant area of soft matter research. However, most existing
 studies focus on systems where chirality is imposed by external torques rather
@@ -277,472 +328,397 @@ velocity distributions of the passive particles. Our findings provide new
 insights into the role of long-range hydrodynamic couplings in governing the
 self-organization of non-equilibrium condensed matter.
 </p>
-            </div>
-        </details>
-<br>
-S Adhikary, and R Singh<br>
-   <em>
-Emergent flocking dynamics in chemorepulsive active colloids: interplay of disorder and noise
-</em>
-   <br>
-    <a href="https://doi.org/10.1063/5.0343352">J. Chem. Phys., 165, 064502, 2026</a> | 
-    <a href="http://arxiv.org/abs/2605.02854">arXiv:2605.02854</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Emergent flocking dynamics in chemorepulsive active colloids: interplay of disorder and noise</p>
+  <p class="pub-authors">S Adhikary, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1063/5.0343352">J. Chem. Phys., 165, 064502, 2026</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2605.02854">arXiv:2605.02854</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Recent studies of active colloidal matter have revealed that a global polar order can arise from chemorepulsive interactions among particles without any explicit alignment interaction between them. In this work, we investigate such chemically interacting active colloids in the presence of quenched disorder, where a fraction of particles are randomly pinned in space. These pinned particles are restricted to rotational motion while remaining chemically coupled to the mobile population. In addition, angular noise is incorporated into the rotational dynamics to capture stochastic effects. To elucidate the interplay of quenched disorder and noise, we construct phase diagrams based on polar order and its fluctuations, and systematically analyze the associated disorder- and noise-driven phase transitions. Surprisingly, we find that the phase transition driven by the noise is significantly dependent on the density of the particles, whereas such a density-dependence is not present when the control parameter is the pinning fraction. The finite-size effects on these transitions are also examined. An effective interaction range, governed by the coefficient related to screening of the chemorepulsive interaction, plays a crucial role in collective behavior. When the effective interaction range is much smaller than the system size, the system exhibits density band formation, a feature absent in the long-range interaction regime. Moreover, near the transition point, the order parameter distribution becomes bimodal for the case of short-range interaction.
 </p>
-            </div>
-        </details>
-<br>
-U Maurya, K Swaminathan, E Ashraf, and R Singh
-<br>
-   <em>Optimal transport of an active particle near a plane wall
-</em>
-   <br>
-    <a href="http://arxiv.org/abs/2603.17798">arXiv:2603.17798</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Optimal transport of an active particle near a plane wall</p>
+  <p class="pub-authors">U Maurya, K Swaminathan, E Ashraf, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="http://arxiv.org/abs/2603.17798">arXiv:2603.17798</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 The control of active colloidal particles via optical traps is a cornerstone for research of matter at the micron and nanometer scale. A central challenge in this domain is the derivation of optimal transport protocols that minimize the mean work required to move a particle over a finite-time interval. Here we present a Ritz method in which open-loop protocols are constructed from a global basis of Chebyshev polynomials and optimised by a genetic algorithm. We apply the method to study optimal transport of an active particle, which is modelled as a force-dipole (or a stresslet) near a no-slip wall. The methodology is validated in the limits of zero activity and infinite wall separation, where it successfully recovers the known analytical protocols and the theoretical minimum work. Crucially, we demonstrate that the presence of the boundary breaks the time-reversal symmetry of the optimal protocol found in bulk solutions. This symmetry breaking is shown to be a complex function of the transport direction and the particle's intrinsic activity. Because the presented approach requires only the capability to simulate stochastic trajectories, it offers a robust, principled framework for optimizing transport protocols in complex fluid environments that remain inaccessible to exact analytical treatment.
 </p>
-            </div>
-        </details>
-<br>
-S Adhikary, AG Subramaniam, and R Singh<br>
-   <em>Flocking transition in phoretically interacting active particles with pinning disorder
-</em>
-   <br><a href="https://doi.org/10.1088/1367-2630/ae4530">New J. Phys. 28, 024403, 2026</a> |
-    <a href="http://arxiv.org/abs/2511.10386">arXiv:2511.10386</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Flocking transition in phoretically interacting active particles with pinning disorder</p>
+  <p class="pub-authors">S Adhikary, AG Subramaniam, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1088/1367-2630/ae4530">New J. Phys. 28, 024403, 2026</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2511.10386">arXiv:2511.10386</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Recent studies in the collective behavior of active colloids have shown that a global polar order may emerge due to long-ranged chemo-repulsive interactions between them. Here, we report the role of pinning disorder in the flocking transition for such a system. To this end, we study the problem of chemically interacting active colloids with some fraction of the colloids randomly pinned over space such that they can only rotate while phoretically interacting with other particles. Using this model, we investigate the sustenance of global polar order in the presence of quenched spatial disorder. We quantify the flocking transition by studying the global polarization, and the role of finite-size effects. We find that in the crystallite flocking phase, even a small fraction of pinning can destroy spatial crystalline order, although polar order in the form of a liquid phase is maintained. It is observed that polar order is sustained in a system with a higher pinning fraction if the long-ranged repulsive force is subsequently increased. However, in absence of chemo-repulsive forces between particles, polar order drastically decreases even with a smaller pinning fraction. Our work suggests that the flocking transition of active colloids can be controlled via "translationally inert" obstacles, that rotate but do not translate whilst interacting with the bulk.
 </p>
-            </div>
-        </details>
-<br>
-AG Subramaniam, T Banerjee, and R Singh<br>
-   <em>Shape-specific fluctuations of an active colloidal interface
-</em>
-   <br><a href="https://doi.org/10.1063/5.0301699">J. Chem. Phys. 164, 034901, 2026</a> |
-    <a href="https://arxiv.org/abs/2509.08567">arXiv:2509.08567</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Shape-specific fluctuations of an active colloidal interface</p>
+  <p class="pub-authors">AG Subramaniam, T Banerjee, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1063/5.0301699">J. Chem. Phys. 164, 034901, 2026</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2509.08567">arXiv:2509.08567</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Motivated by a recently synthesizable class of active interfaces formed by linked self--propelled colloids, we investigate the dynamics and fluctuations of a phoretically (chemically) interacting active interface with roto--translational coupling. We enumerate all steady--state shapes of the interface across parameter space and identify a regime where the interface acquires a finite curvature, leading to a characteristic ''C--shaped'' topology, along with persistent self--propulsion. In this phase, the interface height fluctuations obey Family--Vicsek scaling but with novel exponents: a dynamic exponent z<sub>h</sub>≈0.5, a roughness exponent α<sub>h</sub>≈0.9 and a super--ballistic growth exponent β<sub>h</sub>≈1.7. In contrast, the orientational fluctuations of the colloidal monomers exhibit a negative roughness exponent, reflecting a surprising smoothness law, where steady--state fluctuations diminish with increasing system size. Together, these findings point towards a unique non--equilibrium universality class associated with self--propelled interfaces of non--standard shape.
 </p>
-            </div>
-        </details>
-<br>
-<br>
-<h2>
-2025</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-AG Subramaniam*, S Adhikary*, and R Singh<br>
-   <em>
-A minimal mechanism for flocking in phoretically interacting active particles
-</em>
-   <br>
-    <a href="https://dx.doi.org/10.1039/D5SM01005E">Soft Matter, 21, 9058, 2025</a> |
-    <a href="https://arxiv.org/abs/2504.07050">arXiv:2504.07050</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+</ol>
+</section>
+<section class="year" id="y2025">
+<h3 class="year-label">2025</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">A minimal mechanism for flocking in phoretically interacting active particles</p>
+  <p class="pub-authors">AG Subramaniam*, S Adhikary*, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1039/D5SM01005E">Soft Matter, 21, 9058, 2025</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2504.07050">arXiv:2504.07050</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Coherent collective motion is a widely observed phenomenon in active matter systems. Here, we report a flocking transition mechanism in a system of chemically interacting active colloidal particles sustained purely by chemo-repulsive torques at low to medium densities. The basic requirements to maintain the global polar order are excluded volume repulsions and long-ranged repulsive torques. This mechanism requires that the time scale for individual colloids to move a unit length be dominant with respect to the time they deterministically respond to chemical gradients, or equivalently, pair colloids slide together a minimal unit length before deterministically rotating away from each other. Switching on the translational repulsive forces renders the flock a crystalline structure. Furthermore, liquid flocks are observed for a range of chemo-attractive inter-particle forces. Various properties of these two distinct flocking phases are contrasted and discussed. We complement these results with stability analysis of a hydrodynamic model, which reveals the transition corresponding to destabilization of the flocking state observed in particle-based simulations.
 </p>
-            </div>
-        </details>
-<br>
-S Roy*, AG Subramaniam*, S Chakraborty, J Goswami, S Ariraman, KK Swain, S Sudhakar, R Singh, and B Roy
- <br>
-   <em>Intracellular phagosome shell is rigid enough to transfer outside torque to the inner spherical particle
-</em>
-   <br><a href="https://doi.org/10.1038/s44341-025-00030-6">npj Biol. Phys. Mech, 2, 25, 2025 </a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Intracellular phagosome shell is rigid enough to transfer outside torque to the inner spherical particle</p>
+  <p class="pub-authors">S Roy*, AG Subramaniam*, S Chakraborty, J Goswami, S Ariraman, KK Swain, S Sudhakar, <strong>R Singh</strong>, and B Roy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1038/s44341-025-00030-6">npj Biol. Phys. Mech, 2, 25, 2025 </a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Intracellular phagosomes have a lipid bilayer-encapsulated fluidic shell outside the particle, on the outer side of which, molecular motors are attached. An optically trapped spherical birefringent particle phagosome provides an ideal platform to probe fluidity of the shell, as the inner particle is optically confined both in translation and in rotation. Using a recently reported method to calibrate the translation and pitch rotations - yielding a spatial resolution of about 2 nm and angular resolution of 0.1 degrees - we report novel roto-translational coupled dynamics. We also suggest a new technique where we explore the correlation between the translation and pitch rotation to study extent of activity. Given that a spherical birefringent particle phagosome is almost a sphere, the fact that it turns due to the activity of the motors is not obvious, even implying high rigidity of shell. Applying a minimal model for the roto-translational coupling, we further show that this coupling manifests itself as sustained fluxes in phase space, a signature of broken detailed balance.
 </p>
-            </div>
-        </details>
-<br>
-G Turk, R Singh, and HA Stone<br>
-   <em>Autophoretic skating along permeable surfaces</em>
-    <br><a href="https://doi.org/10.1017/jfm.2025.10628">J. Fluid Mech. 1019, A57, 2025</a> | 
-    <a href="https://arxiv.org/abs/2504.08702">arXiv:2504.08702</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Autophoretic skating along permeable surfaces</p>
+  <p class="pub-authors">G Turk, <strong>R Singh</strong>, and HA Stone</p>
+  <p class="pub-links"><a href="https://doi.org/10.1017/jfm.2025.10628">J. Fluid Mech. 1019, A57, 2025</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2504.08702">arXiv:2504.08702</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 The dynamics of self-propelled colloidal particles is strongly influenced by their environment through hydrodynamic and, in many cases, chemical interactions. We develop a theoretical framework to describe the motion of confined active particles by combining the Lorentz reciprocal theorem with a Galerkin discretisation of surface fields, yielding an equation of motion that efficiently captures self-propulsion without requiring an explicit solution for the bulk fluid flow. Applying this framework, we identify and characterise the long-time behaviours of a Janus particle near rigid, permeable and fluid–fluid interfaces, revealing distinct motility regimes, including surface-bound skating, stable hovering and chemo-hydrodynamic reflection. Our results demonstrate how the solute permeability and the viscosity contrast of the surface influence a particle’s dynamics, providing valuable insights into experimentally relevant guidance mechanisms for autophoretic particles. The computational efficiency of our method makes it particularly well suited for systematic parameter sweeps, offering a powerful tool for mapping the phase space of confined active particles and informing high-fidelity numerical simulations.
 </p>
-            </div>
-        </details>
-<br>
-A Mohapatra, A Kumar, M Deb, S Dhomkar, and R Singh<br>
-   <em>Inferring activity from the flow field around active colloidal particles using deep learning
-</em>
-   <br> <a href="https://doi.org/10.1017/jfm.2025.10502">J. Fluid Mech. 1018, R1, 2025</a> 
-| <a href="https://arxiv.org/abs/2505.10270">arXiv:2505.10270</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Inferring activity from the flow field around active colloidal particles using deep learning</p>
+  <p class="pub-authors">A Mohapatra, A Kumar, M Deb, S Dhomkar, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1017/jfm.2025.10502">J. Fluid Mech. 1018, R1, 2025</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2505.10270">arXiv:2505.10270</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 Active colloidal particles create flow around them due to non-equilibrium process on their surfaces. In this paper, we infer the activity of such colloidal particles from the flow field created by them via deep learning. We first explain our method for one active particle, inferring the 2s mode (or the stresslet) and the 3t mode (or the source dipole) from the flow field data, along with the position and orientation of the particle. We then apply the method to a system of many active particles. We find excellent agreements between the predictions and the true values of activity. Our method presents a principled way to predict arbitrary activity from the flow field created by active particles.
 </p>
-            </div>
-        </details>
-    <br>
-M Deb, and R Singh<br>
-   <em>Ewald summing irreducible components of flow around active particles 
-</em>
-   <br><a href="https://doi.org/10.1063/5.0270763">J. Chem. Phys. 163, 024901, 2025</a>
-| <a href="https://arxiv.org/abs/2606.18742">arXiv:2606.18742</a>
-        <details>
-            <summary>Abstract</summary>
-            <div class="content">
-                <p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Ewald summing irreducible components of flow around active particles</p>
+  <p class="pub-authors">M Deb, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1063/5.0270763">J. Chem. Phys. 163, 024901, 2025</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2606.18742">arXiv:2606.18742</a></p>
+  <details class="abstract"><summary>Abstract</summary>
+<div class="abstract-body">
+<p>
 We present a method to compute the Ewald summation for the irreducible components of flow around active particles to study hydrodynamic interactions in active colloidal suspensions. An active particle is modeled as a colloidal sphere with a surface slip velocity. Using this model, we obtain an irreducible representation of the fluid flow produced by an active particle in the periodic geometry of Stokes flow for an arbitrary surface slip. The solution of the active flow is obtained in terms of the lattice sum of the Oseen tensor and its derivatives. The lattice sum is accelerated using the Ewald summation technique. We apply the method to compute explicit expressions for the rigid body motion of hydrodynamically interacting active particles. Our method presents a way for the dynamic simulation of active particles due to arbitrary modes of active slip in the periodic geometry of Stokes flow.
 </p>
-            </div>
-        </details>
-<br>
-K Panja, and R Singh<br>
-   <em>Active phase separation: role of attractive interactions from stalled particles
-</em>
-   <br>
-    <a href="http://arxiv.org/abs/2512.24805">arXiv:2512.24805</a>
-<br>
-<br>
-<h2>
-2024</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-   G Turk, R Adhikari, and R Singh<br>
-   <em>Fluctuating hydrodynamics of an autophoretic particle near a permeable interface 
-</em>
-   <br><a href="https://doi.org/10.1017/jfm.2024.661">J. Fluid Mech. 998, A34, 2024</a> | 
-    <a href="https://arxiv.org/abs/2310.01572">arXiv:2310.01572</a>
-    <br>
-    <br>
-    AG Subramaniam, M Kumar, S Thutupalli, R Singh
-<br>
-   <em>Rigid flocks, undulatory gaits, and chiral foldamers in a chemically active polymer</em>
-   <br>
-    <a href="https://doi.org/10.1088/1367-2630/ad6a7c">New J. Phys. 26, 083009, 2024</a> |
-    <a href="https://arxiv.org/abs/2401.14178">arXiv:2401.14178</a>
-    <br>
-    <br>
-M Kumar, A Murali, AG Subramaniam, R Singh, S Thutupalli<br> 
-   <em>Emergent dynamics due to chemo-hydrodynamic self-interactions in active polymers</em>
-   <br>
-    <a href="https://doi.org/10.1038/s41467-024-49155-7">Nature Commun. 15, 4903, 2024</a> 
-<!--|  -->
-    | <a href="https://arxiv.org/abs/2303.10742">arXiv:2303.10742</a>
-    <br>
-    <br>
-    K Panja*, J Goswami*, G Nalupurackal, S Chakraborty, S Roy, B Roy, and R Singh
-<br>
-   <em>Nonlinear dynamics of a microparticle in a hydro-thermophoretic trap 
-</em>
-   <br>
-    <a href="https://doi.org/10.1016/j.rinp.2024.107709">Results Phys. 61, 107709, 2024</a>
-    <br>
-   <br>
-     M Emerse, H Lama, MG Basavaraj, R Singh, and DK Satapathy<br>
-   <em>Morphologies of electric-field-driven cracks in dried dispersions of ellipsoids
-</em>
-   <br>
-    <a href="https://doi.org/10.1103/PhysRevE.109.024604">Phys. Rev. E 109, 024604, 2024</a>
-<br>
-<br>
-<h2>
-2023</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-    U Nakul, S Roy, G Nalupurackal, S Chakraborty, P Siwach, J Goswami, P Edwina, SK Bajpai, R Singh, and B Roy
-  <br> 
-   <em>Studying fluctuating trajectories of optically
-confined passive tracers inside cells provides
-familiar active forces</em>
-   <br>
-    <a href="https://doi.org/10.1364/BOE.499990">Biomedical Optics Express 14, 5440, 2023</a>
-    <br>
-    <br>
-   G Nalupurackal*, K Panja*, S Chakraborty, S Roy, J Goswami, B Roy, and R Singh
-  <br> 
-   <em>Controlled roll rotation of a microparticle in a hydro-thermophoretic trap</em>
-   <br>
-    <a href="https://doi.org/10.1103/PhysRevResearch.5.033005">Phys. Rev. Research 5, 033005, 2023</a>
-    <br>
-    <br>
-   G Nalupurackal, M Lokesh, R Singh, and B Roy
-  <br> 
-   <em>A hydro-thermophoretic trap near a gold surface</em>
-   <br>
-    <a href="https://doi.org/10.1364/OMA.2023.AM3D.2">Biophotonics Congress: Optics in the Life Sciences 2023</a>
-    <br>
-    <br>
-     M Jose,  R Singh, and DK Satapathy <br> 
-   <em>Depletion zone in two-dimensional deposits of soft microgel particles</em>
-   <br>
-    <a href="https://doi.org/10.1016/j.jcis.2023.03.076">J. Colloid Interface Sci., 642, 364-372, 2023</a>
-    <br>
-    <br>
-     M Jose,  R Singh, and DK Satapathy <br> 
-   <em>Triple-line dynamics of a soft colloid-laden drop on a hydrophobic surface</em>
-   <br>
-    <a href="https://doi.org/10.1039/D2SM01486F">Soft Matter, 19, 1803, 2023</a>
-<br>
-<br>
-<h2>2022</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-   G Nalupurackal,  M Gunaseelan, S Roy, M Lokesh, S Kumar, R Vaippully, R Singh, and B Roy <br> 
-   <em>A hydro-thermophoretic trap for microparticles near a gold-coated substrate</em>
-   <br>
-    <a href="http://dx.doi.org/10.1039/D2SM00627H">Soft Matter, 18, 6825, 2022</a>
-<br>
-<br>
-
-   G Turk, R Singh, and R Adhikari <br>
-   <em>Stokes traction on an active particle</em>
-   <br>
-   <a href="https://doi.org/10.1103/PhysRevE.106.014601">Phys. Rev. E 106, 014601, 2022</a> | 
-   <a href="https://arxiv.org/abs/2109.02581">arXiv:2109.02581</a>
-<br>
-<br>
-<h2>2021</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-
-   YI Li, G Turk*, PB Rohrbach*, P Pietzonka*, J Kappler*, R Singh*,
- J Dolezal*, T Ekeh, L Kikuchi, JD Peterson, A Bolitho, H Kobayashi, ME Cates, R Adhikari, RL Jack
-   <br>
-<em>Efficient Bayesian inference of fully stochastic epidemiological models with applications to COVID-19</em>
-   <br>
-   <a href="https://doi.org/10.1098/rsos.211065">R. Soc. open sci. 8: 211065, 2021</a> | <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783</a>
-<br>
-<br>
-<h2>2020</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-    A Caciagli, R Singh<sup></sup>, D Joshi, R Adhikari, and E Eiser<br>
-    <em>Controlled optofluidic crystallization of colloids tethered at interfaces</em>
-    <br>
-    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.068001">Phys. Rev. Lett. 125(6), 068001, 2020</a>
-    | <a href="http://arxiv.org/abs/2003.04284">arXiv:2003.04284</a> 
-    <br>
-    <u> Editors’ Suggestion</u> | <a href="https://physics.aps.org/articles/v13/s102">Featured in Physics: small spheres freeze when hot </a>
-<br>
-<br>
-    L Kikuchi, R Singh, ME Cates, and R Adhikari<br>
-    <em>Ritz method for transition paths and quasipotentials of rare diffusive events</em>
-    <br>
-    <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033208">Phys. Rev. Research 2(3), 033208, 2020</a>
-    | <a href="http://arxiv.org/abs/2001.10759">arXiv:2001.10759</a>
-<br>
-<br>
-    R Singh, E Tjhung, and ME Cates<br>
-    <em>Self-propulsion of active droplets without liquid-crystalline order</em>
-    <br>
-    <a href="https://dx.doi.org/10.1103/PhysRevResearch.2.032024">Phys. Rev. Research 2(3), 032024(R), 2020</a>
-    | <a href="http://arxiv.org/abs/2004.06064">arXiv:2004.06064</a> 
-    <br> 
-    <u>Editors’ Suggestion</u>
-<br>
-<br>
-    R Singh, and R Adhikari<br> 
-    <em>PyStokes: phoresis and Stokesian hydrodynamics in Python</em>
-    <br>
-    <a href="https://doi.org/10.21105/joss.02318">J. Open Source Software 5(50), 2318, 2020</a>
-    | <a href="http://arxiv.org/abs/1910.00909">arXiv:1910.00909</a>
-<br>
-<br>
-  R Adhikari, A Bolitho, F Caballero, ME Cates, J Dolezal, T Ekeh, J Guioth, RL Jack, J Kappler,
- L Kikuchi, H Kobayashi, YI Li, JD Peterson, P Pietzonka, B Remez, PB Rohrbach, R Singh, G Turk
-<br>
-<a href="https://github.com/rajeshrinet/pyross">PyRoss</a> technical report, <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a>
-<br>
-<br>
-    R Singh, and R Adhikari<br>
-    <em>Age-structured impact of social distancing on the COVID-19 epidemic in India</em>
-    <br>
-    <a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a>
-<br>
-<br>
-    A Bolitho, R Singh, and R Adhikari<br> 
-    <em>Periodic orbits of active particles induced by hydrodynamic monopoles</em>
-    <br>
-    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">Phys. Rev. Lett. 124(8), 088003, 2020</a>
-    | <a href="http://arxiv.org/abs/1911.10970">arXiv:1911.10970</a>
-<br>
-<br>
-<h2>2019</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-    R Singh, and ME Cates<br>
-    <em>Hydrodynamically interrupted droplet growth in scalar active matter</em> 
-    <br>
-    <a href="https://dx.doi.org/10.1103/PhysRevLett.123.148005">Phys. Rev. Lett. 123(14), 148005, 2019</a>
-    | <a href="http://arxiv.org/abs/1907.04819">arXiv:1907.04819</a>
-    <br>
-    Recommended with a commentary by <a href="https://www.condmatjclub.org/?p=4163">the Journal Club for Condensed Matter Physics</a>.</u>
-<br>
-<br>
-    R Singh, R Adhikari, and ME Cates<br>
-    <em>Competing chemical and hydrodynamic effects in autophoretic colloidal suspensions</em>
-    <br>
-    <a href="https://dx.doi.org/10.1063/1.5090179">J. Chem. Phys. 151, 044901, 2019</a>
-    | <a href="http://arxiv.org/abs/1811.04658">arXiv:1811.04658</a>
-<br>
-<br>
-<h2>2018</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-
-     R Singh, D Ghosh, and R Adhikari<br>  
-    <em>Fast Bayesian inference of the multivariate Ornstein-Uhlenbeck process</em>
-    <br>
-    <a href="https://dx.doi.org/10.1103/PhysRevE.98.012136">Phys. Rev. E 98, 012136, 2018</a>
-    | <a href="http://arxiv.org/abs/1706.04961">arXiv:1706.04961</a>
-<br>
-<br>
-     S Ghosh, R Singh, and A Banerjee<br>  
-     <em>Assembly and manipulation of mesoscopic particles using micro bubbles in thermo-optical tweezers</em>
-    <br>
-    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10723/107232Q/Assembly-and-manipulation-of-mesoscopic-particles-using-micro-bubbles-in/10.1117/12.2323084.short">Optical Trapping and Optical Micromanipulation XV, 10723, 310-318, 2018</a>
-<br>
-<br>
-    D Sarkar, R Singh<sup></sup>, A Som, CK Manju, MA Ganayee, R Adhikari, and T Pradeep<br>
-    <em>Electrohydrodynamic assembly of ambient ion-derived nanoparticles to nanosheets at liquid surfaces</em>
-    <br>
-    <a href="https://dx.doi.org/10.1021/acs.jpcc.8b04169">J. Phys. Chem. C 122, 32, 2018</a>
-<br>
-<br>
-    S Thutupalli, D Geyer, R Singh<sup></sup>, R Adhikari, and HA Stone</em>
-    <br> 
-    <em>Flow-induced phase separation of active particles is controlled by boundary conditions</em>
-    <br>
-    <a href="https://doi.org/10.1073/pnas.1718807115">Proc. Natl. Acad. Sci. 115(21), 5403, 2018</a>
-    | <a href="http://arxiv.org/abs/1710.10300">arXiv:1710.10300</a>
-<br>
-<br>
-    R Singh, and R Adhikari<br> 
-    <em>Generalized Stokes laws for active colloids and their applications</em>    <br>
-    <a href="https://dx.doi.org/10.1088/2399-6528/aaab0d">J. Phys. Commun. 2, 025025, 2018</a>
-    | <a href="http://arxiv.org/abs/1603.05735">arXiv:1603.05735</a>
-<br>
-<br>
-<h2>2017 and earlier</h2>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-    S Paul, A Laskar, R Singh, B Roy, R Adhikari, and A Banerjee
-    <br>
-    <em>Direct verification of the fluctuation-dissipation relation in viscously coupled oscillators</em>
-    <br>
-    <a href="https://doi.org/10.1103/PhysRevE.96.050102">Phys. Rev. E 96, 050102(R), 2017</a>
-    | <a href="http://arxiv.org/abs/1707.00660">arXiv:1707.00660</a>
-<br>
-<br>
-    R Singh, and R Adhikari<br> 
-    <em>Fluctuating hydrodynamics and the Brownian motion of an active colloid near a wall</em>
-    <br>
-    <a href="http://www.tandfonlinEcom/doi/abs/10.1080/17797179.2017.1294829?journalCode=tecm20/a">Eur. J. Comp. Mech. 26, 78-97,  2017</a>
-    | <a href="http://arxiv.org/abs/1702.01403">arXiv:1702.01403</a>
-<br>
-<br>
-    S Bera, S Paul, R Singh<sup></sup>, D Ghosh, A Kundu, A Banerjee, and R Adhikari 
-    <br>
-    <em>Fast Bayesian inference of optical trap stiffness and particle diffusion</em>
-    <br>
-    <a href="http://doi.org/10.1038/srep41638">Sci. Rep. 7, 41638, 2017</a>
-    | <a href="http://arxiv.org/abs/1610.00315">arXiv:1610.00315</a>
-<br>
-<br>
-    R Singh, and R Adhikari<br> 
-    <em>Universal Hydrodynamic Mechanisms for Crystallization in Active Colloidal Suspensions</em> <br>
-    <a href="https://doi.org/10.1103/PhysRevLett.117.228002">Phys. Rev. Lett. 117(22), 228002, 2016</a>
-    | <a href="http://arxiv.org/abs/1610.06528">arXiv:1610.06528</a>
-<br>
-<br>
-    R Singh, S Ghose, and R Adhikari<br> 
-    <em>Many-body microhydrodynamics of colloidal particles with active boundary layers</em> <br>
-    <a href="http://dx.doi.org/10.1088/1742-5468/2015/06/P06017">J. Stat. Mech. P06017, 2015</a>
-    | <a href="http://arxiv.org/abs/1411.0278">arXiv:1411.0278</a>
-<br>
-<br>
-    V Yadav, R Singh, and S Mukherji<br>
-    <em>Phase-plane analysis of driven multi-lane exclusion models</em> <br>
-    <a href="http://dx.doi.org/10.1088/1742-5468/2012/04/P04004">J. Stat. Mech. P04004, 2012</a>
-    | <a href="http://arxiv.org/abs/1208.4916">arXiv:1208.4916</a>
-<br>
-<br>
-    R Singh,
-    PhD Thesis, IMSc-HBNI
-<br>
-    <a href="http://www.hbni.ac.in/phdthesis/phys/PHYS10201204001.pdf">Microhydrodynamics of active colloids</a>
-<div id="software"></div>
-<br>
-<br>
-<br>
-<h1>Scientific software</h1>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-<br>
-<p>
-Along with my collaborators, I develop state-of-the-art numerical libraries for research in theoretical physics and applied mathematics. 
-See <a href="https://github.com/rajeshrinet/">my Github profile</a> for a full list of open-source projects and the list of contributors to these libraries. 
-A summary of the selected libraries follows.
-<br>
-
-</p>
-<h3 id="Preprints">PyStokes</h3>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-    <p>PyStokes (<a href="https://github.com/rajeshrinet/pystokes">GitHub Link</a>) is a numerical library for phoresis and Stokesian hydrodynamics in Python. The PyStokes library has been specifically designed for studying phoretic and hydrodynamic interactions in suspensions of active particles. It uses a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization, to compute phoretic and hydrodynamic interactions between spherical active particles with slip boundary conditions on their surfaces. The library has been used to model suspensions of microorganisms, synthetic autophoretic particles and self-propelling droplets. The current implementation includes unbounded volumes, volumes bounded by plane walls or interfaces, and periodic volumes.  
-    </p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pystokes
-</code></pre></div></div>
-<h3 id="Preprints">PyRoss</h3>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-    <p> PyRoss (<a href="https://github.com/rajeshrinet/pyross">GitHub Link</a>) is a numerical library that offers an integrated platform for inference, forecasts and non-pharmaceutical interventions in structured epidemiological compartment models. Generative processes can be formulated stochastically (as Markov population processes) or deterministically (as systems of differential equations). Population processes are sampled exactly by the Doob-Gillespie algorithm or approximately by the tau-leaping algorithm while differential equations are integrated by both fixed and adaptive time-stepping. A hybrid algorithm transits dynamically between these depending on the magnitude of the compartmental fluctuations. Bayesian inference on pre-defined or user-defined models is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process.
-    </p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pyross
-</code></pre></div></div>
-<h3 id="Preprints">PyGL</h3>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-    <p> PyGL (<a href="https://github.com/rajeshrinet/pygl">GitHub Link</a>) is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation. 
-    </p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install pygl
-</code></pre></div></div>
-<h3 id="Preprints">PyRitz</h3>
-<hr style="height: 1px; margin:0 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-    <p>PyRitz (<a href="https://github.com/lukastk/PyRitz">GitHub Link</a>) is a Python package, using the Ritz method, for computing transition paths and quasipotentials in Python. The most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analysing the paths in a spectral basis of Chebyshev polynomial, nonlinear optimisation is used to obtain coefficients that give the least action from which the instanton is synthesised in the spectral basis.
-    </p>
+</div></details>
+</li>
+<li class="pub">
+  <p class="pub-title">Active phase separation: role of attractive interactions from stalled particles</p>
+  <p class="pub-authors">K Panja, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="http://arxiv.org/abs/2512.24805">arXiv:2512.24805</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2024">
+<h3 class="year-label">2024</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Fluctuating hydrodynamics of an autophoretic particle near a permeable interface</p>
+  <p class="pub-authors">G Turk, R Adhikari, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1017/jfm.2024.661">J. Fluid Mech. 998, A34, 2024</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2310.01572">arXiv:2310.01572</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Rigid flocks, undulatory gaits, and chiral foldamers in a chemically active polymer</p>
+  <p class="pub-authors">AG Subramaniam, M Kumar, S Thutupalli, <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1088/1367-2630/ad6a7c">New J. Phys. 26, 083009, 2024</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2401.14178">arXiv:2401.14178</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Emergent dynamics due to chemo-hydrodynamic self-interactions in active polymers</p>
+  <p class="pub-authors">M Kumar, A Murali, AG Subramaniam, <strong>R Singh</strong>, S Thutupalli</p>
+  <p class="pub-links"><a href="https://doi.org/10.1038/s41467-024-49155-7">Nature Commun. 15, 4903, 2024</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2303.10742">arXiv:2303.10742</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Nonlinear dynamics of a microparticle in a hydro-thermophoretic trap</p>
+  <p class="pub-authors">K Panja*, J Goswami*, G Nalupurackal, S Chakraborty, S Roy, B Roy, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1016/j.rinp.2024.107709">Results Phys. 61, 107709, 2024</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Morphologies of electric-field-driven cracks in dried dispersions of ellipsoids</p>
+  <p class="pub-authors">M Emerse, H Lama, MG Basavaraj, <strong>R Singh</strong>, and DK Satapathy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/PhysRevE.109.024604">Phys. Rev. E 109, 024604, 2024</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2023">
+<h3 class="year-label">2023</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Studying fluctuating trajectories of optically confined passive tracers inside cells provides familiar active forces</p>
+  <p class="pub-authors">U Nakul, S Roy, G Nalupurackal, S Chakraborty, P Siwach, J Goswami, P Edwina, SK Bajpai, <strong>R Singh</strong>, and B Roy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1364/BOE.499990">Biomedical Optics Express 14, 5440, 2023</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Controlled roll rotation of a microparticle in a hydro-thermophoretic trap</p>
+  <p class="pub-authors">G Nalupurackal*, K Panja*, S Chakraborty, S Roy, J Goswami, B Roy, and <strong>R Singh</strong></p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/PhysRevResearch.5.033005">Phys. Rev. Research 5, 033005, 2023</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">A hydro-thermophoretic trap near a gold surface</p>
+  <p class="pub-authors">G Nalupurackal, M Lokesh, <strong>R Singh</strong>, and B Roy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1364/OMA.2023.AM3D.2">Biophotonics Congress: Optics in the Life Sciences 2023</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Depletion zone in two-dimensional deposits of soft microgel particles</p>
+  <p class="pub-authors">M Jose, <strong>R Singh</strong>, and DK Satapathy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1016/j.jcis.2023.03.076">J. Colloid Interface Sci., 642, 364-372, 2023</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Triple-line dynamics of a soft colloid-laden drop on a hydrophobic surface</p>
+  <p class="pub-authors">M Jose, <strong>R Singh</strong>, and DK Satapathy</p>
+  <p class="pub-links"><a href="https://doi.org/10.1039/D2SM01486F">Soft Matter, 19, 1803, 2023</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2022">
+<h3 class="year-label">2022</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">A hydro-thermophoretic trap for microparticles near a gold-coated substrate</p>
+  <p class="pub-authors">G Nalupurackal, M Gunaseelan, S Roy, M Lokesh, S Kumar, R Vaippully, <strong>R Singh</strong>, and B Roy</p>
+  <p class="pub-links"><a href="http://dx.doi.org/10.1039/D2SM00627H">Soft Matter, 18, 6825, 2022</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Stokes traction on an active particle</p>
+  <p class="pub-authors">G Turk, <strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/PhysRevE.106.014601">Phys. Rev. E 106, 014601, 2022</a> <span class="sep">·</span> <a href="https://arxiv.org/abs/2109.02581">arXiv:2109.02581</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2021">
+<h3 class="year-label">2021</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Efficient Bayesian inference of fully stochastic epidemiological models with applications to COVID-19</p>
+  <p class="pub-authors">YI Li, G Turk*, PB Rohrbach*, P Pietzonka*, J Kappler*, <strong>R Singh</strong>*, J Dolezal*, T Ekeh, L Kikuchi, JD Peterson, A Bolitho, H Kobayashi, ME Cates, R Adhikari, RL Jack</p>
+  <p class="pub-links"><a href="https://doi.org/10.1098/rsos.211065">R. Soc. open sci. 8: 211065, 2021</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2010.11783">arXiv:2010.11783</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2020">
+<h3 class="year-label">2020</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Controlled optofluidic crystallization of colloids tethered at interfaces</p>
+  <p class="pub-authors">A Caciagli, <strong>R Singh</strong>, D Joshi, R Adhikari, and E Eiser</p>
+  <p class="pub-links"><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.068001">Phys. Rev. Lett. 125(6), 068001, 2020</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2003.04284">arXiv:2003.04284</a></p>
+  <p class="pub-note"><span class="badge">Editors’ Suggestion</span> <span class="sep">·</span> <a href="https://physics.aps.org/articles/v13/s102">Featured in Physics: small spheres freeze when hot </a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Ritz method for transition paths and quasipotentials of rare diffusive events</p>
+  <p class="pub-authors">L Kikuchi, <strong>R Singh</strong>, ME Cates, and R Adhikari</p>
+  <p class="pub-links"><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033208">Phys. Rev. Research 2(3), 033208, 2020</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2001.10759">arXiv:2001.10759</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Self-propulsion of active droplets without liquid-crystalline order</p>
+  <p class="pub-authors"><strong>R Singh</strong>, E Tjhung, and ME Cates</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1103/PhysRevResearch.2.032024">Phys. Rev. Research 2(3), 032024(R), 2020</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/2004.06064">arXiv:2004.06064</a></p>
+  <p class="pub-note"><span class="badge">Editors’ Suggestion</span></p>
+</li>
+<li class="pub">
+  <p class="pub-title">PyStokes: phoresis and Stokesian hydrodynamics in Python</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://doi.org/10.21105/joss.02318">J. Open Source Software 5(50), 2318, 2020</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1910.00909">arXiv:1910.00909</a></p>
+</li>
+<li class="pub">
+  <p class="pub-authors">R Adhikari, A Bolitho, F Caballero, ME Cates, J Dolezal, T Ekeh, J Guioth, RL Jack, J Kappler, L Kikuchi, H Kobayashi, YI Li, JD Peterson, P Pietzonka, B Remez, PB Rohrbach, <strong>R Singh</strong>, G Turk</p>
+  <p class="pub-links"><a href="https://github.com/rajeshrinet/pyross">PyRoss</a> technical report, <a href="http://arxiv.org/abs/2005.09625">arXiv:2005.09625, 2020</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Age-structured impact of social distancing on the COVID-19 epidemic in India</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="http://arxiv.org/abs/2003.12055">arXiv:2003.12055, 2020</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Periodic orbits of active particles induced by hydrodynamic monopoles</p>
+  <p class="pub-authors">A Bolitho, <strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.088003">Phys. Rev. Lett. 124(8), 088003, 2020</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1911.10970">arXiv:1911.10970</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2019">
+<h3 class="year-label">2019</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Hydrodynamically interrupted droplet growth in scalar active matter</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and ME Cates</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1103/PhysRevLett.123.148005">Phys. Rev. Lett. 123(14), 148005, 2019</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1907.04819">arXiv:1907.04819</a></p>
+  <p class="pub-note">Recommended with a commentary by <a href="https://www.condmatjclub.org/?p=4163">the Journal Club for Condensed Matter Physics</a>.</p>
+</li>
+<li class="pub">
+  <p class="pub-title">Competing chemical and hydrodynamic effects in autophoretic colloidal suspensions</p>
+  <p class="pub-authors"><strong>R Singh</strong>, R Adhikari, and ME Cates</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1063/1.5090179">J. Chem. Phys. 151, 044901, 2019</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1811.04658">arXiv:1811.04658</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2018">
+<h3 class="year-label">2018</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Fast Bayesian inference of the multivariate Ornstein-Uhlenbeck process</p>
+  <p class="pub-authors"><strong>R Singh</strong>, D Ghosh, and R Adhikari</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1103/PhysRevE.98.012136">Phys. Rev. E 98, 012136, 2018</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1706.04961">arXiv:1706.04961</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Assembly and manipulation of mesoscopic particles using micro bubbles in thermo-optical tweezers</p>
+  <p class="pub-authors">S Ghosh, <strong>R Singh</strong>, and A Banerjee</p>
+  <p class="pub-links"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10723/107232Q/Assembly-and-manipulation-of-mesoscopic-particles-using-micro-bubbles-in/10.1117/12.2323084.short">Optical Trapping and Optical Micromanipulation XV, 10723, 310-318, 2018</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Electrohydrodynamic assembly of ambient ion-derived nanoparticles to nanosheets at liquid surfaces</p>
+  <p class="pub-authors">D Sarkar, <strong>R Singh</strong>, A Som, CK Manju, MA Ganayee, R Adhikari, and T Pradeep</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1021/acs.jpcc.8b04169">J. Phys. Chem. C 122, 32, 2018</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Flow-induced phase separation of active particles is controlled by boundary conditions</p>
+  <p class="pub-authors">S Thutupalli, D Geyer, <strong>R Singh</strong>, R Adhikari, and HA Stone</p>
+  <p class="pub-links"><a href="https://doi.org/10.1073/pnas.1718807115">Proc. Natl. Acad. Sci. 115(21), 5403, 2018</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1710.10300">arXiv:1710.10300</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Generalized Stokes laws for active colloids and their applications</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://dx.doi.org/10.1088/2399-6528/aaab0d">J. Phys. Commun. 2, 025025, 2018</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1603.05735">arXiv:1603.05735</a></p>
+</li>
+</ol>
+</section>
+<section class="year" id="y2017">
+<h3 class="year-label">2017 and earlier</h3>
+<ol class="pubs">
+<li class="pub">
+  <p class="pub-title">Direct verification of the fluctuation-dissipation relation in viscously coupled oscillators</p>
+  <p class="pub-authors">S Paul, A Laskar, <strong>R Singh</strong>, B Roy, R Adhikari, and A Banerjee</p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/PhysRevE.96.050102">Phys. Rev. E 96, 050102(R), 2017</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1707.00660">arXiv:1707.00660</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Fluctuating hydrodynamics and the Brownian motion of an active colloid near a wall</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://doi.org/10.1080/17797179.2017.1294829">Eur. J. Comp. Mech. 26, 78-97, 2017</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1702.01403">arXiv:1702.01403</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Fast Bayesian inference of optical trap stiffness and particle diffusion</p>
+  <p class="pub-authors">S Bera, S Paul, <strong>R Singh</strong>, D Ghosh, A Kundu, A Banerjee, and R Adhikari</p>
+  <p class="pub-links"><a href="http://doi.org/10.1038/srep41638">Sci. Rep. 7, 41638, 2017</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1610.00315">arXiv:1610.00315</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Universal Hydrodynamic Mechanisms for Crystallization in Active Colloidal Suspensions</p>
+  <p class="pub-authors"><strong>R Singh</strong>, and R Adhikari</p>
+  <p class="pub-links"><a href="https://doi.org/10.1103/PhysRevLett.117.228002">Phys. Rev. Lett. 117(22), 228002, 2016</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1610.06528">arXiv:1610.06528</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Many-body microhydrodynamics of colloidal particles with active boundary layers</p>
+  <p class="pub-authors"><strong>R Singh</strong>, S Ghose, and R Adhikari</p>
+  <p class="pub-links"><a href="http://dx.doi.org/10.1088/1742-5468/2015/06/P06017">J. Stat. Mech. P06017, 2015</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1411.0278">arXiv:1411.0278</a></p>
+</li>
+<li class="pub">
+  <p class="pub-title">Phase-plane analysis of driven multi-lane exclusion models</p>
+  <p class="pub-authors">V Yadav, <strong>R Singh</strong>, and S Mukherji</p>
+  <p class="pub-links"><a href="http://dx.doi.org/10.1088/1742-5468/2012/04/P04004">J. Stat. Mech. P04004, 2012</a> <span class="sep">·</span> <a href="http://arxiv.org/abs/1208.4916">arXiv:1208.4916</a></p>
+</li>
+<li class="pub">
+  <p class="pub-authors"><strong>R Singh</strong>, PhD Thesis, IMSc-HBNI</p>
+  <p class="pub-links"><a href="http://www.hbni.ac.in/phdthesis/phys/PHYS10201204001.pdf">Microhydrodynamics of active colloids</a></p>
+</li>
+</ol>
+</section>
     </div>
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/blog/"></data>
-  <div class="wrapper">
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-<p><small>
-<br>
-<br>
-<hr style="height: 1px; margin:-1 auto;line-height:2px;background-color: #848484; border:0 none;"/>
-last updated 15-Nov-2026
-</small></p>
+  </section>
+
+  <section class="block" id="software">
+    <div class="wrapper">
+      <h2 class="section-title">Scientific software</h2>
+      <p class="intro">
+        Along with my collaborators, I develop state-of-the-art numerical libraries for research in theoretical physics and applied mathematics.
+        See <a href="https://github.com/rajeshrinet/">my Github profile</a> for a full list of open-source projects and the list of contributors to these libraries.
+        A summary of the selected libraries follows.
+      </p>
+      <div class="software">
+        <article class="card">
+          <h3>PyStokes <a href="https://github.com/rajeshrinet/pystokes">GitHub →</a></h3>
+          <p class="tag">Phoresis and Stokesian hydrodynamics</p>
+          <p class="desc">PyStokes is a numerical library for phoresis and Stokesian hydrodynamics in Python. The PyStokes library has been specifically designed for studying phoretic and hydrodynamic interactions in suspensions of active particles. It uses a grid-free method, combining the integral representation of Laplace and Stokes equations, spectral expansion, and Galerkin discretization, to compute phoretic and hydrodynamic interactions between spherical active particles with slip boundary conditions on their surfaces. The library has been used to model suspensions of microorganisms, synthetic autophoretic particles and self-propelling droplets. The current implementation includes unbounded volumes, volumes bounded by plane walls or interfaces, and periodic volumes.</p>
+          <pre><code>pip install pystokes</code></pre>
+        </article>
+        <article class="card">
+          <h3>PyRoss <a href="https://github.com/rajeshrinet/pyross">GitHub →</a></h3>
+          <p class="tag">Inference and forecasts for epidemiological models</p>
+          <p class="desc">PyRoss is a numerical library that offers an integrated platform for inference, forecasts and non-pharmaceutical interventions in structured epidemiological compartment models. Generative processes can be formulated stochastically (as Markov population processes) or deterministically (as systems of differential equations). Population processes are sampled exactly by the Doob-Gillespie algorithm or approximately by the tau-leaping algorithm while differential equations are integrated by both fixed and adaptive time-stepping. A hybrid algorithm transits dynamically between these depending on the magnitude of the compartmental fluctuations. Bayesian inference on pre-defined or user-defined models is performed using model-adapted Gaussian processes derived from functional limit theorems for Markov population process.</p>
+          <pre><code>pip install pyross</code></pre>
+        </article>
+        <article class="card">
+          <h3>PyGL <a href="https://github.com/rajeshrinet/pygl">GitHub →</a></h3>
+          <p class="tag">Statistical field theory</p>
+          <p class="desc">PyGL is a numerical library for statistical field theory in Python. The library has been specifically designed to study field theories without time-reversal symmetry. The library can be used to study models of statistical physics of various symmetries and conservation laws. In particular, we allow models with mass and momentum conservations. The library constructs differentiation matrices using finite-difference and spectral methods. To study the role of momentum conservation, the library also allows computing fluid flow from the solution of the Stokes equation.</p>
+          <pre><code>pip install pygl</code></pre>
+        </article>
+        <article class="card">
+          <h3>PyRitz <a href="https://github.com/lukastk/PyRitz">GitHub →</a></h3>
+          <p class="tag">Transition paths and quasipotentials</p>
+          <p class="desc">PyRitz is a Python package, using the Ritz method, for computing transition paths and quasipotentials in Python. The most-probable path (instanton) is computed by minimizing the Freidlin-Wentzell action. Analysing the paths in a spectral basis of Chebyshev polynomial, nonlinear optimisation is used to obtain coefficients that give the least action from which the instanton is synthesised in the spectral basis.</p>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrapper">Last updated 15-Nov-2026</div>
 </footer>
+
+<script>
+  (function () {
+    /* Turn the "[at]" text into a real mailto link for visitors; the raw HTML keeps the "[at]" form. */
+    var em = document.getElementById("email");
+    if (em) {
+      var addr = em.textContent.replace(/\s*\[at\]\s*/, String.fromCharCode(64));
+      var link = document.createElement("a");
+      link.href = "mai" + "lto:" + addr;
+      link.textContent = em.textContent;
+      em.replaceWith(link);
+    }
+    var root = document.documentElement, btn = document.getElementById("theme-toggle");
+    function label() {
+      btn.setAttribute("aria-label", root.getAttribute("data-theme") === "light" ? "Switch to dark theme" : "Switch to light theme");
+    }
+    label();
+    btn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+  })();
+</script>
 </body>
 </html>
-
