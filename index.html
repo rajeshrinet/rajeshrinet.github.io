@@ -93,7 +93,7 @@
         toggleBtn.addEventListener("click", () => {
             const isLight = document.body.classList.toggle("light-mode");
             localStorage.setItem("theme", isLight ? "light" : "dark");
-            toggleBtn.textContent = isLight ? "Dark Mode" : "Light Mode";
+            toggleBtn.textContent = isLight ? "🌙" : "☀️";
         });
     });
   </script>
@@ -188,22 +188,20 @@ These findings provide predictive design rules for controlling active assembly a
             </div>
         </details>
 <br>
-<br>
 AG Subramaniam, and R Singh
 <br>
-   <em>Mechanics and statistics of a solvable model of an autophoretic colloidal chain
+   <em>Mechanics and statistics of a self-interacting autophoretic colloidal chain
 </em>
-   <br>
+   <br><a href="https://doi.org/10.1103/4qts-l51g">APS Open Sci. 2026</a> |
     <a href="http://arxiv.org/abs/2608.28041">arXiv:2608.28041</a>
         <details>
             <summary>Abstract</summary>
             <div class="content">
                 <p>
-Equilibrium statistical mechanics owes much of its analytical tractability to symmetry: detailed balance, gradient flows, and the resulting vanishing of steady-state entropy production follow directly from the structure of the underlying dynamics, not from any smallness of the driving. Exact solutions of this kind are rare away from equilibrium. Here we identify a class of far-from-equilibrium active colloidal chains -- coupled via roto-translational, autophoretic (monopolar) interactions -- that admit an exact quasi equilibrium description: at fixed chain geometry, the orientational equations of motion for every monomer are derivable from a scalar potential, detailed balance holds exactly in the orientational sector, while the positional sector breaks the equilibrium structure. The associated steady-state entropy production rate (EPR) vanishes identically for this sector, even though the full system is manifestly driven and dissipative. We solve this reduced dynamics exactly for dimers and semi-analytically for general N-mers, obtain the orientational fluctuations and the full-system EPR in closed form, and show that all dissipation is carried by the translational (center-of-mass) sector. We further examine the effect of dipolar chemical emission -- expected from asymmetric micelle deposition at the monomer scale -- and find that the equilibrium structure holds exactly for dimers, whereas for longer chains no such description is possible. A purely dipolar coupling instead producesa genuinely non-equilibrium state with no static attractor, sustaining non-monotonic drift with no fixed limit, and an EPR that itself never reaches steady state. Monopolar coupling remains necessary and sufficient for the polarized state; dipolar coupling alone breaks the quasi-equilibrium structure without replacing it with a new static one.
+Equilibrium statistical mechanics owes much of its analytical tractability to symmetry: detailed balance, gradient dynamics, and the resulting vanishing of steady-state entropy production are properties that follow directly from the structure of the underlying dynamics, not from any smallness of the perturbation. Exact solutions of this kind are rare away from equilibrium. Here we identify and characterize a class of far-from-equilibrium colloidal chains – coupled through roto-translational and autophoretic interactions – that, for a specified set of bilaterally-symmetric initial conditions, nevertheless admit an exact description. For fixed chain geometries, the monomer orientational dynamics map directly onto a scalar potential. Detailed balance holds strictly within the orientational sector, causing its steady-state entropy production rate (EPR) to vanish identically despite the system being manifestly driven and dissipative. We solve these reduced dynamics exactly for dimers and semi-analytically for general 𝑁-mers, deriving closed-form expressions for mean-squared orientational fluctuations and total EPR. Crucially, this exact mapping demonstrates that, at fixed chain geometry, all non-equilibrium entropy production is strictly partitioned into the translational (center-of-mass) sector. Extending the framework to incorporate dipolar chemical emission reveals that while dimers retain this quasi-equilibrium structure, longer chains (𝑁>2) break it completely—generating a genuinely non-equilibrium state whose EPR fails to reach a steady state. Monopolar coupling is thus both necessary and sufficient to sustain the polarized quasi-equilibrium state, establishing explicit physical boundaries for exact thermodynamic descriptions of active colloidal chains.
 </p>
             </div>
         </details>
-<br>
 <br>
 AG Subramaniam, and R Singh
 <br>
@@ -221,17 +219,34 @@ We report a study of the emergent dynamics arising in two-dimensional suspension
             </div>
         </details>
 <br>
-<br>
 A Mohapatra, S Adhikary, and R Singh<br>
-   <em>Inferring activity from fluid flow in continuum models of active matter
+   <em>Model inference from fluid flow in continuum theories of active matter
 </em>
-<br>
+   <br><a href="https://doi.org/10.1103/st8r-wrrd">Phys. Rev. E. 2026</a> |
 <a href="https://arxiv.org/abs/2607.20100">arXiv:2607.20100</a>
         <details>
             <summary>Abstract</summary>
             <div class="content">
                 <p>
-Active matter systems are driven out of thermodynamic equilibrium by localized, microscale energy dissipation. While hydrodynamic continuum frameworks are highly successful at simulating these non-equilibrium phenomena (the forward problem), characterizing real-world active materials is fundamentally bottle-necked by the difficulty of measuring active stresses directly. This paper addresses the inverse problem using deep learning: model inference and model selection from observable flow field data of active fluids. We formulate a generalized hydrodynamic inversion framework applied to two cornerstone paradigms of active continuum physics: Active Model H (representing scalar active matter) and Active Nematics (representing active systems with orientational order). We demonstrate that the kinetic energy spectrum obtained from the fluid flow fields preserve a high-fidelity signature of activity to infer parameters of active model H and active nematics. Our deep learning method presents a principled way to bear upon questions of model inference and selection given the flow field data in continuum models of active matter.</p>
+    Active matter systems are driven out of 
+    thermodynamic equilibrium by localized, microscale energy dissipation. 
+    While active field theories
+    are highly successful at simulating 
+    these non-equilibrium phenomena (the forward problem), characterizing 
+    real-world active materials is fundamentally bottle-necked 
+    by the difficulty of measuring active stresses directly. 
+    This paper addresses the inverse problem using deep learning: 
+    model inference and model selection from observable flow field data of active fluids.  
+    We formulate an inversion framework  applied
+    to two cornerstone paradigms of active continuum physics: Active Model H (representing scalar active matter) and Active Nematics (representing 
+    active systems with orientational order). 
+    We demonstrate that the kinetic energy spectrum 
+    obtained from the fluid flow field preserves a
+    high-fidelity signature of activity to infer 
+    parameters of active model H and active nematics. 
+    The classification of the models requires comparison using conventional numerical work against predicted parameters.
+    Our deep learning method presents a principled way to bear upon questions of model inference and selection given the flow field data in continuum models of active matter. 
+</p>
             </div>
         </details>
 <br>
